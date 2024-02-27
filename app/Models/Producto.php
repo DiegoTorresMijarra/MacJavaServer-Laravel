@@ -17,6 +17,7 @@ class Producto extends Model
         'imagen',
         'stock',
         'precio',
+        'oferta',
 
         'categoria_id',
     ];
@@ -24,5 +25,9 @@ class Producto extends Model
     protected function categoria(): BelongsTo
     {
         return $this->belongsTo(Categoria::class);
+    }
+    public function scopeOferta()
+    {
+        $this->find('oferta', true);
     }
 }

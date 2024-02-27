@@ -7,13 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('trabajadores', function (Blueprint $table) {
+        Schema::create('direccion_personals', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->json('direccion');
             $table->string('nombre');
-            $table->string('apellidos');
-            $table->float('nomina');
-            $table->string('puesto');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('apellido');
+            $table->foreignId('user_id')->constrained('users');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -21,6 +20,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('trabajadores');
+        Schema::dropIfExists('direccion_personals');
     }
 };

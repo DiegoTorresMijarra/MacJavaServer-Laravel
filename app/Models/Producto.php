@@ -17,6 +17,8 @@ class Producto extends Model
         'imagen',
         'stock',
         'precio',
+
+        'categoria_id',
     ];
 
     protected function categoria(): BelongsTo

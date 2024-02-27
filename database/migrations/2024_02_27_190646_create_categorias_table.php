@@ -8,8 +8,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('categorias', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
+            $table->id()->primary();
+            $table->string('nombre')->unique('categoria_unique_name');
             $table->softDeletes();
             $table->timestamps();
         });

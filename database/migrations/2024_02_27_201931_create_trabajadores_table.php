@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('apellidos');
             $table->float('nomina');
             $table->string('puesto');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

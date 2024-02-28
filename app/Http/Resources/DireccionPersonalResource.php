@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Models\DireccionPersonal;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\DireccionPersonal */
+/** @mixin DireccionPersonal */
 class DireccionPersonalResource extends JsonResource
 {
     public function toArray(Request $request): array

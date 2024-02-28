@@ -9,7 +9,6 @@ class RestauranteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'direccion' => ['required'],
             'nombre' => ['required'],
             'capacidad' => ['required', 'integer'],
         ];

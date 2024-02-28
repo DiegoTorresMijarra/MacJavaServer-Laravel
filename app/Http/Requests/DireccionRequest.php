@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DireccionPersonalRequest extends FormRequest
+class DireccionRequest extends FormRequest
 {
     public function rules(): array
     {
@@ -15,11 +15,9 @@ class DireccionPersonalRequest extends FormRequest
             'codigoPostal' => ['required'],
             'calle' => ['required'],
             'numero' => ['required'],
-            'portal' => ['nullable'],
-            'infoAdicional' => ['nullable'],
-            'piso' => ['nullable'],
-            'nombre' => ['required'],
-            'apellidos' => ['required'],
+            'portal' => ['required'],
+            'infoAdicional' => ['required'],
+            'piso' => ['required'],
         ];
     }
 

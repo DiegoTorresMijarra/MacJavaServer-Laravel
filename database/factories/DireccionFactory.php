@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\DireccionPersonal;
+use App\Models\Direccion;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class DireccionPersonalFactory extends Factory
+class DireccionFactory extends Factory
 {
-    protected $model = DireccionPersonal::class;
+    protected $model = Direccion::class;
 
     public function definition(): array
     {
@@ -24,8 +24,6 @@ class DireccionPersonalFactory extends Factory
             'portal' => $this->faker->word(),
             'infoAdicional' => $this->faker->word(),
             'piso' => $this->faker->word(),
-            'nombre' => $this->faker->word(),
-            'apellidos' => $this->faker->word(),
         ];
     }
 }

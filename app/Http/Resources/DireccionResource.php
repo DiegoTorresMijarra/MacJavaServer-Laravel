@@ -2,12 +2,11 @@
 
 namespace App\Http\Resources;
 
-use App\Models\DireccionPersonal;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin DireccionPersonal */
-class DireccionPersonalResource extends JsonResource
+/** @mixin \App\Models\Direccion */
+class DireccionResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
@@ -24,8 +23,6 @@ class DireccionPersonalResource extends JsonResource
             'portal' => $this->portal,
             'infoAdicional' => $this->infoAdicional,
             'piso' => $this->piso,
-            'nombre' => $this->nombre,
-            'apellidos' => $this->apellidos,
         ];
     }
 }

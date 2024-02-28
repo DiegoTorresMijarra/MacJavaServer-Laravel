@@ -12,14 +12,20 @@ class DireccionPersonal extends Model
 {
     use SoftDeletes, HasUuids, HasFactory;
 
-    protected $fillable = [
-        'direccion',
-        'nombre',
-        'apellido',
-    ];
+    protected $table = 'direcciones_personales';
 
-    protected $casts = [
-        'direccion' => 'array',
+    protected $fillable = [
+        'pais',
+        'provincia',
+        'municipio',
+        'codigoPostal',
+        'calle',
+        'numero',
+        'portal',
+        'infoAdicional',
+        'piso',
+        'nombre',
+        'apellidos',
     ];
 
     protected function user(): BelongsTo

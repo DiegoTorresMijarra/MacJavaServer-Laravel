@@ -14,9 +14,10 @@ class RestauranteResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'id' => $this->id,
-            'direccion' => $this->direccion,
             'nombre' => $this->nombre,
             'capacidad' => $this->capacidad,
+
+            'direccion' => new DireccionResource($this->whenLoaded('direccion')),
         ];
     }
 }

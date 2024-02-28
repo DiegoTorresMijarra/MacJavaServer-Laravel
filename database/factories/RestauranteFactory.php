@@ -15,7 +15,6 @@ class RestauranteFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'direccion' => $this->faker->words(),
             'nombre' => $this->faker->word(),
             'capacidad' => $this->faker->randomNumber(),
         ];

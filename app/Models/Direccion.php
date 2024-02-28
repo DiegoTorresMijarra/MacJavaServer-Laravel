@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-    use Illuminate\Database\Eloquent\Concerns\HasUuids;
-    use Illuminate\Database\Eloquent\Factories\HasFactory;
-    use Illuminate\Database\Eloquent\Model;
-    use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-    class Direccion extends Model {
-        use SoftDeletes, HasUuids, HasFactory;
+class Direccion extends Model
+{
+    use SoftDeletes, HasUuids, HasFactory;
 
-        protected $table = 'direcciones';
+    protected $table = 'direcciones';
 
-        protected $fillable = [
+    protected $fillable = [
         'pais',
         'provincia',
         'municipio',
@@ -22,5 +23,5 @@ namespace App\Models;
         'portal',
         'infoAdicional',
         'piso',
-        ];
-    }
+    ];
+}

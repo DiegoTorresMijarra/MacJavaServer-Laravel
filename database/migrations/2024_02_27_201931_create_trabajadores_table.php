@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('trabajadores', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('')->primary();
             $table->string('nombre');
             $table->string('apellidos');
             $table->float('nomina');

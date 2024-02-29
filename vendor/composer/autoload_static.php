@@ -28,6 +28,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
@@ -354,8 +355,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -528,10 +529,26 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'L' => 
+        array (
+            'Laracasts\\Flash' => 
+            array (
+                0 => __DIR__ . '/..' . '/laracasts/flash/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\CategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DireccionController' => __DIR__ . '/../..' . '/app/Http/Controllers/DireccionController.php',
+        'App\\Http\\Controllers\\DireccionPersonalController' => __DIR__ . '/../..' . '/app/Http/Controllers/DireccionPersonalController.php',
+        'App\\Http\\Controllers\\ProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoController.php',
+        'App\\Http\\Controllers\\RestauranteController' => __DIR__ . '/../..' . '/app/Http/Controllers/RestauranteController.php',
+        'App\\Http\\Controllers\\TrabajadorController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrabajadorController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -542,6 +559,24 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\CategoriaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CategoriaRequest.php',
+        'App\\Http\\Requests\\DireccionPersonalRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DireccionPersonalRequest.php',
+        'App\\Http\\Requests\\DireccionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DireccionRequest.php',
+        'App\\Http\\Requests\\ProductoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProductoRequest.php',
+        'App\\Http\\Requests\\RestauranteRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RestauranteRequest.php',
+        'App\\Http\\Requests\\TrabajadorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TrabajadorRequest.php',
+        'App\\Http\\Resources\\CategoriaResource' => __DIR__ . '/../..' . '/app/Http/Resources/CategoriaResource.php',
+        'App\\Http\\Resources\\DireccionPersonalResource' => __DIR__ . '/../..' . '/app/Http/Resources/DireccionPersonalResource.php',
+        'App\\Http\\Resources\\DireccionResource' => __DIR__ . '/../..' . '/app/Http/Resources/DireccionResource.php',
+        'App\\Http\\Resources\\ProductoResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductoResource.php',
+        'App\\Http\\Resources\\RestauranteResource' => __DIR__ . '/../..' . '/app/Http/Resources/RestauranteResource.php',
+        'App\\Http\\Resources\\TrabajadorResource' => __DIR__ . '/../..' . '/app/Http/Resources/TrabajadorResource.php',
+        'App\\Models\\Categoria' => __DIR__ . '/../..' . '/app/Models/Categoria.php',
+        'App\\Models\\Direccion' => __DIR__ . '/../..' . '/app/Models/Direccion.php',
+        'App\\Models\\DireccionPersonal' => __DIR__ . '/../..' . '/app/Models/DireccionPersonal.php',
+        'App\\Models\\Producto' => __DIR__ . '/../..' . '/app/Models/Producto.php',
+        'App\\Models\\Restaurante' => __DIR__ . '/../..' . '/app/Models/Restaurante.php',
+        'App\\Models\\Trabajador' => __DIR__ . '/../..' . '/app/Models/Trabajador.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -658,8 +693,16 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Factories\\CategoriaFactory' => __DIR__ . '/../..' . '/database/factories/CategoriaFactory.php',
+        'Database\\Factories\\DireccionFactory' => __DIR__ . '/../..' . '/database/factories/DireccionFactory.php',
+        'Database\\Factories\\DireccionPersonalFactory' => __DIR__ . '/../..' . '/database/factories/DireccionPersonalFactory.php',
+        'Database\\Factories\\ProductoFactory' => __DIR__ . '/../..' . '/database/factories/ProductoFactory.php',
+        'Database\\Factories\\RestauranteFactory' => __DIR__ . '/../..' . '/database/factories/RestauranteFactory.php',
+        'Database\\Factories\\TrabajadorFactory' => __DIR__ . '/../..' . '/database/factories/TrabajadorFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\DireccionPersonalTableSeeder' => __DIR__ . '/../..' . '/database/seeders/DireccionPersonalTableSeeder.php',
+        'Database\\Seeders\\UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeders/UsersTableSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
@@ -2769,6 +2812,13 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Laracasts\\Flash\\Flash' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Flash.php',
+        'Laracasts\\Flash\\FlashNotifier' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashNotifier.php',
+        'Laracasts\\Flash\\FlashServiceProvider' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php',
+        'Laracasts\\Flash\\LaravelSessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/LaravelSessionStore.php',
+        'Laracasts\\Flash\\Message' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Message.php',
+        'Laracasts\\Flash\\OverlayMessage' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/OverlayMessage.php',
+        'Laracasts\\Flash\\SessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/SessionStore.php',
         'Laravel\\Prompts\\Concerns\\Colors' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Colors.php',
         'Laravel\\Prompts\\Concerns\\Cursor' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Cursor.php',
         'Laravel\\Prompts\\Concerns\\Erase' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Erase.php',
@@ -6539,6 +6589,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$classMap;
 
         }, null, ClassLoader::class);

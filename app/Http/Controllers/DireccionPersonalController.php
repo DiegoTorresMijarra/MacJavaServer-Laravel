@@ -5,35 +5,100 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DireccionPersonalRequest;
 use App\Http\Resources\DireccionPersonalResource;
 use App\Models\DireccionPersonal;
+use Auth;
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
+use Request;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DireccionPersonalController extends Controller
 {
-    public function index()
+    /* no desarrolladas, no se van a usar:
+
+        index()
+    */
+
+    private function getById($id)
     {
-        return DireccionPersonalResource::collection(DireccionPersonal::all());
+        if($id&&uuid_is_valid($id))
+        {
+            $res = DireccionPersonal::find($id);
+
+            if($res&&$res->user_id==Auth::id())
+            {
+                //  throw new AuthorizationException('No puedes acceder a direcciones que no te pertenecen') //damos menos info al atacante si no le decimos q existe
+                    return $res;
+            }
+            throw new NotFoundHttpException('Direccion Personal no encontrada');
+        }
+        throw new BadRequestException('El id no es valido');
     }
 
+    public function create()
+    {
+        //view o modal
+    }
     public function store(DireccionPersonalRequest $request)
     {
-        return new DireccionPersonalResource(DireccionPersonal::create($request->validated()));
+        try {
+            $request->validated();
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+        }
+        $guardado=DireccionPersonal::create();
+
+        //index, view or same page
     }
 
-    public function show(DireccionPersonal $direccionPersonal)
+    public function show($id)
     {
-        return new DireccionPersonalResource($direccionPersonal);
+        $res=$this->getById($id);
+
+        //view mostrar direccion
     }
 
-    public function update(DireccionPersonalRequest $request, DireccionPersonal $direccionPersonal)
+    public function edit($id)
     {
-        $direccionPersonal->update($request->validated());
-
-        return new DireccionPersonalResource($direccionPersonal);
+        $direccion=$this->getById($id);
+        //view o modal editar direccion
     }
 
-    public function destroy(DireccionPersonal $direccionPersonal)
+    public function update(DireccionPersonalRequest $request, $id)
     {
-        $direccionPersonal->delete();
+        $original = $this->getById($id);
 
-        return response()->json();
+        try {
+            $request->validated();
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+        }
+
+        try {
+            $original->update($request->all());
+
+            flash('Direccion actualizada correctamente')->success()->important();
+
+            return redirect()->route('funkos.index');
+        }catch (Exception $e) {
+            throw new BadRequestException($e->getMessage());
+        }
+    }
+
+    public function destroy($id)
+    {
+        $original = $this->getById($id);
+        if( false
+        //    $original->pedidos()->count()>=1
+        )
+        {
+           $original->delete(); //prevenimos que se borren los q tienen pedidos, pero eliminamos los q no
+        }
+
+        $original->forceDelete();
+
+        return response('',204);
     }
 }

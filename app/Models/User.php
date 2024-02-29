@@ -17,6 +17,8 @@ class User extends Authenticatable
 
     public static array $ROLES_ENUM=['USER', 'TRABAJADOR', 'ADMIN'];
 
+    public static $AVATAR_DEFAULT='images/user.png';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'rol',
+        'avatar',
     ];
 
     /**

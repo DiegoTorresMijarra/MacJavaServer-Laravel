@@ -32,7 +32,7 @@ Route::group(['prefix' => 'restaurantes'], function () {
 Route::group(['prefix' => 'direcciones'], function () {
     Route::get('/', [DireccionController::class, 'index'])->name('direcciones.index');
     Route::get('/{id}', [DireccionController::class, 'show'])->name('direcciones.show');
-    Route::get('/create/restaurante', [DireccionController::class, 'create'])->name('direcciones.create');
+    Route::get('/create/direccion', [DireccionController::class, 'create'])->name('direcciones.create');
     Route::post('/', [DireccionController::class, 'store'])->name('direcciones.store');
     Route::get('/{id}/edit', [DireccionController::class, 'edit'])->name('direcciones.edit');
     Route::put('/{id}', [DireccionController::class, 'update'])->name('direcciones.update');

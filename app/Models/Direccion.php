@@ -24,4 +24,11 @@ class Direccion extends Model
         'infoAdicional',
         'piso',
     ];
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(pais) LIKE ?', ["%" . strtolower($search) . "%"])
+            ->orWhereRaw('LOWER(provincia) LIKE ?', ["%" . strtolower($search) . "%"])
+            ->orWhereRaw('LOWER(municipio) LIKE ?', ["%" . strtolower($search) . "%"])
+            ->orWhereRaw('LOWER(calle) LIKE ?', ["%" . strtolower($search) . "%"]);
+    }
 }

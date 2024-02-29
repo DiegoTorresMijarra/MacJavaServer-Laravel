@@ -38,7 +38,7 @@
                     <td>{{ $restaurante->id }}</td>
                     <td>{{ $restaurante->nombre }}</td>
                     <td>{{ $restaurante->capacidad }}</td>
-                    <td>{{ $restaurante->direccion_id }}</td>
+                    <td><a href="{{ route('direcciones.show', $restaurante->direccion_id) }}">{{ $restaurante->direccion_id }}</a></td>
                     <td>
                         <a class="btn btn-primary btn-sm"
                            href="{{ route('restaurantes.show', $restaurante->id) }}">Detalles</a>
@@ -57,5 +57,6 @@
             @endforeach
             </tbody>
         </table>
-    <a class="btn btn-success" href="{{ route('restaurantes.create') }}">Nuevo Restaurante</a>
+    <a class="btn btn-success" href="{{ route('direcciones.create') }}">Nuevo Restaurante</a>
+    <a class="btn btn-success" href="{{ route('direcciones.index') }}">Direcciones</a>
 @endsection

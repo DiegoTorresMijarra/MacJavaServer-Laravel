@@ -19,7 +19,7 @@
         <dt class="col-sm-2">Capacidad:</dt>
         <dd class="col-sm-10">{{ $restaurante->capacidad }}</dd>
         <dt class="col-sm-2">Direccion:</dt>
-        <dd class="col-sm-10">{{ $restaurante->direccion_id }}</dd>
+        <dd class="col-sm-10"><a href="{{ route('direcciones.show', $restaurante->direccion_id) }}">{{ $restaurante->direccion_id }}</a></dd>
     </dl>
     <a class="btn btn-primary" href="{{ route('restaurantes.index') }}">Volver</a>
 

@@ -41,13 +41,9 @@ class RestauranteController extends Controller
             'direccion' => 'required|exists:direcciones,id', // Asegúrate de que la columna 'id' sea la correcta en value del formulario (autovalida que exista en la tabla categorias)
         ]);
         try {
-            // Creamos el producto
             $restaurante = new Restaurante($request->all());
-            // Asignamos la categoría
             $restaurante->direccion_id = $request->direccion;
-            // salvamos el producto
             $restaurante->save();
-            // Devolvemos el producto creado
             return redirect()->route('restaurantes.index');
         } catch (Exception $e) {
             return redirect()->back(); // volvemos a la anterior

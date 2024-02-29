@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="fix Restaurantes y direcciones">
+    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="Controlador direcciones">
+      <change afterPath="$PROJECT_DIR$/resources/views/direcciones/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/direcciones/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/direcciones/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/direcciones/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3efbf2a8-9565-4fac-a637-eefbf820a406.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3efbf2a8-9565-4fac-a637-eefbf820a406.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DireccionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DireccionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Restaurante.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Restaurante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Direccion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Direccion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/restaurantes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/restaurantes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/restaurantes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/restaurantes/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,27 +161,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "git-widget-placeholder": "feat/Restaurantes",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/Restaurantes&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -191,7 +198,8 @@
       <updated>1709206867746</updated>
       <workItem from="1709206874436" duration="885000" />
       <workItem from="1709210028604" duration="7857000" />
-      <workItem from="1709226297961" duration="2952000" />
+      <workItem from="1709226297961" duration="3018000" />
+      <workItem from="1709230729590" duration="3448000" />
     </task>
     <task id="LOCAL-00001" summary="Database Direcciones y restaurantes">
       <option name="closed" value="true" />
@@ -217,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709227550966</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Controlador direcciones">
+      <option name="closed" value="true" />
+      <created>1709229306574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709229306574</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +243,7 @@
     <MESSAGE value="Database Direcciones y restaurantes" />
     <MESSAGE value="CRUD restaurantes con vistas y rutas" />
     <MESSAGE value="fix Restaurantes y direcciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Restaurantes y direcciones" />
+    <MESSAGE value="Controlador direcciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controlador direcciones" />
   </component>
 </project>

@@ -49,7 +49,7 @@ class DireccionController extends Controller
         try {
             $direccion = new Direccion($request->all());
             $direccion->save();
-            return redirect()->route('direcciones.index');
+            return redirect()->route('restaurantes.create');
         } catch (Exception $e) {
             return redirect()->back();
         }

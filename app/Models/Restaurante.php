@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Restaurante extends Model
 {
-    use SoftDeletes, HasUuids, HasFactory;
+    use SoftDeletes, HasFactory;
 
     protected $fillable = [
         'nombre',

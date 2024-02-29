@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RestauranteRequest;
 use App\Http\Resources\RestauranteResource;
 use App\Models\Direccion;
 use Exception;
@@ -11,9 +10,9 @@ use App\Models\Restaurante;
 
 class RestauranteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $restaurantes = RestauranteResource::collection(Restaurante::all());
+        $restaurantes = Restaurante::search($request->search)->orderBy('id', 'asc')->paginate(4);
         return view('restaurantes.index')->with('restaurantes', $restaurantes);
     }
 

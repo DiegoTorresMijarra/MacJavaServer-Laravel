@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/DireccionSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/RestauranteSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="Database Direcciones y restaurantes">
+      <change afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/restaurantes/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/restaurantes/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/restaurantes/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/restaurantes/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RestauranteRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RestauranteRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Restaurante.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Restaurante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_28_145333_create_restaurantes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_28_145333_create_restaurantes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,11 +191,24 @@
       <option name="presentableId" value="Default" />
       <updated>1709206867746</updated>
       <workItem from="1709206874436" duration="885000" />
-      <workItem from="1709210028604" duration="1234000" />
+      <workItem from="1709210028604" duration="7689000" />
     </task>
+    <task id="LOCAL-00001" summary="Database Direcciones y restaurantes">
+      <option name="closed" value="true" />
+      <created>1709211312897</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709211312897</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Database Direcciones y restaurantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database Direcciones y restaurantes" />
   </component>
 </project>

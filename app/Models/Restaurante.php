@@ -21,4 +21,8 @@ class Restaurante extends Model
     {
         return $this->belongsTo(Direccion::class);
     }
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"]);
+    }
 }

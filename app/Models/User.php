@@ -49,7 +49,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected function direcciones(): ?HasMany
+    public function direcciones(): ?HasMany
     {
         return $this->hasMany(DireccionPersonal::class);
     }

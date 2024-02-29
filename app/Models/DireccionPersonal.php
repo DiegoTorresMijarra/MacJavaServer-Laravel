@@ -30,12 +30,12 @@ class DireccionPersonal extends Model
         'user_id'
     ];
 
-    protected function user(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    protected function pedidos()
+    public function pedidos()
     {
        // return $this->hasMany(Pedido::class);
     }

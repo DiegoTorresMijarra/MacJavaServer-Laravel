@@ -23,11 +23,13 @@ class DireccionPersonalController extends Controller
 
     private function getById($id)
     {
-        if($id&&uuid_is_valid($id))
+        if( $id && uuid_is_valid($id))
         {
             $res = DireccionPersonal::find($id);
 
-            if($res&&$res->user_id==Auth::id())
+            if($res
+                //&& $res->user_id==Auth::id()
+            )
             {
                 //  throw new AuthorizationException('No puedes acceder a direcciones que no te pertenecen') //damos menos info al atacante si no le decimos q existe
                     return $res;
@@ -57,6 +59,7 @@ class DireccionPersonalController extends Controller
     {
         $res=$this->getById($id);
 
+        return $res;
         //view mostrar direccion
     }
 

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="CRUD restaurantes con vistas y rutas">
+    <list default="true" id="ae8d9d39-b8f3-4109-b268-8353ada3ca9b" name="Changes" comment="fix Restaurantes y direcciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DireccionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DireccionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RestauranteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Restaurante.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Restaurante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +191,7 @@
       <updated>1709206867746</updated>
       <workItem from="1709206874436" duration="885000" />
       <workItem from="1709210028604" duration="7857000" />
-      <workItem from="1709226297961" duration="1108000" />
+      <workItem from="1709226297961" duration="2952000" />
     </task>
     <task id="LOCAL-00001" summary="Database Direcciones y restaurantes">
       <option name="closed" value="true" />
@@ -207,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709217842709</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix Restaurantes y direcciones">
+      <option name="closed" value="true" />
+      <created>1709227550966</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709227550966</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +226,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Database Direcciones y restaurantes" />
     <MESSAGE value="CRUD restaurantes con vistas y rutas" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD restaurantes con vistas y rutas" />
+    <MESSAGE value="fix Restaurantes y direcciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix Restaurantes y direcciones" />
   </component>
 </project>

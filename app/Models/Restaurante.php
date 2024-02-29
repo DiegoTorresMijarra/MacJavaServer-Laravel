@@ -17,7 +17,7 @@ class Restaurante extends Model
         'capacidad',
     ];
 
-    protected function direccion(): BelongsTo
+    public function direccion(): BelongsTo
     {
         return $this->belongsTo(Direccion::class);
     }

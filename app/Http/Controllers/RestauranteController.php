@@ -48,9 +48,8 @@ class RestauranteController extends Controller
             // salvamos el producto
             $restaurante->save();
             // Devolvemos el producto creado
-            return redirect()->route('restaurantes.index'); // Volvemos a la vista de productos
+            return redirect()->route('restaurantes.index');
         } catch (Exception $e) {
-            dd($e);
             return redirect()->back(); // volvemos a la anterior
         }
     }

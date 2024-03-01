@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
@@ -11,17 +12,28 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'], //transformar su NombreApellidos . dos digitos dni . macjava
-            'email' => ['required', 'email', 'max:254'], //crear email con name@macjava.com por ejemplo
-            'email_verified_at' => ['nullable', 'date'],
-            'password' => ['required'], //password dni / rnd string
-            'remember_token' => ['nullable'],
-            'rol'=>[Rule::in(User::$ROLES_ENUM)]
+            'name' => ['required', 'string', 'max:255'],//transformar su NombreApellidos . dos digitos dni . macjava
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],//crear email con name@macjava.com por ejemplo
+            'password' => ['required', 'string', 'min:8', 'confirmed'], //password dni / rnd string
+            //'email_verified_at' => ['nullable', 'date'],
+            //'remember_token' => ['nullable'],
+            // 'rol'=>['nullable', Rule::in(User::$ROLES_ENUM)] // lo dejo por defecto o trabajador en el de admin
         ];
     }
+
 
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function validarYTransformar()
+    {
+        if ($this->validated()) {
+            $this->merge([
+                'password' => Hash::make($this->password),
+            ]);
+            return $this;
+        }
     }
 }

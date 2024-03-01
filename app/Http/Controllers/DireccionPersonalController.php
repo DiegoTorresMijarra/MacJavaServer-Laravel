@@ -65,7 +65,7 @@ class DireccionPersonalController extends Controller
 
     public function edit($id)
     {
-        $direccion=$this->getById($id);
+        $direccion = $this->getById($id);
         //view o modal editar direccion
     }
 

@@ -15,9 +15,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    public static array $ROLES_ENUM=['USER', 'TRABAJADOR', 'ADMIN'];
+    public static array $ROLES_ENUM=['USER', 'EMPLEADO', 'ADMIN'];
 
-    public static $AVATAR_DEFAULT='images/user.png';
+    public static string $AVATAR_DEFAULT='images/user.png';
 
     /**
      * The attributes that are mass assignable.
@@ -56,11 +56,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(DireccionPersonal::class);
     }
-    protected function pedidos()
+    public function pedidos()
     {
+        return [[],[]];
         //return $this->hasMany(Pedidos::class);
     }
-    protected function empleado(): ?HasOne
+    public function empleado(): ?HasOne
     {
         if ($this->rol && $this->rol!=='USER')
         {

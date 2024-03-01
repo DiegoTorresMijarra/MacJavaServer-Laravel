@@ -11,6 +11,7 @@ class TrabajadorRequest extends FormRequest
         return [
             'nombre' => ['required'],
             'apellidos' => ['required'],
+            'dni'=>['required'],
             'nomina' => ['required', 'numeric'],
             'puesto' => ['required'],
         ];

@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\DireccionPersonal;
 use App\Models\Trabajador;
 use App\Models\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Str;
@@ -16,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //solo admin
 class UserController extends Controller
 {
-    private function getById($id)
+    private function getById($id):User
     {
         if( $id && is_integer($id))
         {
@@ -102,6 +103,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = $this->getById($id);
+
+        if($user->rol==='ADMIN')
+        {
+            throw new AuthorizationException('No se puede eliminar a un admin');
+        }
 
         if( false
             //    $user->pedidos()->count()>=1

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Dotenv\Util\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -68,5 +69,18 @@ class User extends Authenticatable
             return $this->hasOne(Trabajador::class);
         }
         return null; //exception?
+    }
+
+    public function scopeRol($query, String $rol)
+    {
+        if (User::$ROLES_ENUM->contains($rol)) //tb podria lanzar exception o cualquier logica
+        {
+            return $query->whereRaw('LOWER(rol) LIKE ?', ["%" . strtolower($rol) . "%"]);
+        }
+        return $query;
+    }
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(name) LIKE ?', ["%" . strtolower($search) . "%"]);
     }
 }

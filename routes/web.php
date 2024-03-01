@@ -31,3 +31,7 @@ Route::prefix('direcciones-personales')->group(function (){
     Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');
     Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

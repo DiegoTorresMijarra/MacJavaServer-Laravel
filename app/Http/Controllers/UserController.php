@@ -7,8 +7,10 @@ use App\Http\Requests\UserRequest;
 use App\Models\DireccionPersonal;
 use App\Models\Trabajador;
 use App\Models\User;
+use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Str;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -27,7 +29,7 @@ class UserController extends Controller
             {
                 return $res;
             }
-            throw new NotFoundHttpException('Direccion Personal no encontrada');
+            throw new NotFoundHttpException('Usuario no encontrado');
         }
         throw new BadRequestException('El id no es valido');
     }
@@ -55,9 +57,13 @@ class UserController extends Controller
                 'name'=> $nombreUsuario,
                 'email'=>$nombreUsuario.'@macjava.com',
                 'password'=> Str::random(10),//tb podria poner su dni
+                'avatar'=> $request->file('avatar')
             ]);
 
             $userReq->validarYTransformar();
+
+            $this->updateImage($userReq);
+
             $user = User::create($userReq->all());
 
             $empleado = Trabajador::create(array_merge($empleadoReq->all(), ['user_id' => $user->id]));
@@ -90,6 +96,8 @@ class UserController extends Controller
         try {
             $userReq->validarYTransformar();
 
+            $this->updateImage($userReq,$user);
+
             $guardado = $user->update($userReq->all());
 
             flash(`Usuario con id ${$guardado->id} actualizado correctamente`)->success()->important();
@@ -109,6 +117,8 @@ class UserController extends Controller
             throw new AuthorizationException('No se puede eliminar a un admin');
         }
 
+        $this->destroyImage($user);
+
         if( false
             //    $user->pedidos()->count()>=1
             //    $user->empleado()
@@ -117,11 +127,12 @@ class UserController extends Controller
         {
             flash(`Usuario con id ${$user->id} eliminado logica y correctamente`)->success()->important();
             $this->safeDestroy($user); //prevenimos que se borren los q tienen pedidos, pero eliminamos los q no
+        }else{
+            $user->forceDelete();
+
+            flash(`Usuario con id ${$user->id} eliminado dura y correctamente`)->success()->important();
         }
 
-        $user->forceDelete();
-
-        flash(`Usuario con id ${$user->id} eliminado dura y correctamente`)->success()->important();
         return response('',204);
     }
 
@@ -154,5 +165,45 @@ class UserController extends Controller
         }
 
         $empleado?->delete();
+    }
+
+    /**
+     * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage
+     * @param UserRequest $request
+     * @param User|null $user
+     * @return void
+     */
+    private function updateImage(UserRequest $request, ?User $user = null)
+    {
+        $imagen = $request->file('avatar');
+
+        if($imagen) {
+            try {
+                if ($user && $user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
+                    // Eliminamos la imagen
+                    Storage::delete($user->avatar);
+                }
+                $extension = $imagen->getClientOriginalExtension();
+                $fileToSave = $request->email . '.' . $extension;
+                $imagen->storeAs('avatar', $fileToSave, 'public');
+
+                $request->merge(['avatar' => $imagen]);
+
+            } catch (Exception $e) {
+
+                throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());
+            }
+        }
+    }
+
+    private function destroyImage(User $user) //elimina las imagenes q no son por defecto, y actualiza a ese valor la del usuario pasado tal vez deberia estar en user
+    {
+        if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
+            // Eliminamos la imagen
+            Storage::delete($user->avatar);
+
+            $user->avatar = User::$AVATAR_DEFAULT;
+            $user->save();
+        }
     }
 }

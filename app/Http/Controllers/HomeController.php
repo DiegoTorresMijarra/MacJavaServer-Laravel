@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Auth;
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller
 {
@@ -49,6 +56,8 @@ class HomeController extends Controller
 
         //mostrar sus pedidos, dividirlos en entregados/activos
 
+        //editar datos, avatar
+
         return view('home');
     }
 
@@ -65,5 +74,98 @@ class HomeController extends Controller
         // crud trabajadores y usuarios, asi como modif sus datos
 
         return view('home');
+    }
+
+    public function edit($id) // todos: contraseña ; el user puede editar su imagen
+    {
+        $user = $this->getSameUser($id);
+    }
+
+    public function update(UserRequest $request, $id)
+    {
+        $user = $this->getSameUser($id);
+
+        try{
+            $request->validarYTransformar();
+            $this->updateImage($request, $user);
+
+            $user->update($request->all());
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+        }
+    }
+
+    private function getSameUser($id)
+    {
+        $user = Auth::user();
+        if ($user->id!==$id)
+        {
+            throw new AuthorizationException('No puedes editar un usuario distinto al tuyo');
+        }
+        if( $id && is_integer($id))
+        {
+            $res = User::find($id);
+
+            if($res)
+            {
+                return $res;
+            }
+            throw new NotFoundHttpException('Usuario no encontrado');
+        }
+        throw new BadRequestException('El id no es valido');
+    }
+
+    /**
+     * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage
+     * @param UserRequest $request
+     * @param User $user
+     * @return void
+     */
+    private function updateImage(UserRequest $request, User $user)
+    {
+        $imagen = $request->file('avatar');
+
+
+        if ($imagen&&$user->rol==='USER')//solo se pueden cambiar las imagenes de los usuarios
+        {
+            try {
+                if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
+                    // Eliminamos la imagen
+                    Storage::delete($user->avatar);
+                }
+                $extension = $imagen->getClientOriginalExtension();
+                $fileToSave = $request->email.  '.' . $extension;
+                $imagen->storeAs('avatar', $fileToSave, 'public');
+
+                $request->merge(['avatar' =>$imagen]);
+
+            } catch (Exception $e) {
+
+                throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());
+            }
+        }
+    }
+
+    private function destroyImage(User $user) //elimina las imagenes q no son por defecto, y actualiza a ese valor la del usuario pasado
+    {
+        if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
+            // Eliminamos la imagen
+            Storage::delete($user->avatar);
+
+            $user->avatar = User::$AVATAR_DEFAULT;
+            $user->save();
+        }
+    }
+
+    public function destroy($id)
+    {
+        $user = $this->getSameUser($id);
+
+        if($user->rol!=='USER')
+        {
+            throw new AuthorizationException('No puedes eliminar un usuario con rol distinto a USER');
+        }
+        $this->destroyImage($user);
+        $user->delete();
     }
 }

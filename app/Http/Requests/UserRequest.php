@@ -18,7 +18,7 @@ class UserRequest extends FormRequest
             //'email_verified_at' => ['nullable', 'date'],
             //'remember_token' => ['nullable'],
             // 'rol'=>['nullable', Rule::in(User::$ROLES_ENUM)] // lo dejo por defecto o trabajador en el de admin
-           //gestionar imagen-> 'avatar'=>['nullable', 'image', ]
+            'avatar'=>['nullable', 'image','mimes:jpeg,png,jpg,gif,svg','max:2048']
         ];
     }
 

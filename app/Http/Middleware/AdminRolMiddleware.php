@@ -20,7 +20,7 @@ class AdminRolMiddleware
         if (Auth::check()&&Auth::user()->rol === 'ADMIN') {
             return $next($request);
         }
-        throw new AuthorizationException('');
+        throw new AuthorizationException('Solo ADMIN puede acceder');
         // abort(Response::HTTP_FORBIDDEN);
     }
 }

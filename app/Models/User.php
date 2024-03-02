@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -82,5 +83,20 @@ class User extends Authenticatable
     public function scopeSearch($query, $search)
     {
         return $query->whereRaw('LOWER(name) LIKE ?', ["%" . strtolower($search) . "%"]);
+    }
+
+    /**
+     * elimina las imagenes q no son por defecto, y actualiza a ese valor la del usuario pasado
+     * @return void
+     */
+    public function destroyImage(): void
+    {
+        if ($this->avatar != User::$AVATAR_DEFAULT && Storage::disk($this->avatar)) {
+            // Eliminamos la imagen
+            Storage::delete($this->avatar);
+
+            $this->avatar = User::$AVATAR_DEFAULT;
+            $this->save();
+        }
     }
 }

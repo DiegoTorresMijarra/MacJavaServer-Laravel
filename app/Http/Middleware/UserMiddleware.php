@@ -14,7 +14,7 @@ class UserMiddleware
         if (Auth::check()&&Auth::user()->rol === 'USER') {
             return $next($request);
         }
-        throw new AuthorizationException('');
+        throw new AuthorizationException('Solo USER puede acceder');
         // abort(Response::HTTP_FORBIDDEN);
     }
 }

@@ -117,7 +117,7 @@ class UserController extends Controller
             throw new AuthorizationException('No se puede eliminar a un admin');
         }
 
-        $this->destroyImage($user);
+        $user->destroyImage();
 
         if( false
             //    $user->pedidos()->count()>=1
@@ -179,10 +179,9 @@ class UserController extends Controller
 
         if($imagen) {
             try {
-                if ($user && $user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
-                    // Eliminamos la imagen
-                    Storage::delete($user->avatar);
-                }
+
+                $user?->destroyImage();
+
                 $extension = $imagen->getClientOriginalExtension();
                 $fileToSave = $request->email . '.' . $extension;
                 $imagen->storeAs('avatar', $fileToSave, 'public');
@@ -193,17 +192,6 @@ class UserController extends Controller
 
                 throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());
             }
-        }
-    }
-
-    private function destroyImage(User $user) //elimina las imagenes q no son por defecto, y actualiza a ese valor la del usuario pasado tal vez deberia estar en user
-    {
-        if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
-            // Eliminamos la imagen
-            Storage::delete($user->avatar);
-
-            $user->avatar = User::$AVATAR_DEFAULT;
-            $user->save();
         }
     }
 }

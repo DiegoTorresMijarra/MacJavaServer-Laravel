@@ -95,6 +95,19 @@ class HomeController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $user = $this->getSameUser($id);
+
+        if($user->rol!=='USER')
+        {
+            throw new AuthorizationException('No puedes eliminar un usuario con rol distinto a USER');
+        }
+        $user->destroyImage();
+
+        $user->delete();
+    }
+
     private function getSameUser($id)
     {
         $user = Auth::user();
@@ -116,7 +129,8 @@ class HomeController extends Controller
     }
 
     /**
-     * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage
+     * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage.
+     * No la actualiza sola, es parte del update
      * @param UserRequest $request
      * @param User $user
      * @return void
@@ -129,10 +143,8 @@ class HomeController extends Controller
         if ($imagen&&$user->rol==='USER')//solo se pueden cambiar las imagenes de los usuarios
         {
             try {
-                if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
-                    // Eliminamos la imagen
-                    Storage::delete($user->avatar);
-                }
+                $user->destroyImage();
+
                 $extension = $imagen->getClientOriginalExtension();
                 $fileToSave = $request->email.  '.' . $extension;
                 $imagen->storeAs('avatar', $fileToSave, 'public');
@@ -144,28 +156,5 @@ class HomeController extends Controller
                 throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());
             }
         }
-    }
-
-    private function destroyImage(User $user) //elimina las imagenes q no son por defecto, y actualiza a ese valor la del usuario pasado
-    {
-        if ($user->avatar != User::$AVATAR_DEFAULT && Storage::disk($user->avatar)) {
-            // Eliminamos la imagen
-            Storage::delete($user->avatar);
-
-            $user->avatar = User::$AVATAR_DEFAULT;
-            $user->save();
-        }
-    }
-
-    public function destroy($id)
-    {
-        $user = $this->getSameUser($id);
-
-        if($user->rol!=='USER')
-        {
-            throw new AuthorizationException('No puedes eliminar un usuario con rol distinto a USER');
-        }
-        $this->destroyImage($user);
-        $user->delete();
     }
 }

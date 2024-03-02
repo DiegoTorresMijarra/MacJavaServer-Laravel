@@ -20,7 +20,7 @@ class EmpleadoRolMiddleware
         if (Auth::check()&&Auth::user()->rol === 'EMPLEADO') {
             return $next($request);
         }
-        throw new AuthorizationException('');
+        throw new AuthorizationException('Solo EMPLEADO puede acceder');
         // abort(Response::HTTP_FORBIDDEN);
     }
 }

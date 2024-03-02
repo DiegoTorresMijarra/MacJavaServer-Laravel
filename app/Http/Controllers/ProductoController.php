@@ -4,36 +4,131 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductoRequest;
 use App\Http\Resources\ProductoResource;
+use App\Models\Categoria;
 use App\Models\Producto;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class ProductoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return ProductoResource::collection(Producto::all());
+        $productos = Producto::search($request->search)->where('oferta', false)->orderBy('id', 'asc')->paginate(6);
+        ProductoResource::collection($productos);
+        return view('productos.index')->with('productos', $productos);
+    }
+
+    public function offers(Request $request)
+    {
+        $productos = Producto::search($request->search)->where('oferta', true)->orderBy('id', 'asc')->paginate(6);
+        ProductoResource::collection($productos);
+        return view('productos.offers')->with('productos', $productos);
+    }
+
+    public function show($id)
+    {
+        $producto = Producto::find($id);
+        $producto = new ProductoResource($producto);
+        return view('productos.show')->with('producto', $producto);
+    }
+
+    public function create()
+    {
+        $categorias = Categoria::all();
+        return view('productos.create')->with('categorias', $categorias);
     }
 
     public function store(ProductoRequest $request)
     {
-        return new ProductoResource(Producto::create($request->validated()));
+        try {
+            $request->validated();
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+        }
+
+        try {
+            $producto = new Producto($request->all());
+            $producto->categoria_id = $request->categoria_id;
+            $producto->save();
+            flash('Producto creado con éxito.')->success()->important();
+            return redirect()->route('productos.index');
+        } catch (Exception $e) {
+            flash('Error al crear el producto' . $e->getMessage())->error()->important();
+            return redirect()->back();
+        }
     }
 
-    public function show(Producto $producto)
+    public function edit($id)
     {
-        return new ProductoResource($producto);
+        $producto = Producto::find($id);
+        $categorias = Categoria::all();
+        return view('productos.edit')
+            ->with('producto', $producto)
+            ->with('categorias', $categorias);
     }
 
-    public function update(ProductoRequest $request, Producto $producto)
+    public function update(ProductoRequest $request, $id)
     {
-        $producto->update($request->validated());
+        try {
+            $request->validated();
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+        }
 
-        return new ProductoResource($producto);
+        try {
+            $producto = Producto::find($id);
+            $producto->update($request->all());
+            $producto->categoria_id = $request->categoria_id;
+            $producto->save();
+            flash('Producto actualizado con éxito.')->warning()->important();
+            return redirect()->route('productos.index');
+        } catch (Exception $e) {
+            flash('Error al actualizar el producto' . $e->getMessage())->error()->important();
+            return redirect()->back();
+        }
     }
 
-    public function destroy(Producto $producto)
+    public function editImage($id)
     {
-        $producto->delete();
+        $producto = Producto::find($id);
+        return view('productos.image')->with('producto', $producto);
+    }
 
-        return response()->json();
+    public function updateImage(ProductoRequest $request, $id)
+    {
+        try {
+            $producto = Producto::find($id);
+            if ($producto->imagen != Producto::$IMAGE_DEFAULT && Storage::exists($producto->imagen)) {
+                Storage::delete($producto->imagen);
+            }
+            $imagen = $request->file('imagen');
+            $extension = $imagen->getClientOriginalExtension();
+            $fileToSave = $producto->uuid . '.' . $extension;
+            $producto->imagen = $imagen->storeAs('productos', $fileToSave, 'public');
+            $producto->save();
+            flash('Imagen del producto actualizado con éxito.')->warning()->important();
+            return redirect()->route('productos.index');
+        } catch (Exception $e) {
+            flash('Error al actualizar el producto' . $e->getMessage())->error()->important();
+            return redirect()->back();
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $producto = Producto::find($id);
+            if ($producto->imagen != Producto::$IMAGE_DEFAULT && Storage::exists($producto->imagen)) {
+                Storage::delete($producto->imagen);
+            }
+            $producto->delete();
+            flash('Producto eliminado con éxito.')->error()->important();
+            return redirect()->route('productos.index');
+        } catch (Exception $e) {
+            flash('Error al eliminar el producto' . $e->getMessage())->error()->important();
+            return redirect()->back();
+        }
     }
 }

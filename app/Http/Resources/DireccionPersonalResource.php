@@ -26,6 +26,9 @@ class DireccionPersonalResource extends JsonResource
             'piso' => $this->piso,
             'nombre' => $this->nombre,
             'apellidos' => $this->apellidos,
+
+            'usuario' => $this->user()->get(['id','name']),
+            // 'pedidos' => $this->pedidos()->get(['id']),
         ];
     }
 }

@@ -12,8 +12,8 @@ class DireccionPersonalResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            // 'created_at' => $this->created_at,
+            // 'updated_at' => $this->updated_at,
             'id' => $this->id,
             'pais' => $this->pais,
             'provincia' => $this->provincia,

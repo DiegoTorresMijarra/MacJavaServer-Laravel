@@ -52,4 +52,33 @@ class Pedido extends Model
     {
         return $query->where('estado','in',Pedido::$ESTADOS_HISTORICOS);
     }
+
+
+    public function validarLineas(): bool
+    {
+        $pedidos = $this->lineasPedido();
+
+        $validos = true;
+
+        foreach ($pedidos as $pedido)
+        {
+            $validos = $validos && $pedido->validar();
+        }
+
+        return $validos;
+    }
+
+    public function actualizarStockLineas(): bool
+    {
+        $pedidos = $this->lineasPedido();
+
+        $validos = true;
+
+        foreach ($pedidos as $pedido)
+        {
+            $validos = $validos && $pedido->actualizarStock();
+        }
+
+        return $validos;
+    }
 }

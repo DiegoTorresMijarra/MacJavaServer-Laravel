@@ -22,12 +22,12 @@ class LineaPedido extends Model
         'pedido_id',
     ];
 
-    protected function producto(): BelongsTo
+    public function producto(): BelongsTo
     {
         return $this->belongsTo(Producto::class);
     }
 
-    protected function pedido(): BelongsTo
+    public function pedido(): BelongsTo
     {
         return $this->belongsTo(Pedido::class);
     }

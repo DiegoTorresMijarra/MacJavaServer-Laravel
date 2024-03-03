@@ -13,7 +13,7 @@ class ProductoRequest extends FormRequest
             'precio' => ['required', 'numeric','min:0.01'],
             'stock' => ['required', 'integer','min:1'],
             'descripcion' => ['required','min:4','max:250'],
-            'categoria_id' => ['required','uuid','exists:categorias,id'],
+            'categoria_id' => ['required','integer','exists:categorias,id'],
         ];
     }
 

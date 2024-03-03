@@ -39,7 +39,7 @@
                             </div>
                             <div class="d-flex justify-content-lg-between align-items-center" style="padding: 0 10px">
                                 <p style="margin: 0">{{ $producto->precio }}$</p>
-                                <a class="btn" href="{{ route('productos.index', $producto->id) }}" style="color: white; background-color: #413f3d">Comprar</a>
+                                <a class="btn" href="{{ route('productos.show', $producto->id) }}" style="color: white; background-color: #413f3d">Comprar</a>
                             </div>
                         </div>
                         @if($producto->oferta === true)

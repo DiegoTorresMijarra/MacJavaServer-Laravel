@@ -50,7 +50,7 @@ class ProductoController extends Controller
 
         try {
             $producto = new Producto($request->all());
-            $producto->categoria_id = $request->categoria_id;
+            $producto->oferta = $request->has('oferta');
             $producto->save();
             flash('Producto creado con éxito.')->success()->important();
             return redirect()->route('productos.index');
@@ -96,8 +96,12 @@ class ProductoController extends Controller
         return view('productos.image')->with('producto', $producto);
     }
 
-    public function updateImage(ProductoRequest $request, $id)
+    public function updateImage(Request $request, $id)
     {
+        $request->validate([
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         try {
             $producto = Producto::find($id);
             if ($producto->imagen != Producto::$IMAGE_DEFAULT && Storage::exists($producto->imagen)) {
@@ -105,8 +109,8 @@ class ProductoController extends Controller
             }
             $imagen = $request->file('imagen');
             $extension = $imagen->getClientOriginalExtension();
-            $fileToSave = $producto->uuid . '.' . $extension;
-            $producto->imagen = $imagen->storeAs('productos', $fileToSave, 'public');
+            $fileToSave = $extension;
+            $producto->imagen = $fileToSave;
             $producto->save();
             flash('Imagen del producto actualizado con éxito.')->warning()->important();
             return redirect()->route('productos.index');

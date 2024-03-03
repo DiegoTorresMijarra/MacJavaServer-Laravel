@@ -8,24 +8,7 @@
             </div>
             <div class="col-4">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        @if (Route::has('login'))
-                            @auth
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar Sesion') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            @else
-                                <a href="{{ route('login') }}" class="nav-link">Login</a>
-                            @endauth
-                        @endif
-                    </li>
-                    <li class="nav-item d-flex justify-contente-evenly">
+                    <li class="nav-item d-flex justify-content-evenly">
                         <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Inicio</a>
                         <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Productos</a>
                         <a class="nav-link" href="{{ route('productos.offers') }}" style="color: coral">Ofertas</a>
@@ -33,14 +16,15 @@
                 </ul>
             </div>
 
-            <div class="col-4 d-flex justify-content-center align-items-center">
+            <div class="col-2 d-flex justify-content-center align-items-center">
+                @if(Auth::check() && Auth::user()->role === 'admin')
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" id="opcionesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: coral">
                         Administradores
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="adminDropdown" style="background-color: #ffeeee">
+                    <div class="dropdown-menu" aria-labelledby="adminDropdown" style="background-color: white; border: 1px solid coral">
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('productos.create') }}">Productos</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('productos.index') }}">Productos</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Restaurantes</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
@@ -48,14 +32,33 @@
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Usuarios</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Categorias</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('categorias.index') }}">Categorias</a>
                     </div>
                 </div>
+                @endif
             </div>
 
-            <div class="col-2 d-flex justify-content-end">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+            <div class="col-4 d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-flex justify-content-around">
+                        @if (Route::has('login'))
+                            @auth
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="color: coral">
+                                    {{ __('Cerrar Sesion') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="nav-link" style="color: coral">Iniciar Sesion</a>
+                                <a href="{{ route('register') }}" class="nav-link" style="color: coral">Registrarse</a>
+                            @endauth
+                        @endif
+                    </li>
+                    <li class="nav-item ml-4">
                         <div class="d-flex justify-content-center align-items-center">
                             @if (Route::has('login'))
                                 @auth()
@@ -67,7 +70,7 @@
                     <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center" style="background-color: #413f3d; color: white; padding: 10px; width: 40px; height: 40px; border-radius: 50%">
                                 <span class="navbar-text" style="color: white">
-                                {{ strtoupper(substr(auth()->user()->role ?? 'invitado/a', 0, 1)) }}
+                                {{ strtoupper(substr(auth()->user()->name ?? 'invitado/a', 0, 1)) }}
                             </span>
                         </div>
                     </li>

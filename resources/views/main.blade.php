@@ -43,7 +43,7 @@
 
         .inputSearch:focus, inputSearch:hover {
             outline: none;
-            border-color: rgb(255, 77, 107);
+            border-color: coral;
             background-color: #fff;
             box-shadow: 0 0 0 4px rgba(255, 77, 107, 0.1);
         }
@@ -61,7 +61,14 @@
         }
 
         th{
-            color: #ff4d6b;
+            color: white;
+            background-color: #413f3d;
+        }
+
+        .tr-hover:hover{
+            border-bottom: 2px solid coral;
+            box-shadow: 0 10px 20px #ababab;
+            transition: border-bottom-color 0.4s;
         }
 
         {{--OFERTAS--}}

@@ -28,7 +28,7 @@
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
             @if(Auth::check() && Auth::user()->role === 'admin')
-                <a class="btn btn-success" href={{ route('productos.create') }}>Nuevo Funko</a>
+                <a class="btn btn-success" href={{ route('productos.create') }}>Nuevo Producto</a>
             @endif
         </div>
     </div>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="d-flex justify-content-lg-between align-items-center" style="padding: 0 10px">
                                 <p style="margin: 0">{{ $producto->precio }}$</p>
-                                <a class="btn" href="{{ route('productos.index', $producto->id) }}" style="color: white; background-color: #413f3d">Comprar</a>
+                                <a class="btn" href="{{ route('productos.show', $producto->id) }}" style="color: white; background-color: #413f3d">Comprar</a>
                             </div>
                         </div>
                         @if($producto->oferta === true)

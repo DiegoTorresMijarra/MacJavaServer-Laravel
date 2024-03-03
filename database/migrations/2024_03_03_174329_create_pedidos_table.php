@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Pedido;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -9,7 +10,7 @@ return new class extends Migration {
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('estado');
+            $table->enum('estado', Pedido::$ESTADOS_POSIBLES)->default(Pedido::$ESTADOS_POSIBLES[0]);
             $table->decimal('precioTotal');
             $table->integer('stockTotal');
             $table->foreignId('user_id')->constrained('users');

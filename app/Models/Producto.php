@@ -11,6 +11,9 @@ class Producto extends Model
 {
     use SoftDeletes, HasFactory;
 
+    public static string $IMAGE_DEFAULT = 'https://via.placeholder.com/150';
+    protected $table = 'productos';
+
     protected $fillable = [
         'nombre',
         'descripcion',
@@ -18,7 +21,6 @@ class Producto extends Model
         'stock',
         'precio',
         'oferta',
-
         'categoria_id',
     ];
 
@@ -26,8 +28,14 @@ class Producto extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
     public function scopeOferta()
     {
         $this->find('oferta', true);
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"]);
     }
 }

@@ -17,8 +17,12 @@ class Restaurante extends Model
         'capacidad',
     ];
 
-    protected function direccion(): BelongsTo
+    public function direccion(): BelongsTo
     {
         return $this->belongsTo(Direccion::class);
+    }
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"]);
     }
 }

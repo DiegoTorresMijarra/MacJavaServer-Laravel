@@ -10,15 +10,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Restaurante extends Model
 {
-    use SoftDeletes, HasUuids, HasFactory;
+    use SoftDeletes, HasFactory;
 
     protected $fillable = [
         'nombre',
         'capacidad',
     ];
 
-    protected function direccion(): BelongsTo
+    public function direccion(): BelongsTo
     {
         return $this->belongsTo(Direccion::class);
+    }
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"]);
     }
 }

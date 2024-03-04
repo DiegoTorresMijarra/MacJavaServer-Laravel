@@ -23,9 +23,7 @@ Route::get('/', function () {
 
 
 Route::prefix('direcciones-personales')->group(function (){
-    Route::get('/', function () {
-        return DireccionPersonal::first();
-    });
+   // Route::get('/', function () {return DireccionPersonal::first();});
     Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
     Route::get('/create',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
     Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
@@ -49,7 +47,6 @@ Route::group(['prefix' => 'productos'], function () {
     Route::delete('/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
     Route::get('/{producto}/image', [ProductoController::class, 'editImage'])->name('productos.editImage');
     Route::patch('/{producto}/image', [ProductoController::class, 'updateImage'])->name('productos.updateImage');
-
 });
 
 Route::group(['prefix' => 'categorias'], function () {

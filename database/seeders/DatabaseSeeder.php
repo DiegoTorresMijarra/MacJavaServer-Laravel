@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DireccionPersonalTableSeeder::class);
         $this->call(CategoriasTableSeeder::class);
         $this->call(ProductosTableSeeder::class);
+        $this->call(DireccionSeeder::class);
+        $this->call(RestauranteSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
@@ -24,9 +26,5 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([
-            DireccionSeeder::class,
-            RestauranteSeeder::class,
-        ]);
     }
 }

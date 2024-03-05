@@ -27,7 +27,7 @@
                     <dd class="col-sm-10">{{ $producto->categoria->nombre }}</dd>
                     <div class="row" style="margin-top: 10px; padding: 0 10px">
                         <div class="col-6">
-                            @if(Auth::check() && Auth::user()->role === 'admin')
+                            @if(Auth::check() && Auth::user()->rol === 'ADMIN')
                             <a class="btn btn-sm" href="{{ route('productos.edit', $producto->id) }}" style="background: #413f3d; color: white; margin-right: 10px">Editar</a>
                             <a class="btn btn-sm" href="{{ route('productos.editImage', $producto->id) }}" style="background: coral; color: white; margin-right: 10px">Imagen</a>
                             <form action="{{ route('productos.destroy', $producto->id) }}" method="POST"

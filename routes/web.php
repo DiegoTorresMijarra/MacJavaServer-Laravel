@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('productos.index');
+    return redirect()->route('index');
 });
 
 
@@ -35,6 +35,8 @@ Route::prefix('direcciones-personales')->group(function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [ProductoController::class, 'inicioRestaurantes'])->name('index');
 
 Route::group(['prefix' => 'productos'], function () {
     Route::get('/', [ProductoController::class, 'index'])->name('productos.index');

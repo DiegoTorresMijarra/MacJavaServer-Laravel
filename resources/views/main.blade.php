@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rowdies:wght@400;700&display=swap">
 
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,h2,h3,h4,h5,h6{
+            font-family: 'Rowdies';
+        }
+
         .group {
             display: flex;
             line-height: 28px;
@@ -116,6 +125,179 @@
             border-bottom-color: coral;
         }
 
+        {{--BOTON INICIO--}}
+        .delete-button {
+            background-color: #000;
+            color: #fff;
+            font-size: 25px;
+            font-family: Rowdies;
+            border: 0.5px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 15px;
+            margin-top: 40px;
+            width: 300px;
+            height: 65px;
+            border-radius: 15px 15px 12px 12px;
+            cursor: pointer;
+            position: relative;
+            will-change: transform;
+            transition: all .1s ease-in-out 0s;
+            user-select: none;
+            /* Add gradient shading to each side */
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            background-position: bottom right, bottom right;
+            background-size: 100% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+            inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+            0px 2px 1px rgba(0, 0, 0, 0.3),
+            0px 2px 1px rgba(255, 255, 255, 0.1);
+            transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+        }
+
+        .delete-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+            z-index: -1;
+            border-radius: 15px;
+            box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+            inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .delete-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            background-position: bottom right, bottom right;
+            background-size: 100% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            z-index: -1;
+            border-radius: 15px;
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .delete-button:active {
+            will-change: transform;
+            transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+            height: 64px;
+            border: 0.25px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+            inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+            0px 1px 0px rgba(0, 0, 0, 0.9),
+            0px 1px 0px rgba(255, 255, 255, 0.2);
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .delete-button::after:active {
+            background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+        }
+
+        .delete-button:active::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5%;
+            left: 20%;
+            width: 50%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: overlay 0.1s ease-in-out 0s;
+            pointer-events: none;
+        }
+
+        @keyframes overlay {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .delete-button:focus {
+            outline: none;
+        }
+
+        {{--Contacto--}}
+        .page-section {
+            padding: 4rem 0;
+        }
+        .page-section h2.section-heading, .page-section .section-heading.h2 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .page-section h3.section-subheading, .page-section .section-subheading.h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            font-style: italic;
+            font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            margin-bottom: 4rem;
+            color: white;
+        }
+
+        {{----}}
+
+        #contact .section-heading {
+            color: #fff;
+        }
+        #contact form#contactForm .form-group {
+            margin-bottom: 1.5rem;
+        }
+        #contact form#contactForm .form-group input,
+        #contact form#contactForm .form-group textarea {
+            padding: 1.25rem;
+        }
+        #contact form#contactForm .form-group input.form-control {
+            height: auto;
+        }
+        #contact form#contactForm .form-group-textarea {
+            height: 100%;
+        }
+        #contact form#contactForm .form-group-textarea textarea {
+            height: 100%;
+            min-height: 10rem;
+        }
+        #contact form#contactForm p.help-block {
+            margin: 0;
+        }
+        #contact form#contactForm .form-control:focus {
+            border-color: #ffc800;
+            box-shadow: none;
+        }
+        #contact form#contactForm ::-webkit-input-placeholder {
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 700;
+            color: #ced4da;
+        }
+        #contact form#contactForm :-moz-placeholder {
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 700;
+            color: #ced4da;
+        }
+        #contact form#contactForm ::-moz-placeholder {
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 700;
+            color: #ced4da;
+        }
+        #contact form#contactForm :-ms-input-placeholder {
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 700;
+            color: #ced4da;
+        }
 
     </style>
 </head>
@@ -133,6 +315,8 @@
 
 </div>
 
+@yield('restaurantes')
+@yield('contact')
 @include('footer')
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

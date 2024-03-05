@@ -13,6 +13,15 @@ use Illuminate\Validation\ValidationException;
 
 class ProductoController extends Controller
 {
+    public function inicio(){
+        return view('index');
+    }
+
+    public function inicioRestaurantes(Request $request){
+        $productos = Producto::search($request->search)->orderBy('id', 'asc')->paginate(4);
+        return view('index')->with('productos', $productos);
+    }
+
     public function index(Request $request)
     {
         $productos = Producto::search($request->search)->where('oferta', false)->orderBy('id', 'asc')->paginate(6);

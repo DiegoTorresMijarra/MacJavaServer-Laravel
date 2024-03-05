@@ -10,6 +10,8 @@ class DireccionPersonalTableSeeder extends Seeder
 {
     public function run(): void
     {
+        $user_id = User::where('name', '=', 'user')->first()->id;
+
         DB::table('direcciones_personales')->insert([
             'id' =>'e7b14e2f-0f7b-4859-ae0e-35db13f55f5b',
             'pais' => 'España',
@@ -24,7 +26,7 @@ class DireccionPersonalTableSeeder extends Seeder
             'nombre'=> 'Casa',
             'apellidos' => 'de Leganes',
 
-            'user_id' => User::first()->id,
+            'user_id' => $user_id,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -39,7 +41,7 @@ class DireccionPersonalTableSeeder extends Seeder
                 'nombre'=> 'Chaletazo',
                 'apellidos' => 'de Fuenla',
 
-                'user_id' => User::first()->id,
+                'user_id' => $user_id,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

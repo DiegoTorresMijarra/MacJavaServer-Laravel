@@ -118,6 +118,23 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
+      <path value="$PROJECT_DIR$/vendor/dragon-code/pretty-array" />
+      <path value="$PROJECT_DIR$/vendor/dragon-code/contracts" />
+      <path value="$PROJECT_DIR$/vendor/dragon-code/support" />
+      <path value="$PROJECT_DIR$/vendor/archtechx/enums" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/native-country-names" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/json-fallback" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/native-currency-names" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/actions" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/attributes" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/http-statuses" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/publisher" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/common" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/locales" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/locale-list" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/native-locale-names" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

@@ -24,7 +24,7 @@ class DireccionPersonalRequest extends FormRequest
             'nombre' => ['required', 'string', 'max:250'],
             'apellidos' => ['required', 'string', 'max:250'],
 
-            'user_id' => ['required', 'exists:users,id', Rule::in([Auth::id()])]
+            'user_id' => ['nullable', 'exists:users,id', Rule::in([Auth::id()])]
         ];
     }
 

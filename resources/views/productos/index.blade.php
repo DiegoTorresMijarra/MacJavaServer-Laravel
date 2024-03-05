@@ -64,7 +64,7 @@
             @endforeach
 
         @else
-            <p class='lead'><em>No se ha encontrado datos de funkos.</em></p>
+            <p class='lead'><em>No se ha encontrado datos de productos.</em></p>
         @endif
     </div>
     <div class="pagination-container">

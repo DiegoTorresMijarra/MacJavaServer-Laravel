@@ -27,8 +27,7 @@ class DireccionPersonalController extends Controller
         {
             $res = DireccionPersonal::find($id);
 
-            if($res
-                //&& $res->user_id==Auth::id()
+            if($res && $res->user_id==Auth::id()
             )
             {
                 //  throw new AuthorizationException('No puedes acceder a direcciones que no te pertenecen') //damos menos info al atacante si no le decimos q existe
@@ -41,32 +40,37 @@ class DireccionPersonalController extends Controller
 
     public function create()
     {
-        //view o modal
+        return view('direccionesPersonales.create');
     }
     public function store(DireccionPersonalRequest $request)
     {
         try {
+            $request->merge(['user_id' => Auth::user()->id]);
+
             $request->validated();
+
+            $guardado = DireccionPersonal::create($request->all());
+
+            flash('Direccion Creada correctamenre')->success()->important();
+            return redirect()->route('home');
+
         }catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 400);
         }
-        $guardado=DireccionPersonal::create();
-
-        //index, view or same page
     }
 
     public function show($id)
     {
         $res=$this->getById($id);
 
-        return $res;
-        //view mostrar direccion
+        return view('direccionesPersonales.show')->with('direccion',new DireccionPersonalResource($res));
     }
 
     public function edit($id)
     {
         $direccion = $this->getById($id);
-        //view o modal editar direccion
+
+        return view('direccionesPersonales.edit', compact('direccion'));
     }
 
     public function update(DireccionPersonalRequest $request, $id)
@@ -75,16 +79,14 @@ class DireccionPersonalController extends Controller
 
         try {
             $request->validated();
-        }catch (ValidationException $e) {
-            return response()->json(['errors' => $e->errors()], 400);
-        }
-
-        try {
             $original->update($request->all());
 
             flash('Direccion actualizada correctamente')->success()->important();
+            return redirect()->route('home');
 
-            return redirect()->route('funkos.index');
+        }catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 400);
+
         }catch (Exception $e) {
             throw new BadRequestException($e->getMessage());
         }

@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::prefix('direcciones-personales')->group(function (){
    // Route::get('/', function () {return DireccionPersonal::first();});
     Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
-    Route::get('/create',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
+    Route::get('/create/direccion-personal',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
     Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
     Route::get('/{id}/edit',[DireccionPersonalController::class,'edit'])->name('direccion-personal.edit');
     Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');

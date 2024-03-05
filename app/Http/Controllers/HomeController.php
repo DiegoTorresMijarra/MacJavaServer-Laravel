@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\DireccionPersonalResource;
+use App\Models\DireccionPersonal;
 use App\Models\User;
 use Auth;
 use Exception;
@@ -50,15 +52,20 @@ class HomeController extends Controller
 
     private function userHome(User $user)
     {
-        $pedidos = $user->pedidos();
 
-        $direcciones = $user->direcciones();
+        $pedidos = $user->pedidos(); //->activos()->paginate(3);
+
+        //devolver historicos en otro paginate?
+
+        $direcciones = DireccionPersonalResource::collection($user->direcciones()->paginate(6));
 
         //mostrar sus pedidos, dividirlos en entregados/activos
 
         //editar datos, avatar
 
-        return view('home');
+        return view('home')->with('direcciones', $direcciones);
+        //->with('direcciones', $direcciones);
+            //->with(['direcciones' => $direcciones]);
     }
 
     private function empleadoHome(User $user)
@@ -73,7 +80,7 @@ class HomeController extends Controller
     {
         // crud trabajadores y usuarios, asi como modif sus datos
 
-        return view('home');
+        return view('homeAdmin');
     }
 
     public function edit($id) // todos: contraseña ; el user puede editar su imagen

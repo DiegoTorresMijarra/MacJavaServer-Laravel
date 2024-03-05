@@ -99,4 +99,14 @@ th{
 .nav-link:hover {
     border-bottom-color: coral;
 }
-
+.direccionPersonalLabel{
+    height: 100%;
+    width: 100%;
+    padding-left: 5px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.direccionPersonalLabel:hover{
+    border-color: black;
+    box-shadow: 0 10px 20px #ababab;
+}

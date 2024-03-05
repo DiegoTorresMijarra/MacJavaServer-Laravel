@@ -20,7 +20,7 @@ use App\Models\User;
             </div>
 
             <div class="col-2 d-flex justify-content-center align-items-center">
-                @if(Auth::check() && Auth::user()->role === 'admin')
+                @if(Auth::check() && Auth::user()->rol === 'ADMIN')
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" id="opcionesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: coral">
                         Administradores

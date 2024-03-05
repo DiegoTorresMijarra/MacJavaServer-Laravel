@@ -12,7 +12,7 @@ use App\Models\User;
             <div class="col-4">
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex justify-content-evenly">
-                        <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Inicio</a>
+                        <a class="nav-link" href="{{ route('index') }}" style="color: coral">Inicio</a>
                         <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Productos</a>
                         <a class="nav-link" href="{{ route('productos.offers') }}" style="color: coral">Ofertas</a>
                     </li>
@@ -77,7 +77,7 @@ use App\Models\User;
                     @else
                     <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center" style="background-color: #413f3d; color: white; padding: 10px; width: 40px; height: 40px; border-radius: 50%">
-                                <span class="navbar-text" style="color: white">
+                                <span class="navbar-text" style="color: white; font-family: 'Rowdies';">
                                 {{ strtoupper(substr(auth()->user()->name ?? 'invitado/a', 0, 1)) }}
                             </span>
                         </div>

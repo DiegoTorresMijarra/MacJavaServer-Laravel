@@ -1,3 +1,6 @@
+<?php
+use App\Models\User;
+?>
 <header class="shadow-sm" style="background: #ffeeee; padding: 10px 0; margin-bottom: 30px; border-bottom: 2px solid coral; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="row collapse navbar-collapse" id="navbarNav">
@@ -58,15 +61,20 @@
                             @endauth
                         @endif
                     </li>
+                    @auth()
                     <li class="nav-item ml-4">
                         <div class="d-flex justify-content-center align-items-center">
-                            @if (Route::has('login'))
-                                @auth()
-                                    <a style="margin-right: 10px" href="{{ route ('home')  }}"><img src="https://sede.seg-social.gob.es/SedeThemeStatic/themes/Portal8.5/images/sede_img/usuario_r.png" alt="" width="30px" height="30px"></a>
-                                @endauth
-                            @endif
+
+                                    <a style="margin-right: 10px" href="{{ route ('home')  }}">
+                                        @if(Auth::user()->avatar!==User::$AVATAR_DEFAULT)
+                                            <img  alt="Imagen del user" src="{{ asset('storage/' . Auth::user()->avatar ) }}" height="40" width="40">
+                                        @else
+                                            <img alt="Imagen por defecto" height="40" width="40" src="{{ User::$AVATAR_DEFAULT }}" style="background-color: #413f3d; color: white; padding: 1px; width: 40px; height: 40px; border-radius: 50%">
+                                        @endif
+                                    </a>
                         </div>
                     </li>
+                    @else
                     <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center" style="background-color: #413f3d; color: white; padding: 10px; width: 40px; height: 40px; border-radius: 50%">
                                 <span class="navbar-text" style="color: white">
@@ -74,6 +82,7 @@
                             </span>
                         </div>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>

@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c23992a-a326-43a0-810d-d8c124bcbb20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/categorias/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/categorias/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/categorias/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/categorias/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/productos/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categoria.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/offers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/offers.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/bin/carbon" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bin/carbon" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/bin/patch-type-declarations" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bin/patch-type-declarations" afterDir="false" />
@@ -417,23 +404,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/raul/MacJavaServer-Laravel/resources/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel" />
+      <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel\public" />
+      <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel\storage\app\public" />
+      <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel\resources\views" />
       <recent name="\\wsl$\Ubuntu\home\raul\MacJavaServer-Laravel\resources\views\productos" />
     </key>
   </component>
@@ -454,6 +449,7 @@
       <workItem from="1709156127617" duration="37620000" />
       <workItem from="1709417733194" duration="7682000" />
       <workItem from="1709430702417" duration="18015000" />
+      <workItem from="1709490270803" duration="25986000" />
     </task>
     <servers />
   </component>

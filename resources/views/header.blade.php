@@ -62,7 +62,7 @@ use App\Models\User;
                         @endif
                     </li>
                     @auth()
-                    <li class="nav-item ml-4">
+                    <li class="nav-item ml-5">
                         <div class="d-flex justify-content-center align-items-center">
 
                                     <a style="margin-right: 10px" href="{{ route ('home')  }}">

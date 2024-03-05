@@ -71,13 +71,14 @@ class HomeController extends Controller
     private function empleadoHome(User $user)
     {
         $empleo = $user->empleado();
-        // y cambio de contraseña
+        // y cambio de contraseña y datos empleado
 
         return view('home');
     }
 
     private function adminHome(User $user)
     {
+        // y cambio de contraseña y datos empleado
         // crud trabajadores y usuarios, asi como modif sus datos
 
         return view('homeAdmin');

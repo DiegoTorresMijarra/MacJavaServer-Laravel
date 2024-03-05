@@ -2,6 +2,8 @@
     use App\Models\DireccionPersonal;
     use App\Models\User;
     use Illuminate\Database\Eloquent\Relations\HasMany;
+
+    $user =Auth::user();
 ?>
 
 @extends('main')
@@ -11,6 +13,24 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Detalles de Usuario</h3>
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Nombre:</strong> {{ $user->name }}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Email:</strong> {{ $user->email }}
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Pedidos') }}</div>
 

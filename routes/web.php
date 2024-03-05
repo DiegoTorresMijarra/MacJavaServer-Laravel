@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DireccionPersonalController;
+use App\Http\Controllers\UserController;
 use App\Models\DireccionPersonal;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
@@ -17,26 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('index');
-});
-
-
-Route::prefix('direcciones-personales')->group(function (){
-   // Route::get('/', function () {return DireccionPersonal::first();});
-    Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
-    Route::get('/create',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
-    Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
-    Route::get('/{id}/edit',[DireccionPersonalController::class,'edit'])->name('direccion-personal.edit');
-    Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');
-    Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [ProductoController::class, 'inicioRestaurantes'])->name('index');
+
+
+Route::prefix('direcciones-personales')->group( function (){
+    Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
+    Route::get('/create/direccion-personal',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
+    Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
+    Route::get('/{id}/edit',[DireccionPersonalController::class,'edit'])->name('direccion-personal.edit');
+    Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');
+    Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy');
+});
 
 Route::group(['prefix' => 'productos'], function () {
     Route::get('/', [ProductoController::class, 'index'])->name('productos.index');
@@ -59,4 +55,13 @@ Route::group(['prefix' => 'categorias'], function () {
     Route::get('/{categoria}/update', [CategoriaController::class, 'edit'])->name('categorias.edit');
     Route::put('/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
     Route::delete('/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+});
+
+Route::prefix('users')->group( function (){
+    Route::get('/',[UserController::class,'index'])->name('users.index');
+    Route::get('/create/user',[UserController::class,'create'])->name('users.create');
+    Route::get('/{user}',[UserController::class,'show'])->name('users.show');
+    Route::get('/{user}/edit',[UserController::class,'edit'])->name('users.edit');
+    Route::put('/{user}',[UserController::class,'update'])->name('users.update');
+    Route::delete('/{user}',[UserController::class,'destroy'])->name('users.destroy');
 });

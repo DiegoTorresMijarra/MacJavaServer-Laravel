@@ -33,9 +33,11 @@ class UserController extends Controller
         }
         throw new BadRequestException('El id no es valido');
     }
-    public function index()
+    public function index(Request $request)
     {
-        $res = User::all(); //paginar resource etc, search por role? o divnav con user/t/a
+        $res = User::email($request->email)->orderBy('id','asc')->paginate(10); //paginar resource etc, search por role? o divnav con user/t/a
+
+        return view('users.index')->with('users', $res);
     }
 
     public function create()
@@ -43,6 +45,7 @@ class UserController extends Controller
         // es para añadir trabajadores y usuarios a la vez?!!
 
     }
+
 
     public function store(Request $request)
     {

@@ -80,9 +80,16 @@ class User extends Authenticatable
         }
         return $query;
     }
-    public function scopeSearch($query, $search)
+    public function scopeEmpleado($query, bool $empleado)
     {
-        return $query->whereRaw('LOWER(name) LIKE ?', ["%" . strtolower($search) . "%"]);
+        $roles = $empleado ? ['EMPLEADO', 'ADMIN'] : ['USER'];
+        $query->whereRaw('LOWER(rol) IN (?)', [implode(',', $roles)]);
+
+        return $query;
+    }
+    public function scopeEmail($query, $email)
+    {
+        return $query->whereRaw('LOWER(email) LIKE ?', ["%" . strtolower($email) . "%"]);
     }
 
     /**

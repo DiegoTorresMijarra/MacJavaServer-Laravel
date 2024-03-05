@@ -99,11 +99,15 @@ class DireccionPersonalController extends Controller
         //    $original->pedidos()->count()>=1
         )
         {
-           $original->delete(); //prevenimos que se borren los q tienen pedidos, pero eliminamos los q no
+            $original->delete(); //prevenimos que se borren los q tienen pedidos, pero eliminamos los q no
+
+            flash('Direccion borrada logica y correctamente')->important()->success();
+            return redirect(route('home'));
         }
 
         $original->forceDelete();
 
-        return response('',204);
+        flash('Direccion borrada dura y correctamente')->important()->success();
+        return redirect(route('home'));
     }
 }

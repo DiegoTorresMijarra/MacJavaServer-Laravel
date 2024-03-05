@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('index');
-});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [ProductoController::class, 'inicioRestaurantes'])->name('index');
 
 
 Route::prefix('direcciones-personales')->group(function (){
-   // Route::get('/', function () {return DireccionPersonal::first();});
     Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
     Route::get('/create/direccion-personal',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
     Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
@@ -31,12 +32,6 @@ Route::prefix('direcciones-personales')->group(function (){
     Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');
     Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', [ProductoController::class, 'inicioRestaurantes'])->name('index');
 
 Route::group(['prefix' => 'productos'], function () {
     Route::get('/', [ProductoController::class, 'index'])->name('productos.index');

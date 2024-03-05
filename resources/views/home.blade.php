@@ -28,14 +28,14 @@
                                 <div class="card mt-4 col-md-4 mb-4">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col direccionPersonalLabel">
-                                                <h5 class="card-title mb-0">{{ $direccion->nombre }}</h5>
+                                            <div class="col">
+                                                <h5 class="card-title mb-2 text-center ">{{ $direccion->nombre }}</h5>
                                             </div>
                                         </div>
                                         <div class="row d-flex justify-content-center align-items-center">
-                                            <a href="{{ route('direccion-personal.show', $direccion->id) }}" class="col-4 btn btn-secondary">Detalles</a>
-                                            <a href="{{ route('direccion-personal.edit', $direccion->id) }}" class="col-4 btn btn-primary">Editar</a>
-                                            <form action="{{ route('direccion-personal.destroy', $direccion->id) }}" method="POST" class="col-4 d-flex justify-content-center align-items-center m-0">
+                                            <a href="{{ route('direccion-personal.show', $direccion->id) }}" class=" btn btn-secondary" style="margin-right: 10px">Detalles</a>
+                                            <a href="{{ route('direccion-personal.edit', $direccion->id) }}" class=" btn btn-primary" style="margin-right: 10px">Editar</a>
+                                            <form action="{{ route('direccion-personal.destroy', $direccion->id) }}" method="POST" class="d-flex justify-content-center align-items-center m-0" >
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger"

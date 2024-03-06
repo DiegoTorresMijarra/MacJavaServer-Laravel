@@ -32,16 +32,48 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Pedidos') }}</div>
 
                 <div class="card-body">
-                    {{ __('pedidos...') }}
+                    <h3 class="card-title">Pedidos</h3>
+                @if($pedidos && count($pedidos)>0)
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="headerPedidos">
+                                        <th>ID del Pedido</th>
+                                        <th>Fecha</th>
+                                        <th>Total</th>
+                                        <th>Estado</th>
+                                        <th>Detalles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($pedidos as $pedido)
+                                    <tr class="tr-hover">
+                                        <td>{{ $pedido->id }}</td>
+                                        <td>{{ $pedido->created_at }}</td>
+                                        <td>${{ $pedido->precioTotal }}</td>
+                                        <td>{{ $pedido->estado }}</td>
+                                        <td>
+                                            <a href="{{ route('pedido.details', $pedido->id) }}" class="btn btn-primary">Ver Pedido</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                @else
+                        <div class="alert alert-info" role="alert">
+                            No se encontraron direcciones
+                        </div>
+                @endif
                 </div>
+
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Direcciones') }}</div>
 
                 <div class="card-body">
+                    <h3 class="card-title">Direcciones</h3>
                     <div class="row">
                         @if( $direcciones && count($direcciones) > 0 )
                             @foreach($direcciones as $direccion)
@@ -67,11 +99,11 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="col-md-12">
-                                <div class="alert alert-info" role="alert">
-                                    No se encontraron direcciones
+                                <div class="col-md-12">
+                                    <div class="alert alert-info" role="alert">
+                                        No tienes pedidos todavia :)
+                                    </div>
                                 </div>
-                            </div>
                         @endif
                     </div>
                     <div class="row">

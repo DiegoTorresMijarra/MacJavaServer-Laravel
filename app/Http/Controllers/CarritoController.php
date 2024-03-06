@@ -175,7 +175,7 @@ class CarritoController extends Controller
             flash('Pedido creado correctamente')->success()->important();
             Session::forget('carrito');
 
-            return response()->json(new PedidoResource($pedido), 201);
+            return redirect(route('pedido.details', $pedido->id));
 
         }catch (Exception $exception){
             $pedido->forceDelete();//podriamos ponerlo a error tb

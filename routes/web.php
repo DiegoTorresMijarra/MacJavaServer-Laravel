@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\DireccionPersonalController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\UserController;
 use App\Models\DireccionPersonal;
 use App\Http\Controllers\CategoriaController;
@@ -73,3 +74,4 @@ Route::prefix('carrito')->group( function (){
    Route::post('/create',[CarritoController::class,'createPedido'])->name('finalizar-pedido');
    Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea');
 });
+Route::get('/pedido/details/{id}',[PedidoController::class,'show'])->name('pedido.details');

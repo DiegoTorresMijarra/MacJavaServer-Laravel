@@ -54,13 +54,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function direcciones(): ?HasMany
+    public function direcciones(): HasMany
     {
         return $this->hasMany(DireccionPersonal::class);
     }
-    public function pedidos()
+    public function pedidos(): HasMany
     {
-return $this->hasMany(Pedidos::class);
+        return $this->hasMany(Pedido::class);
     }
     public function empleado(): ?HasOne
     {

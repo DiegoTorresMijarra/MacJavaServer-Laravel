@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CarritoRequest;
 use App\Http\Requests\LineaPedidoProvisionalRequest;
 use App\Http\Resources\DireccionPersonalResource;
 use App\Models\Producto;
-use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\ValidationException;
 use Redirect;
 use Session;
@@ -121,4 +122,8 @@ class CarritoController extends Controller
         return redirect()->back();
     }
 
+    public function createPedido(CarritoRequest $request)
+    {
+        $request->validated();
+    }
 }

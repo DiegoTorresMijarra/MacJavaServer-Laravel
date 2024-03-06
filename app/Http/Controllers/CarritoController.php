@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CarritoRequest;
 use App\Http\Requests\LineaPedidoProvisionalRequest;
+use App\Http\Requests\LineaPedidoRequest;
+use App\Http\Requests\PedidoRequest;
 use App\Http\Resources\DireccionPersonalResource;
+use App\Models\LineaPedido;
+use App\Models\Pedido;
 use App\Models\Producto;
+use App\Models\User;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\ValidationException;
 use Redirect;
 use Session;
@@ -122,8 +128,106 @@ class CarritoController extends Controller
         return redirect()->back();
     }
 
-    public function createPedido(CarritoRequest $request)
+
+    public function createPedido(Request $req)
     {
-        $request->validated();
+        $request = CarritoRequest::createFrom($req);
+        $request->validarYTransformar();
+
+        $carrito = CarritoController::singletonPedido();
+
+        if (empty($carrito))
+        {
+            return response()->json(['errors' => ['carrito'=>'El carrito debe tener algun producto']], 400);
+        }
+
+        $pedido=null;
+
+        try
+        {
+            $pedidoRequest =  CarritoRequest::createFrom($req);
+
+            $data = array_merge(
+                $request->all(),
+                ['estado' => Pedido::$ESTADOS_POSIBLES[0]],
+                $this->calculoTotales()
+            );
+
+            $pedidoRequest->merge($data)->validated();
+
+            $pedido = Pedido::create($pedidoRequest->all());
+
+            $lineas = $this->requestLineasConIdPedido($pedido->id);
+
+            foreach ($lineas as $linea)
+            {
+                LineaPedido::create($linea);
+            }
+
+            flash('Pedido creado correctamente')->success()->important();
+            Session::forget('carrito');
+
+            return response()->json($pedido, 201);
+        }catch (Exception $exception){
+            $pedido?->forceDelete();
+
+            throw new BadRequestException('Algo a salido mal al crear el pedido:'.$exception->getMessage());
+        }
+    }
+
+    private function calculoTotales()
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        $precioTotal = 0.00;
+        $stockTotal = 0;
+
+        if (empty($carrito))
+        {
+            //exception?
+            return [$precioTotal, $stockTotal];
+        }else{
+            foreach ($carrito as $linea)
+            {
+                $precioTotal += $linea['precio']*$linea['stock'];
+                $stockTotal += $linea['stock'];
+            }
+            return ['precioTotal'=>number_format($precioTotal, 2, '.', ''),'$stockTotal'=> $stockTotal];
+        }
+    }
+
+    private function requestLineasValidadas():bool
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        if (empty($carrito)){
+            return false;
+        }
+        try {
+            foreach ($carrito as $linea)
+            {
+                $validando = new LineaPedidoRequest($linea);
+                $validando->validated();
+            }
+            return true;
+        }catch (ValidationException $exception){
+            return false;
+        }
+    }
+    private function requestLineasConIdPedido($id)
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        if(empty(!$carrito) && $this->requestLineasValidadas() && $id && uuid_is_valid($id)){
+            $requestLineas = [];
+            foreach ($carrito as $linea)
+            {
+                $validando = new LineaPedidoRequest(array_merge($linea,['pedido_id'=>$id]));
+
+                $requestLineas [] = $validando;
+            }
+            return $requestLineas;
+        }
+        return null;
     }
 }

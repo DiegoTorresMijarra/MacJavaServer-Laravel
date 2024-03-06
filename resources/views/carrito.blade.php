@@ -14,7 +14,7 @@
 
         var direccionElement = document.getElementById(direccionId);
 
-        document.getElementById('direccion_personal').value = direccionId;
+        document.getElementById('direccion_personal_id').value = direccionId;
 
         direccionElement.classList.add('seleccionada');
     }
@@ -50,6 +50,17 @@
 @section('title', 'Carrito de Compra')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        <br/>
+    @endif
     <div class="container">
         <div class="card">
             <div class="card-header">  <h2>Carrito de Compra</h2></div>
@@ -100,7 +111,6 @@
                 @else
                     <p>No hay productos en el carrito.</p>
                 @endif
-
             </div>
         </div>
         @if( count($carrito['lineas']) > 0)
@@ -152,14 +162,14 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('finalizar-pedido') }}">
                         @csrf
-                        <input hidden name="direccion_personal" id="direccion_personal" required>
+                        <input hidden name="direccion_personal_id" id="direccion_personal_id">
                         <div class="form-group">
                             <label for="numero_tarjeta">Número de Tarjeta</label>
-                            <input type="text" class="form-control" id="numero_tarjeta" maxlength="19" name="numero_tarjeta" placeholder="Número de Tarjeta" required>
+                            <input type="text" class="form-control" id="numero_tarjeta" maxlength="19" name="numero_tarjeta" placeholder="Número de Tarjeta" value="{{ old('numero_tarjeta')}}" required>
                         </div>
                         <div class="form-group">
                             <label for="cvc">CVC</label>
-                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC/CDC" maxlength="4"  required>
+                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC/CDC" maxlength="4" value="{{ old('cvc')}}" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
                     </form>

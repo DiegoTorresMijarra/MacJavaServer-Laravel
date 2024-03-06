@@ -4,26 +4,39 @@ namespace App\Http\Requests;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
-use App\Models\DireccionPersonal;
 
 class CarritoRequest extends FormRequest
 {
     public function rules(): array
     {
-        $direcciones = Auth::user()->direcciones()->get('id');
+        $direcciones = Auth::user()->direcciones()->pluck('id')->toArray();
 
         return [
             'numero_tarjeta'=>['required','regex:/^\d{4}-\d{4}-\d{4}-\d{4}$/'],
-            'cvc'=>['required','integer','max:9999'],
-            'direccion_personal'=>['required',Rule::in($direcciones)],
+            'cvc'=>['required','integer','digits_between:3,4'],
+
+            'direccion_personal_id'=>['required',Rule::in($direcciones)],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'direccion_personal.in' => 'La dirección seleccionada no es válida.',
+            'direccion_personal_id.required'=>'Debes seleccionar una direccion para el pedido',
+            'direccion_personal_id.in' => 'La dirección seleccionada no es válida.',
         ];
+    }
+
+    public function validarYTransformar()
+    {
+        if ($this->validated()) {
+            $this->merge([
+                'numero_tarjeta' =>Crypt::encryptString($this->numero_tarjeta),
+                'cvc' => Crypt::encryptString($this->cvc),
+            ]);
+            return $this;
+        }
     }
 }

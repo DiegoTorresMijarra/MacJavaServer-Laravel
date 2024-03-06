@@ -98,7 +98,7 @@ class User extends Authenticatable
      */
     public function destroyImage(): void
     {
-        if ($this->avatar != User::$AVATAR_DEFAULT && Storage::disk($this->avatar)) {
+        if ($this->avatar != User::$AVATAR_DEFAULT && Storage::exists($this->avatar)) {
             // Eliminamos la imagen
             Storage::delete($this->avatar);
 

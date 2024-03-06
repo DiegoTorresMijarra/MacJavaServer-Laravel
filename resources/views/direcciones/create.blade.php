@@ -1,15 +1,12 @@
 @php use App\Models\Direccion; @endphp
-{{-- Heredamos de nuestra plantilla --}}
+
 @extends('main')
 
-{{-- Ponemos el título --}}
 @section('title', 'Crear Direccion')
 
-{{-- Agregamos el contenido de la página --}}
 @section('content')
-    <h1>Primero crear una nueva direccion</h1>
+    <a class="btn mx-2" href="{{ route('restaurantes.index') }}" style="background-color: transparent; font-size: 50px; color: #413f3d"><-</a>
 
-    {{-- Codigos de validación de los errores, ver request validate del controlador --}}
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -22,47 +19,72 @@
         <br/>
     @endif
 
-    <form action="{{ route("direcciones.store") }}" method="post">
+    <form class="d-flex flex-column" action="{{ route("direcciones.store") }}" method="post" style="border-top: 2px solid #413f3d; padding: 20px">
         @csrf
-        <div class="form-group">
-            <label for="pais">Pais:</label>
-            <input class="form-control" id="pais" name="pais" type="text" required>
+        <div class="row">
+            <div class="col d-flex flex-column" style="border-left: 2px solid coral">
+                <h5>Crea una direccion</h5>
+                <p>(*) Campo obligatorio</p>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="provincia">Provincia:</label>
-            <input class="form-control" id="provincia" name="provincia" type="text" required>
+        <br>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="pais" class="form-control-sm">(*)Pais</label>
+                <input class="form-control form-control-sm" id="pais" name="pais" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="municipio">Municipio:</label>
-            <input class="form-control" id="municipio" name="municipio" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="provincia" class="form-control-sm">(*)Provincia</label>
+                <input class="form-control form-control-sm" id="provincia" name="provincia" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="codigoPostal">Codigo Postal:</label>
-            <input class="form-control" id="codigoPostal" name="codigoPostal" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="municipio" class="form-control-sm">(*)Municipio</label>
+                <input class="form-control form-control-sm" id="municipio" name="municipio" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="calle">Calle:</label>
-            <input class="form-control" id="calle" name="calle" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="codigoPostal" class="form-control-sm">(*)Codigo Postal</label>
+                <input class="form-control form-control-sm" id="codigoPostal" name="codigoPostal" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="numero">Numero:</label>
-            <input class="form-control" id="numero" name="numero" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="calle" class="form-control-sm">(*)Calle</label>
+                <input class="form-control form-control-sm" id="calle" name="calle" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="portal">Portal:</label>
-            <input class="form-control" id="portal" name="portal" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="numero" class="form-control-sm">(*)Numero</label>
+                <input class="form-control form-control-sm" id="numero" name="numero" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="piso">Piso:</label>
-            <input class="form-control" id="piso" name="piso" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="portal" class="form-control-sm">(*)Portal</label>
+                <input class="form-control form-control-sm" id="portal" name="portal" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="infoAdicional">Info Adicional:</label>
-            <input class="form-control" id="infoAdicional" name="infoAdicional" type="text" required>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="piso" class="form-control-sm">(*)Piso</label>
+                <input class="form-control form-control-sm" id="piso" name="piso" type="text" required style="margin-bottom: 10px">
+            </div>
         </div>
-
-        <button class="btn btn-primary" type="submit">Crear</button>
-        <a class="btn btn-secondary mx-2" href="{{ route('direcciones.index') }}">Volver</a>
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <label for="infoAdicional" class="form-control-sm">(*)Info Adicional</label>
+                <input class="form-control form-control-sm" id="infoAdicional" name="infoAdicional" type="text" required style="margin-bottom: 10px">
+            </div>
+        </div>
+        <br>
+        <div>
+            <button class="btn" type="submit" style=" background-color: coral; color: white">Crear</button>
+        </div>
     </form>
-
 @endsection

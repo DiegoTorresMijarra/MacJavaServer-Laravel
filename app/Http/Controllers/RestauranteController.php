@@ -16,6 +16,11 @@ class RestauranteController extends Controller
         return view('restaurantes.index')->with('restaurantes', $restaurantes);
     }
 
+    public function inicioRestaurantes(Request $request){
+        $restaurantes = Restaurante::search($request->search)->orderBy('id', 'asc')->paginate(4);
+        return view('index')->with('restaurantes', $restaurantes);
+    }
+
     public function show($id)
     {
         $restaurante = Restaurante::find($id);

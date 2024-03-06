@@ -3,10 +3,6 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
-      <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
-      <sourceFolder url="file://$MODULE_DIR$/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
@@ -34,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/sanctum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/serializable-closure" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -122,26 +119,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/_laravel_idea" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/archtechx/enums" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/dragon-code/contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/dragon-code/pretty-array" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/dragon-code/support" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/actions" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/attributes" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/common" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/http-statuses" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/json-fallback" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/lang" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/locale-list" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/locales" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/native-country-names" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/native-currency-names" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/native-locale-names" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-lang/publisher" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

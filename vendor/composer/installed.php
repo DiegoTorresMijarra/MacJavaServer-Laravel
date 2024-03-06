@@ -1,9 +1,15 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
+<<<<<<< Updated upstream
         'pretty_version' => 'dev-feature/usuarios&direccionPersonal',
         'version' => 'dev-feature/usuarios&direccionPersonal',
         'reference' => '7035086c88bb34ea6e7f0f73d48027c2f3aea0ea',
+=======
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => '124ac3ead02102e06aa6e9958500df1e0c988288',
+>>>>>>> Stashed changes
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -542,9 +548,15 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
+<<<<<<< Updated upstream
             'pretty_version' => 'dev-feature/usuarios&direccionPersonal',
             'version' => 'dev-feature/usuarios&direccionPersonal',
             'reference' => '7035086c88bb34ea6e7f0f73d48027c2f3aea0ea',
+=======
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => '124ac3ead02102e06aa6e9958500df1e0c988288',
+>>>>>>> Stashed changes
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -605,9 +617,9 @@
             'dev_requirement' => false,
         ),
         'laravel/ui' => array(
-            'pretty_version' => 'v4.4.0',
-            'version' => '4.4.0.0',
-            'reference' => '7335d7049b2cde345c029e9d2de839b80af62bc0',
+            'pretty_version' => 'v4.5.0',
+            'version' => '4.5.0.0',
+            'reference' => 'da3811f409297d13feccd5858ce748e7474b3d11',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/ui',
             'aliases' => array(),

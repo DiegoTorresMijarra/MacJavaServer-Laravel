@@ -15,6 +15,7 @@ use App\Models\User;
                         <a class="nav-link" href="{{ route('index') }}" style="color: coral">Inicio</a>
                         <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Productos</a>
                         <a class="nav-link" href="{{ route('productos.offers') }}" style="color: coral">Ofertas</a>
+                        <a class="nav-link" href="{{ route('restaurantes.index') }}" style="color: coral">Restaurantes</a>
                     </li>
                 </ul>
             </div>
@@ -29,11 +30,11 @@ use App\Models\User;
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('productos.index') }}">Productos</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Restaurantes</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('restaurantes.index') }}">Restaurantes</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Trabajadores</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('trabajadores.index') }}">Trabajadores</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Usuarios</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('users.index') }}">Usuarios</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('categorias.index') }}">Categorias</a>
                     </div>
@@ -43,7 +44,7 @@ use App\Models\User;
 
             <div class="col-4 d-flex justify-content-end">
                 <ul class="navbar-nav">
-                    <li class="nav-item d-flex justify-content-around">
+                    <li class="nav-item d-flex justify-content-around" style="padding-right: 20px">
                         @if (Route::has('login'))
                             @auth
                                 <a class="nav-link" href="{{ route('logout') }}"
@@ -62,7 +63,7 @@ use App\Models\User;
                         @endif
                     </li>
                     @auth()
-                    <li class="nav-item ml-5">
+                    <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center">
 
                                     <a style="margin-right: 10px" href="{{ route ('home')  }}">

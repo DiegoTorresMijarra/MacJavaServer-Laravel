@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class DireccionController extends Controller
 {
-    public function index(Request $request)
-    {
-        $direcciones = Direccion::search($request->search)->orderBy('id', 'asc')->paginate(4);
-        return view('direcciones.index')->with('direcciones', $direcciones);
-    }
 
     public function show($id)
     {
@@ -49,7 +44,7 @@ class DireccionController extends Controller
         try {
             $direccion = new Direccion($request->all());
             $direccion->save();
-            return redirect()->route('restaurantes.create');
+            return redirect()->route('restaurantes.index');
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -85,7 +80,7 @@ class DireccionController extends Controller
             }
             $direccion->update($request->all());
             $direccion->save();
-            return redirect()->route('direcciones.index');
+            return redirect()->route('restaurantes.index');
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -101,7 +96,7 @@ class DireccionController extends Controller
             }
             $direccion->delete();
 
-            return redirect()->route('direcciones.index');
+            return redirect()->route('restaurantes.index');
         } catch (Exception $e) {
             return redirect()->back();
         }

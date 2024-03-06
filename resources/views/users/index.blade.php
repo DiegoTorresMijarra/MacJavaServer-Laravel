@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-3 d-flex justify-content-center align-items-center">
-            <form action="{{ route('usuarios.index') }}" class="mb-3" method="get">
+            <form action="{{ route('users.index') }}" class="mb-3" method="get">
                 @csrf
                 <div class="group">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -21,7 +21,7 @@
         </div>
         <div class="col-7"></div>
         <div class="col-2 d-flex justify-content-center align-items-center">
-            <a class="btn btn-success" href="{{ route('usuarios.create') }}">Nuevo Usuario</a>
+            <a class="btn btn-success" href="{{ route('users.create') }}">Nuevo Usuario</a>
         </div>
     </div>
 

@@ -72,7 +72,7 @@
         </div>
         <br>
         <div>
-            <button class="btn" type="submit" style="background-color: coral; color: white">Crear</button>
+            <button class="btn" type="submit" style=" background-color: coral; color: white">Crear</button>
         </div>
     </form>
 

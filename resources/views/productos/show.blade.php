@@ -101,6 +101,8 @@
                                 </form>
                             @endif
                             </div>
+                        @else
+                            <p class="stockProductoNoDisponible"> Inicie Sesion para comprar</p>
                         @endif
                     </div>
                 </dl>

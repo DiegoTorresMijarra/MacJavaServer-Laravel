@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LineaPedidoProvisionalRequest;
+use App\Models\Producto;
 use http\Env\Request;
 use Illuminate\Validation\ValidationException;
 use Redirect;
@@ -72,6 +73,28 @@ class CarritoController extends Controller
 
     public function getCarritoSession()
     {
-        return CarritoController::singletonPedido();
+        $carritoSession = CarritoController::singletonPedido();
+
+        $lineas = [];
+        $total = 0;
+
+        if(!empty($carritoSession))
+        {
+            foreach ($carritoSession as $linea)
+            {
+                $producto = Producto::findOrFail($linea['producto_id']);
+                $subtotal = $linea['precio']*$linea['stock'];
+
+                $total += $subtotal;
+                $lineas[] = [
+                    'producto' => $producto,
+                    'precio' => $linea['precio'],
+                    'stock' => $linea['stock'],
+                    'subtotal'=> $subtotal,
+                ];
+            }
+        }
+
+        return view('carrito')->with('carrito',['total'=>$total, 'lineas'=>$lineas]);
     }
 }

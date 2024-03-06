@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc0000bd-0603-4cb6-8b53-51b037732acc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductoRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Producto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/productos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,25 +179,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "git-widget-placeholder": "feature/usuarios&&direccionPersonal",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/resources/views",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/carritoCompra&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/public/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\public\images" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\resources\views" />
     </key>
   </component>
@@ -206,6 +215,7 @@
       <workItem from="1709634955934" duration="37000" />
       <workItem from="1709635018907" duration="14851000" />
       <workItem from="1709661432861" duration="614000" />
+      <workItem from="1709710030736" duration="888000" />
     </task>
     <servers />
   </component>

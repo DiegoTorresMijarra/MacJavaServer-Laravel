@@ -10,7 +10,7 @@
             @if($producto->imagen != Producto::$IMAGE_DEFAULT)
                 <img alt="Imagen del funko" class="img-fluid" style="height: 450px; width: 450px" src="{{ asset('storage/' . $producto->imagen) }}">
             @else
-                <img alt="Imagen por defecto" class="img-fluid" style="height: 450px; width: 450px" src="{{ Producto::$IMAGE_DEFAULT }}">
+                <img alt="Imagen por defecto" class="img-fluid" style="height: 450px; width: 450px" src="{{ asset( Producto::$IMAGE_DEFAULT )}}">
             @endif
         </div>
         <div class="col-6 d-flex align-items-center" style="border-left: 2px solid coral;">
@@ -41,7 +41,13 @@
                             @endif
                         </div>
                         <div class="col-6">
-                            <a class="btn float-right" href="#" style="color: white; background-color: coral">Agregar al carrito</a>
+                            <form class="form-control">
+                                <input hidden name="producto_id" id="producto_id" value="{{ $producto->id }}" >
+                                <input hidden name="precio" id="precio" value="{{ $producto->precio }}" >
+
+                                <input type="number" name="stock" id="stock" value="1" step="1">
+                                <a class="btn float-right" href="#" style="color: white; background-color: coral">Agregar al carrito</a>
+                            </form>
                         </div>
                     </div>
                 </dl>

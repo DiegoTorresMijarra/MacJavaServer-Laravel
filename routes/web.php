@@ -25,37 +25,36 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [ProductoController::class, 'inicioRestaurantes'])->name('index');
 
-
 Route::prefix('direcciones-personales')->group( function (){
-    Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show');
-    Route::get('/create/direccion-personal',[DireccionPersonalController::class,'create'])->name('direccion-personal.create');
-    Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store');
-    Route::get('/{id}/edit',[DireccionPersonalController::class,'edit'])->name('direccion-personal.edit');
-    Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update');
-    Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy');
+    Route::get('/{id}',[DireccionPersonalController::class,'show'])->name('direccion-personal.show')->middleware('auth');
+    Route::get('/create/direccion-personal',[DireccionPersonalController::class,'create'])->name('direccion-personal.create')->middleware('auth');
+    Route::post('/',[DireccionPersonalController::class,'store'])->name('direccion-personal.store')->middleware('auth');
+    Route::get('/{id}/edit',[DireccionPersonalController::class,'edit'])->name('direccion-personal.edit')->middleware('auth');
+    Route::put('/{id}',[DireccionPersonalController::class,'update'])->name('direccion-personal.update')->middleware('auth');
+    Route::delete('/{id}',[DireccionPersonalController::class,'destroy'])->name('direccion-personal.destroy')->middleware('auth');
 });
 
 Route::group(['prefix' => 'productos'], function () {
     Route::get('/', [ProductoController::class, 'index'])->name('productos.index');
     Route::get('/ofertas', [ProductoController::class, 'offers'])->name('productos.offers');
-    Route::get('/create', [ProductoController::class, 'create'])->name('productos.create');
+    Route::get('/create', [ProductoController::class, 'create'])->name('productos.create')->middleware('auth','admin');
     Route::get('/{producto}', [ProductoController::class, 'show'])->name('productos.show');
-    Route::post('/', [ProductoController::class, 'store'])->name('productos.store');
-    Route::get('/{producto}/update', [ProductoController::class, 'edit'])->name('productos.edit');
-    Route::put('/{producto}', [ProductoController::class, 'update'])->name('productos.update');
-    Route::delete('/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
-    Route::get('/{producto}/image', [ProductoController::class, 'editImage'])->name('productos.editImage');
-    Route::patch('/{producto}/image', [ProductoController::class, 'updateImage'])->name('productos.updateImage');
+    Route::post('/', [ProductoController::class, 'store'])->name('productos.store')->middleware('auth','admin');
+    Route::get('/{producto}/update', [ProductoController::class, 'edit'])->name('productos.edit')->middleware('auth','admin');
+    Route::put('/{producto}', [ProductoController::class, 'update'])->name('productos.update')->middleware('auth','admin');
+    Route::delete('/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy')->middleware('auth','admin');
+    Route::get('/{producto}/image', [ProductoController::class, 'editImage'])->name('productos.editImage')->middleware('auth','admin');
+    Route::patch('/{producto}/image', [ProductoController::class, 'updateImage'])->name('productos.updateImage')->middleware('auth','admin');
 });
 
 Route::group(['prefix' => 'categorias'], function () {
-    Route::get('/', [CategoriaController::class, 'index'])->name('categorias.index');
-    Route::get('/create', [CategoriaController::class, 'create'])->name('categorias.create');
-    Route::get('/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show');
-    Route::post('/', [CategoriaController::class, 'store'])->name('categorias.store');
-    Route::get('/{categoria}/update', [CategoriaController::class, 'edit'])->name('categorias.edit');
-    Route::put('/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
-    Route::delete('/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+    Route::get('/', [CategoriaController::class, 'index'])->name('categorias.index')->middleware('auth','admin');
+    Route::get('/create', [CategoriaController::class, 'create'])->name('categorias.create')->middleware('auth','admin');
+    Route::get('/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show')->middleware('auth','admin');
+    Route::post('/', [CategoriaController::class, 'store'])->name('categorias.store')->middleware('auth','admin');
+    Route::get('/{categoria}/update', [CategoriaController::class, 'edit'])->name('categorias.edit')->middleware('auth','admin');
+    Route::put('/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update')->middleware('auth','admin');
+    Route::delete('/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy')->middleware('auth','admin');
 });
 
 Route::prefix('users')->group( function (){
@@ -68,11 +67,12 @@ Route::prefix('users')->group( function (){
 });
 
 Route::prefix('carrito')->group( function (){
-   Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea');
-   Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito');
-   Route::post('/create',[CarritoController::class,'createPedido'])->name('finalizar-pedido');
-   Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea');
+   Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea')->middleware('auth');
+   Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito')->middleware('auth');
+   Route::post('/create',[CarritoController::class,'createPedido'])->name('finalizar-pedido')->middleware('auth');
+   Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea')->middleware('auth');
 });
-Route::get('/pedido/details/{id}',[PedidoController::class,'show'])->name('pedido.details');
 
-Route::get('/pedido/{id}/pdf', [PedidoController::class,'toPdf'])->name('pdf');
+Route::get('/pedido/details/{id}',[PedidoController::class,'show'])->name('pedido.details')->middleware('auth');
+
+Route::get('/pedido/{id}/pdf', [PedidoController::class,'toPdf'])->name('pdf')->middleware('auth');

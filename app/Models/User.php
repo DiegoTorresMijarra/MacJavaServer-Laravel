@@ -60,8 +60,7 @@ class User extends Authenticatable
     }
     public function pedidos()
     {
-        return [[],[]];
-        //return $this->hasMany(Pedidos::class);
+return $this->hasMany(Pedidos::class);
     }
     public function empleado(): ?HasOne
     {

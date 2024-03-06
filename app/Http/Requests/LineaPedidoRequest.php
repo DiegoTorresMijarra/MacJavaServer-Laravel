@@ -16,12 +16,16 @@ class LineaPedidoRequest extends FormRequest
             'stock' => ['required', 'integer','gte:1', 'lte:' . $producto->stock],
 
             'producto_id' => ['required', 'integer','exists:productos,id'],
-            'pedido_id' => ['nullable', 'uuid', 'exists:pedido'],
+            'pedido_id' => ['nullable', 'uuid', 'exists:pedidos,id'],
         ];
     }
 
     public function authorize(): bool
     {
         return true;
+    }
+    public function validar()
+    {
+        $this->validate($this->rules());
     }
 }

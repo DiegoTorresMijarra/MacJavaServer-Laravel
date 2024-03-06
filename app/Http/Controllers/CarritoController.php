@@ -7,6 +7,7 @@ use App\Http\Requests\LineaPedidoProvisionalRequest;
 use App\Http\Requests\LineaPedidoRequest;
 use App\Http\Requests\PedidoRequest;
 use App\Http\Resources\DireccionPersonalResource;
+use App\Http\Resources\PedidoResource;
 use App\Models\LineaPedido;
 use App\Models\Pedido;
 use App\Models\Producto;
@@ -129,31 +130,33 @@ class CarritoController extends Controller
     }
 
 
-    public function createPedido(Request $req)
+    public function createPedido(CarritoRequest $request)
     {
-        $request = CarritoRequest::createFrom($req);
         $request->validarYTransformar();
 
         $carrito = CarritoController::singletonPedido();
 
         if (empty($carrito))
         {
-            return response()->json(['errors' => ['carrito'=>'El carrito debe tener algun producto']], 400);
+            flash('El carrito está vacío')->error()->important();
+            return redirect(route('carrito'));
         }
 
-        $pedido=null;
+        $pedido = null;
 
         try
         {
-            $pedidoRequest =  CarritoRequest::createFrom($req);
+            $pedidoRequest =  PedidoRequest::createFrom($request);
 
             $data = array_merge(
                 $request->all(),
-                ['estado' => Pedido::$ESTADOS_POSIBLES[0]],
+                ['estado' => Pedido::$ESTADOS_POSIBLES[0],'user_id'=>Auth::user()->id],
                 $this->calculoTotales()
             );
 
-            $pedidoRequest->merge($data)->validated();
+            $pedidoRequest->merge($data);
+
+            $pedidoRequest->validar();
 
             $pedido = Pedido::create($pedidoRequest->all());
 
@@ -164,16 +167,23 @@ class CarritoController extends Controller
                 LineaPedido::create($linea);
             }
 
+            if(!$pedido->actualizarStockLineas())
+            {
+               throw new Exception('Error al actualizar el stock, intentelo mas tarde');
+            }
+
             flash('Pedido creado correctamente')->success()->important();
             Session::forget('carrito');
 
-            return response()->json($pedido, 201);
-        }catch (Exception $exception){
-            $pedido?->forceDelete();
+            return response()->json(new PedidoResource($pedido), 201);
 
-            throw new BadRequestException('Algo a salido mal al crear el pedido:'.$exception->getMessage());
+        }catch (Exception $exception){
+            $pedido->forceDelete();//podriamos ponerlo a error tb
+
+            throw new BadRequestException('Algo a salido mal al crear el pedido: '.$exception->getMessage());
         }
     }
+
 
     private function calculoTotales()
     {
@@ -192,7 +202,7 @@ class CarritoController extends Controller
                 $precioTotal += $linea['precio']*$linea['stock'];
                 $stockTotal += $linea['stock'];
             }
-            return ['precioTotal'=>number_format($precioTotal, 2, '.', ''),'$stockTotal'=> $stockTotal];
+            return ['precioTotal'=>number_format($precioTotal, 2, '.', ''),'stockTotal'=> $stockTotal];
         }
     }
 
@@ -206,8 +216,10 @@ class CarritoController extends Controller
         try {
             foreach ($carrito as $linea)
             {
-                $validando = new LineaPedidoRequest($linea);
-                $validando->validated();
+                $validando = new LineaPedidoRequest();
+                $validando->merge($linea);
+
+                $validando->validar();
             }
             return true;
         }catch (ValidationException $exception){
@@ -222,9 +234,12 @@ class CarritoController extends Controller
             $requestLineas = [];
             foreach ($carrito as $linea)
             {
-                $validando = new LineaPedidoRequest(array_merge($linea,['pedido_id'=>$id]));
+                $validando = new LineaPedidoRequest();
+                $validando->merge(array_merge($linea, ['pedido_id'=>$id]));
 
-                $requestLineas [] = $validando;
+                $validando->validar();
+
+                $requestLineas [] = $validando->all();
             }
             return $requestLineas;
         }

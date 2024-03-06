@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc0000bd-0603-4cb6-8b53-51b037732acc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/CarritoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CarritoRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/LineaPedidoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LineaPedidoRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/PedidoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/PedidoRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PedidoResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PedidoResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/LineaPedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LineaPedido.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Pedido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_03_03_174329_create_pedidos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_03_03_174329_create_pedidos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/carrito.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/carrito.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_03_03_175159_create_lineas_pedidos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_03_03_175159_create_lineas_pedidos_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -22,6 +22,8 @@ class PedidoRequest extends FormRequest
             'numero_tarjeta' => ['required'],
             'cvc' => ['required'],
             'direccion_personal_id'=>['required',Rule::in($direcciones)],
+
+            'user_id' => ['required','exists:users,id']
         ];
     }
 
@@ -36,6 +38,11 @@ class PedidoRequest extends FormRequest
             'direccion_personal_id.required'=>'Debes seleccionar una direccion para el pedido',
             'direccion_personal_id.in' => 'La dirección seleccionada no es válida.',
         ];
+    }
+
+    public function validar(): void
+    {
+        $this->validate($this->rules());
     }
 
 }

@@ -31,7 +31,9 @@ class Pedido extends Model
 
         'numero_tarjeta',
         'cvc',
-        'direccion_personal_id'
+        'direccion_personal_id',
+
+        'user_id',
     ];
 
     protected $casts = [
@@ -65,13 +67,13 @@ class Pedido extends Model
 
     public function validarLineas(): bool
     {
-        $pedidos = $this->lineasPedido();
+        $pedidos = $this->lineasPedido()->get();
 
         $validos = true;
 
         foreach ($pedidos as $pedido)
         {
-            $validos = $validos && $pedido->validar();
+            $validos = $validos && $pedido->validarLinea();
         }
 
         return $validos;
@@ -79,7 +81,7 @@ class Pedido extends Model
 
     public function actualizarStockLineas(): bool
     {
-        $pedidos = $this->lineasPedido();
+        $pedidos = $this->lineasPedido()->get();
 
         $validos = true;
 

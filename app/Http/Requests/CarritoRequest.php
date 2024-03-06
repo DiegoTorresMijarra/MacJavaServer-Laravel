@@ -24,19 +24,20 @@ class CarritoRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'direccion_personal_id.required'=>'Debes seleccionar una direccion para el pedido',
+            'direccion_personal_id.required' => 'Debes seleccionar una dirección para el pedido.',
             'direccion_personal_id.in' => 'La dirección seleccionada no es válida.',
         ];
     }
 
     public function validarYTransformar()
     {
-        if ($this->validated()) {
-            $this->merge([
-                'numero_tarjeta' =>Crypt::encryptString($this->numero_tarjeta),
-                'cvc' => Crypt::encryptString($this->cvc),
-            ]);
-            return $this;
-        }
+        $this->validate($this->rules());
+
+        $this->merge([
+            'numero_tarjeta' => Crypt::encryptString($this->numero_tarjeta),
+            'cvc' => Crypt::encryptString($this->cvc),
+        ]);
+
+        return $this;
     }
 }

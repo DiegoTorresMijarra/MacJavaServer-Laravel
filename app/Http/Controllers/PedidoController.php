@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PedidoRequest;
 use App\Http\Resources\PedidoResource;
 use App\Models\Pedido;
+use Dompdf\Dompdf;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -57,5 +58,22 @@ class PedidoController extends Controller
         $pedido->delete();
 
         return response()->json();
+    }
+
+
+    public function toPdf($id)
+    {
+        $dompdf = new Dompdf();
+
+        $pedido = $this->getById($id);
+        $pedidoResource = new PedidoResource($pedido);
+
+        $html =  view('pedidos.pdf')->with('pedido', $pedidoResource->data())->render();
+
+        $dompdf->loadHtml($html);
+
+        $dompdf->render();
+
+        $dompdf->stream('Pedido_'.$id.'pdf');
     }
 }

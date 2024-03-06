@@ -103,8 +103,9 @@
         </table>
 
         <div class="mt-5">
-            <a class="btn btn-primary float-right" href="{{ pdf }}">Volver</a>
-            <a class="btn btn-secondary float-right" href="{{ route('home') }}">Volver</a>
+            <a class="btn btn-secondary float-right mr-2" href="{{ route('home') }}">Volver</a>
+            <a class="btn btn-primary float-right mr-2" href="{{ route('pdf',$pedido['id']) }}">Descargar en pdf</a>
+
         </div>
     </div>
 @endsection

@@ -168,7 +168,7 @@
                             <input type="text" class="form-control" id="numero_tarjeta" maxlength="19" name="numero_tarjeta" placeholder="Número de Tarjeta" value="{{ old('numero_tarjeta')}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="cvc">CVC</label>
+                            <label for="cvc">Nº Seguridad</label>
                             <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC/CDC" maxlength="4" value="{{ old('cvc')}}" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Finalizar Pedido</button>

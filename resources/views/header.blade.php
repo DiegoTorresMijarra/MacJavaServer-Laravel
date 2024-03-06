@@ -1,5 +1,14 @@
 <?php
-use App\Models\User;
+    use App\Models\User;
+    use App\Http\Controllers\CarritoController;
+    $carrito = CarritoController::singletonPedido();
+    $carritoLength;
+    if($carrito)
+    {
+        $carritoLength = count($carrito);
+    }else{
+        $carritoLength =0;
+    }
 ?>
 <header class="shadow-sm" style="background: #ffeeee; padding: 10px 0; margin-bottom: 30px; border-bottom: 2px solid coral; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -51,10 +60,16 @@ use App\Models\User;
                                                      document.getElementById('logout-form').submit();" style="color: coral">
                                     {{ __('Cerrar Sesion') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+
+                                @if(Auth::user()->rol === 'USER')
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('carrito') }}">
+                                        <img src="{{ asset('images/carrito.png') }}" alt="Carrito" width="30" height="30">
+                                        <span class="badge badge-pill badge-danger carritoLength ml-1">{{$carritoLength}}</span>
+                                    </a>
+                                @endif
                             @else
                                 <a href="{{ route('login') }}" class="nav-link" style="color: coral">Iniciar Sesion</a>
                                 <a href="{{ route('register') }}" class="nav-link" style="color: coral">Registrarse</a>
@@ -64,7 +79,6 @@ use App\Models\User;
                     @auth()
                     <li class="nav-item ml-5">
                         <div class="d-flex justify-content-center align-items-center">
-
                                     <a style="margin-right: 10px" href="{{ route ('home')  }}">
                                         @if(Auth::user()->avatar!==User::$AVATAR_DEFAULT)
                                             <img  alt="Imagen del user" src="{{ asset('storage/' . Auth::user()->avatar ) }}" height="40" width="40">

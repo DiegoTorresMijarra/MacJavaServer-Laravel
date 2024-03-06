@@ -10,7 +10,7 @@ class LineaPedidoRequest extends FormRequest
     {
         return [
             'precio' => ['required', 'numeric'],
-            'stock' => ['required', 'integer'],
+            'stock' => ['required', 'integer'], //'max:productos,stock'
 
             'producto_id' => ['required', 'integer','exists:productos,id'],
             'pedido_id' => ['required', 'uuid', 'exists:pedido,id'],

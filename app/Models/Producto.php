@@ -12,6 +12,7 @@ class Producto extends Model
     use SoftDeletes, HasFactory;
 
     public static string $IMAGE_DEFAULT = 'https://via.placeholder.com/150';
+
     protected $table = 'productos';
 
     protected $fillable = [

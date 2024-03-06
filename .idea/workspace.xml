@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc0000bd-0603-4cb6-8b53-51b037732acc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +177,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "git-widget-placeholder": "feature/usuarios&&direccionPersonal",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/resources/views",

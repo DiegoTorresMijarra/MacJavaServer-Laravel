@@ -67,7 +67,7 @@ class UserController extends Controller
 
             $this->updateImage($userReq);
 
-            $user = User::create($userReq->all());
+            $user = User::create(array_merge($userReq->all(),['rol','EMPLEADO']));
 
             $empleado = Trabajador::create(array_merge($empleadoReq->all(), ['user_id' => $user->id]));
 

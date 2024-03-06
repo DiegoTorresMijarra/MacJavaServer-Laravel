@@ -282,3 +282,13 @@ th{
     font-weight: 700;
     color: #ced4da;
 }
+
+/* varios */
+
+p.stockProductoNoDisponible {
+    color: #999; /* Color de texto gris */
+    font-style: italic; /* Estilo de fuente inclinada */
+}
+.cantidadSelector{
+    max-width: 84px;
+}

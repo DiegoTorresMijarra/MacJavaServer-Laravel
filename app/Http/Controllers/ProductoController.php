@@ -124,7 +124,7 @@ class ProductoController extends Controller
             $fileToSave = '_'.str_ireplace(' ','_',$producto->nombre). '.' . $extension;
             $producto->imagen = $imagen->storeAs('productos', $fileToSave, 'public'); // Guardamos la imagen en el disco storage/app/public/products
             $producto->save();
-            
+
             flash('Imagen del producto actualizado con éxito.')->warning()->important();
             return redirect()->route('productos.index');
         } catch (Exception $e) {

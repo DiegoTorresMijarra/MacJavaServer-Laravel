@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\DireccionPersonalController;
 use App\Http\Controllers\UserController;
 use App\Models\DireccionPersonal;
@@ -64,4 +65,9 @@ Route::prefix('users')->group( function (){
     Route::get('/{user}/edit',[UserController::class,'edit'])->name('users.edit');
     Route::put('/{user}',[UserController::class,'update'])->name('users.update');
     Route::delete('/{user}',[UserController::class,'destroy'])->name('users.destroy');
+});
+
+Route::prefix('carrito')->group( function (){
+   Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea');
+   Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito');
 });

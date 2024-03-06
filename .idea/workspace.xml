@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc0000bd-0603-4cb6-8b53-51b037732acc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/carrito.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/carrito.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +206,8 @@
       <workItem from="1709635018907" duration="14851000" />
       <workItem from="1709661432861" duration="614000" />
       <workItem from="1709710030736" duration="15224000" />
-      <workItem from="1709726298365" duration="6149000" />
+      <workItem from="1709726298365" duration="6227000" />
+      <workItem from="1709735779963" duration="554000" />
     </task>
     <servers />
   </component>

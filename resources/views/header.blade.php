@@ -1,7 +1,14 @@
 <?php
     use App\Models\User;
     use App\Http\Controllers\CarritoController;
-    $carritoLength = count(CarritoController::singletonPedido());
+    $carrito = CarritoController::singletonPedido();
+    $carritoLength;
+    if($carrito)
+    {
+        $carritoLength = count($carrito);
+    }else{
+        $carritoLength =0;
+    }
 ?>
 <header class="shadow-sm" style="background: #ffeeee; padding: 10px 0; margin-bottom: 30px; border-bottom: 2px solid coral; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">

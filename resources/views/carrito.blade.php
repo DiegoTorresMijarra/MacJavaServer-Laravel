@@ -14,10 +14,35 @@
 
         var direccionElement = document.getElementById(direccionId);
 
-        document.getElementById('direccion_personal').value = direccionId;
+        document.getElementById('direccion_personal_id').value = direccionId;
 
         direccionElement.classList.add('seleccionada');
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('numero_tarjeta').addEventListener('input', function(e) {
+            var target = e.target;
+            var position = target.selectionEnd;
+            var value = target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1-').trim();
+
+            // Si hay un guion al final, evita agregar otro guion
+            if (value.charAt(value.length - 1) === '-') {
+                value = value.slice(0, -1);
+            }
+
+            // Verifica si el número de caracteres excede el límite de 20 y ajusta el valor y la posición en consecuencia
+            if (value.length > 20) {
+                value = value.slice(0, 20);
+            }
+
+            // Aplica el formato al valor final
+            target.value = value;
+
+            // Ajusta la posición del cursor en función del cambio realizado
+            var diff = target.value.length - position;
+            target.setSelectionRange(position + diff, position + diff);
+        });
+    });
+
 </script>
 
 @extends('main')
@@ -25,6 +50,17 @@
 @section('title', 'Carrito de Compra')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        <br/>
+    @endif
     <div class="container">
         <div class="card">
             <div class="card-header">  <h2>Carrito de Compra</h2></div>
@@ -75,7 +111,6 @@
                 @else
                     <p>No hay productos en el carrito.</p>
                 @endif
-
             </div>
         </div>
         @if( count($carrito['lineas']) > 0)
@@ -127,14 +162,14 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('finalizar-pedido') }}">
                         @csrf
-                        <input hidden value="" name="direccion_personal" id="direccion_personal">
+                        <input hidden name="direccion_personal_id" id="direccion_personal_id">
                         <div class="form-group">
                             <label for="numero_tarjeta">Número de Tarjeta</label>
-                            <input type="text" class="form-control" id="numero_tarjeta" name="numero_tarjeta" placeholder="Número de Tarjeta" required>
+                            <input type="text" class="form-control" id="numero_tarjeta" maxlength="19" name="numero_tarjeta" placeholder="Número de Tarjeta" value="{{ old('numero_tarjeta')}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="cvc">CVC</label>
-                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC" required>
+                            <label for="cvc">Nº Seguridad</label>
+                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC/CDC" maxlength="4" value="{{ old('cvc')}}" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
                     </form>

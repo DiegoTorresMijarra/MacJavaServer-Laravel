@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CarritoRequest;
 use App\Http\Requests\LineaPedidoProvisionalRequest;
+use App\Http\Requests\LineaPedidoRequest;
+use App\Http\Requests\PedidoRequest;
 use App\Http\Resources\DireccionPersonalResource;
+use App\Http\Resources\PedidoResource;
+use App\Models\LineaPedido;
+use App\Models\Pedido;
 use App\Models\Producto;
-use http\Env\Request;
+use App\Models\User;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Redirect;
@@ -121,4 +129,120 @@ class CarritoController extends Controller
         return redirect()->back();
     }
 
+
+    public function createPedido(CarritoRequest $request)
+    {
+        $request->validarYTransformar();
+
+        $carrito = CarritoController::singletonPedido();
+
+        if (empty($carrito))
+        {
+            flash('El carrito está vacío')->error()->important();
+            return redirect(route('carrito'));
+        }
+
+        $pedido = null;
+
+        try
+        {
+            $pedidoRequest =  PedidoRequest::createFrom($request);
+
+            $data = array_merge(
+                $request->all(),
+                ['estado' => Pedido::$ESTADOS_POSIBLES[0],'user_id'=>Auth::user()->id],
+                $this->calculoTotales()
+            );
+
+            $pedidoRequest->merge($data);
+
+            $pedidoRequest->validar();
+
+            $pedido = Pedido::create($pedidoRequest->all());
+
+            $lineas = $this->requestLineasConIdPedido($pedido->id);
+
+            foreach ($lineas as $linea)
+            {
+                LineaPedido::create($linea);
+            }
+
+            if(!$pedido->actualizarStockLineas())
+            {
+               throw new Exception('Error al actualizar el stock, intentelo mas tarde');
+            }
+
+            flash('Pedido creado correctamente')->success()->important();
+            Session::forget('carrito');
+
+            return redirect(route('pedido.details', $pedido->id));
+
+        }catch (Exception $exception){
+            $pedido->forceDelete();//podriamos ponerlo a error tb
+
+            throw new BadRequestException('Algo a salido mal al crear el pedido: '.$exception->getMessage());
+        }
+    }
+
+
+    private function calculoTotales()
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        $precioTotal = 0.00;
+        $stockTotal = 0;
+
+        if (empty($carrito))
+        {
+            //exception?
+            return [$precioTotal, $stockTotal];
+        }else{
+            foreach ($carrito as $linea)
+            {
+                $precioTotal += $linea['precio']*$linea['stock'];
+                $stockTotal += $linea['stock'];
+            }
+            return ['precioTotal'=>number_format($precioTotal, 2, '.', ''),'stockTotal'=> $stockTotal];
+        }
+    }
+
+    private function requestLineasValidadas():bool
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        if (empty($carrito)){
+            return false;
+        }
+        try {
+            foreach ($carrito as $linea)
+            {
+                $validando = new LineaPedidoRequest();
+                $validando->merge($linea);
+
+                $validando->validar();
+            }
+            return true;
+        }catch (ValidationException $exception){
+            return false;
+        }
+    }
+    private function requestLineasConIdPedido($id)
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        if(empty(!$carrito) && $this->requestLineasValidadas() && $id && uuid_is_valid($id)){
+            $requestLineas = [];
+            foreach ($carrito as $linea)
+            {
+                $validando = new LineaPedidoRequest();
+                $validando->merge(array_merge($linea, ['pedido_id'=>$id]));
+
+                $validando->validar();
+
+                $requestLineas [] = $validando->all();
+            }
+            return $requestLineas;
+        }
+        return null;
+    }
 }

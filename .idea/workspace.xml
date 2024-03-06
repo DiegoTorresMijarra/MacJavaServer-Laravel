@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc0000bd-0603-4cb6-8b53-51b037732acc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pedidos/pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PedidoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PedidoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/carrito.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/carrito.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pedidos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pedidos/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +171,11 @@
       <path value="$PROJECT_DIR$/vendor/laravel-lang/locale-list" />
       <path value="$PROJECT_DIR$/vendor/laravel-lang/native-locale-names" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -209,6 +226,7 @@
       <workItem from="1709710030736" duration="15224000" />
       <workItem from="1709726298365" duration="6227000" />
       <workItem from="1709735779963" duration="554000" />
+      <workItem from="1709766715191" duration="1292000" />
     </task>
     <servers />
   </component>

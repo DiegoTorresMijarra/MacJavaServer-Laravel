@@ -25,16 +25,27 @@ class Pedido extends Model
 
     protected $fillable = [
         'estado',
+
         'precioTotal',
         'stockTotal',
+
+        'numero_tarjeta',
+        'cvc',
+        'direccion_personal_id',
+
+        'user_id',
     ];
 
-    protected function user(): BelongsTo
+    protected $casts = [
+        'numero_tarjeta' => 'encrypted',
+        'cvc' => 'encrypted',
+    ];
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    protected function direccionPersonal(): BelongsTo
+    public function direccionPersonal(): BelongsTo
     {
         return $this->belongsTo(DireccionPersonal::class);
     }
@@ -56,13 +67,13 @@ class Pedido extends Model
 
     public function validarLineas(): bool
     {
-        $pedidos = $this->lineasPedido();
+        $pedidos = $this->lineasPedido()->get();
 
         $validos = true;
 
         foreach ($pedidos as $pedido)
         {
-            $validos = $validos && $pedido->validar();
+            $validos = $validos && $pedido->validarLinea();
         }
 
         return $validos;
@@ -70,7 +81,7 @@ class Pedido extends Model
 
     public function actualizarStockLineas(): bool
     {
-        $pedidos = $this->lineasPedido();
+        $pedidos = $this->lineasPedido()->get();
 
         $validos = true;
 

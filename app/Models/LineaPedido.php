@@ -34,9 +34,9 @@ class LineaPedido extends Model
 
     public function validarLinea(): bool
     {
-        $producto = $this->producto();
+        $producto = $this->producto()->first();
 
-        if($producto->exists() && $producto->precio===$this->precio && $producto->stock>=$this->stock)
+        if($producto->precio==$this->precio && $producto->stock>=$this->stock)
         {
             return true;
         }
@@ -47,7 +47,7 @@ class LineaPedido extends Model
     {
         if ($this->validarLinea())
         {
-            $producto = $this->producto();
+            $producto = $this->producto()->first();
             $producto->stock -= $this->stock;
             $producto->save();
 

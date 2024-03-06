@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\DireccionPersonalController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\UserController;
-use App\Models\DireccionPersonal;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +70,9 @@ Route::prefix('users')->group( function (){
 Route::prefix('carrito')->group( function (){
    Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea');
    Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito');
-   Route::post('create',[CarritoController::class,'createPedido'])->name('finalizar-pedido');
+   Route::post('/create',[CarritoController::class,'createPedido'])->name('finalizar-pedido');
    Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea');
 });
+Route::get('/pedido/details/{id}',[PedidoController::class,'show'])->name('pedido.details');
+
+Route::get('/pedido/{id}/pdf', [PedidoController::class,'toPdf'])->name('pdf');

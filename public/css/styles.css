@@ -308,3 +308,6 @@ p.stockProductoNoDisponible {
     align-items: center;
     justify-content: center;
 }
+th {
+    background-color: #f88966;
+}

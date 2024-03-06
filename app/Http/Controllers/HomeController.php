@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\DireccionPersonalResource;
+use App\Http\Resources\PedidoResource;
 use App\Models\DireccionPersonal;
 use App\Models\User;
 use Auth;
@@ -53,7 +54,7 @@ class HomeController extends Controller
     private function userHome(User $user)
     {
 
-        $pedidos = $user->pedidos(); //->activos()->paginate(3);
+        $pedidos = PedidoResource::collection($user->pedidos()->paginate(6)); //->activos()->paginate(3);
 
         //devolver historicos en otro paginate?
 
@@ -63,9 +64,7 @@ class HomeController extends Controller
 
         //editar datos, avatar
 
-        return view('home')->with('direcciones', $direcciones);
-        //->with('direcciones', $direcciones);
-            //->with(['direcciones' => $direcciones]);
+        return view('home')->with('direcciones', $direcciones)->with('pedidos',$pedidos);
     }
 
     private function empleadoHome(User $user)

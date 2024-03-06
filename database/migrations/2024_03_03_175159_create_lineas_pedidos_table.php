@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->decimal('precio');
             $table->integer('stock');
             $table->foreignId('producto_id')->constrained('productos');
-            $table->foreignUuid('pedido_id')->constrained('pedidos');
+            $table->foreignUuid('pedido_id')->constrained('pedidos')->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

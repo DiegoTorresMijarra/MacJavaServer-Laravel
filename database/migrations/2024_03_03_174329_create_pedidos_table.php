@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->enum('estado', Pedido::$ESTADOS_POSIBLES)->default(Pedido::$ESTADOS_POSIBLES[0]);
             $table->decimal('precioTotal');
             $table->integer('stockTotal');
+            $table->string('numero_tarjeta',1000); //los numeros de tarjeta son bastante largos, una vez cifrados
+            $table->string('cvc',1000);
             $table->foreignId('user_id')->constrained('users');
             $table->foreignUuid('direccion_personal_id')->constrained('direcciones_personales');
             $table->softDeletes();

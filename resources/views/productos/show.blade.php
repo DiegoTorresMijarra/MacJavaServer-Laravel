@@ -1,10 +1,28 @@
 @php use App\Models\Producto; @endphp
 
 @extends('main')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('plus-btn').addEventListener('click', function() {
+            if (parseInt(document.getElementById('stock').value) < {{$producto->stock}}) {
+                document.getElementById('stock').value = parseInt(document.getElementById('stock').value) + 1;
+            }else {
+                document.getElementById('stock').value ={{$producto->stock}};
+            }
+        });
+
+        document.getElementById('minus-btn').addEventListener('click', function() {
+            if (parseInt(document.getElementById('stock').value) > 1) {
+                document.getElementById('stock').value = parseInt(document.getElementById('stock').value) - 1;
+            }
+        });
+    });
+</script>
 
 @section('title', 'Detalles Producto')
 
 @section('content')
+
     <div class="row mt-4">
         <div class="col-6" style="border-right: 2px solid coral">
             @if($producto->imagen != Producto::$IMAGE_DEFAULT)
@@ -41,11 +59,20 @@
                             @endif
                         </div>
                         <div class="col-6">
-                            <form class="form-control">
+                            <form action="{{ route('anadir-carrito') }}" method="post">
+                                @csrf
                                 <input hidden name="producto_id" id="producto_id" value="{{ $producto->id }}" >
                                 <input hidden name="precio" id="precio" value="{{ $producto->precio }}" >
 
-                                <input type="number" name="stock" id="stock" value="1" step="1">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="minus-btn">-</button>
+                                    </div>
+                                    <input type="text" class="form-control text-center" value="1" aria-label="Cantidad"  id="stock" name="stock">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="plus-btn">+</button>
+                                    </div>
+                                </div>
                                 <a class="btn float-right" href="#" style="color: white; background-color: coral">Agregar al carrito</a>
                             </form>
                         </div>

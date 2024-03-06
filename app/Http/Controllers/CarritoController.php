@@ -103,18 +103,22 @@ class CarritoController extends Controller
         return view('carrito')->with('carrito',['total'=>$total, 'lineas'=>$lineas])->with('direcciones', $direcciones);
     }
 
-    public function deleteLinea($index)
+    public function deleteLinea($producto_id)
     {
         $carrito = CarritoController::singletonPedido();
 
-        if ($index >= 0 && $index < count($carrito)) {
-            unset($carrito[$index]);
+        $linea = CarritoController::getLineaProducto($producto_id);
+
+        if ($linea) {
+            unset($carrito[$linea['index']]);
             Session::put('carrito', $carrito);
+
             flash('Producto eliminado del carrito correctamente')->success()->important();
         } else {
-            flash('El índice proporcionado no es válido')->error()->important();
+            flash('El producto seleccionado no está en el carrito')->error()->important();
         }
 
         return redirect()->back();
     }
+
 }

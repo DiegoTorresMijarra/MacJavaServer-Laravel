@@ -56,7 +56,7 @@
                                 <td>{{ $linea['stock'] }}</td>
                                 <td>{{ $linea['subtotal'] }}</td>
                                 <td>
-                                    <form action="{{ route('delete-linea', $index) }}" method="POST">
+                                    <form action="{{ route('delete-linea', $linea['producto']->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Eliminar</button>

@@ -286,9 +286,25 @@ th{
 /* varios */
 
 p.stockProductoNoDisponible {
-    color: #999; /* Color de texto gris */
-    font-style: italic; /* Estilo de fuente inclinada */
+    color: #999;
+    font-style: italic;
 }
 .cantidadSelector{
     max-width: 84px;
+}
+.seleccionada {
+    border: 3px solid orange;
+}
+
+.carritoLength {
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #dc3545;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

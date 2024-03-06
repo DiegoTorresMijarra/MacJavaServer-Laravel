@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LineaPedidoProvisionalRequest;
+use App\Http\Resources\DireccionPersonalResource;
 use App\Models\Producto;
 use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Redirect;
 use Session;
@@ -95,6 +97,24 @@ class CarritoController extends Controller
             }
         }
 
-        return view('carrito')->with('carrito',['total'=>$total, 'lineas'=>$lineas]);
+        $direcciones = DireccionPersonalResource::collection(Auth::user()->direcciones()->paginate(6));
+
+
+        return view('carrito')->with('carrito',['total'=>$total, 'lineas'=>$lineas])->with('direcciones', $direcciones);
+    }
+
+    public function deleteLinea($index)
+    {
+        $carrito = CarritoController::singletonPedido();
+
+        if ($index >= 0 && $index < count($carrito)) {
+            unset($carrito[$index]);
+            Session::put('carrito', $carrito);
+            flash('Producto eliminado del carrito correctamente')->success()->important();
+        } else {
+            flash('El índice proporcionado no es válido')->error()->important();
+        }
+
+        return redirect()->back();
     }
 }

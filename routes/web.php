@@ -70,4 +70,6 @@ Route::prefix('users')->group( function (){
 Route::prefix('carrito')->group( function (){
    Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea');
    Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito');
+   Route::post('create',[CarritoController::class,'createPedido'])->name('finalizar-pedido');
+   Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea');
 });

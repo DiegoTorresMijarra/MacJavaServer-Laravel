@@ -1,5 +1,7 @@
 <?php
-use App\Models\User;
+    use App\Models\User;
+    use App\Http\Controllers\CarritoController;
+    $carritoLength = count(CarritoController::singletonPedido());
 ?>
 <header class="shadow-sm" style="background: #ffeeee; padding: 10px 0; margin-bottom: 30px; border-bottom: 2px solid coral; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -56,8 +58,9 @@ use App\Models\User;
                                 </form>
 
                                 @if(Auth::user()->rol === 'USER')
-                                    <a class="nav-link" href="{{ route('carrito') }}">
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('carrito') }}">
                                         <img src="{{ asset('images/carrito.png') }}" alt="Carrito" width="30" height="30">
+                                        <span class="badge badge-pill badge-danger carritoLength ml-1">{{$carritoLength}}</span>
                                     </a>
                                 @endif
                             @else

@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Feature/CarritoControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/PedidosControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarritoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PedidoFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

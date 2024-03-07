@@ -40,6 +40,7 @@ class Pedido extends Model
         'numero_tarjeta' => 'encrypted',
         'cvc' => 'encrypted',
     ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -17,9 +17,9 @@ class UsersTableSeeder extends Seeder
         //
         DB::table('users')->insert([
             [
-                'name' => 'diego',
-                'email' => 'diego@admin.es',
-                'password' => bcrypt('diego'),
+                'name' => 'admin',
+                'email' => 'admin@admin.es',
+                'password' => bcrypt('Admin2024'),
                 'rol' => 'ADMIN',
                 'avatar'=>'8e37c6fa-1667-498e-ac63-d06de4d52f83.webp',
                 'email_verified_at' => now(),
@@ -27,11 +27,11 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'admin',
-                'email' => 'admin@admin.es',
-                'password' => bcrypt('Admin2024'),
-                'rol' => 'ADMIN',
-                'avatar'=>'8e37c6fa-1667-498e-ac63-d06de4d52f83.webp',
+                'name' => 'empleado',
+                'email' => 'empleado@macjava.es',
+                'password' => bcrypt('empleado'),
+                'rol' => 'USER',
+                'avatar'=>User::$AVATAR_DEFAULT,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),

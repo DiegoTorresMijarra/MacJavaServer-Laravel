@@ -33,11 +33,6 @@ class CarritoRequest extends FormRequest
     {
         $this->validate($this->rules());
 
-        $this->merge([
-            'numero_tarjeta' => Crypt::encryptString($this->numero_tarjeta),
-            'cvc' => Crypt::encryptString($this->cvc),
-        ]);
-
         return $this;
     }
 }

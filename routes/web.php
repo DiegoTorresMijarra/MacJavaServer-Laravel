@@ -37,8 +37,10 @@ Route::prefix('users')->group( function (){
     Route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy')->middleware('auth','admin');
 });
 
+// all
 Route::get('/', [RestauranteController::class, 'inicioRestaurantes'])->name('index');
 
+// mix
 Route::group(['prefix' => 'productos'], function () {
     Route::get('/', [ProductoController::class, 'index'])->name('productos.index');
     Route::get('/ofertas', [ProductoController::class, 'offers'])->name('productos.offers');
@@ -79,7 +81,7 @@ Route::prefix('carrito')->group( function (){
    Route::post('/',[CarritoController::class,'addLinea'])->name('add-linea')->middleware('auth','user');
    Route::get('/',[CarritoController::class,'getCarritoSession'])->name('carrito')->middleware('auth','user');
    Route::post('/create',[CarritoController::class,'createPedido'])->name('finalizar-pedido')->middleware('auth','user');
-   Route::delete('/{index}',[CarritoController::class,'deleteLinea'])->name('delete-linea')->middleware('auth','user');
+   Route::delete('/{producto_id}',[CarritoController::class,'deleteLinea'])->name('delete-linea')->middleware('auth','user');
 });
 
 //pedidos-> auth (los trabajadores y admin pueden consutar y descargar datos)

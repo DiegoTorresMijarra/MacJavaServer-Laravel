@@ -60,17 +60,18 @@ Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime 
    Para el registro y el inicio de sesión de usuarios, utilizamos Laravel Sanctum, que proporciona un sistema de autenticación robusto basado en tokens API y sesiones para la seguridad de los usuarios.
 
 ## 10. Usuarios <a name="usuarios"></a>
-    El manejo de usuarios se lleva a cabo a través de un endpoint específico, que administra la información del usuario y ofrece seguridad mediante el uso de hash de contraseñas con Bcrypt.
+El manejo de usuarios se lleva a cabo a través de un endpoint específico, que administra la información del usuario y ofrece seguridad mediante el uso de hash de contraseñas con Bcrypt.
 
 ## 11. Pedidos <a name="pedidos"></a>
-    El sistema de pedidos, uno de los componentes más complejos de nuestra API, gestiona los pedidos realizados por clientes y procesados por el restaurante, utilizando Eloquent para interactuar con la base de datos MySQL y ofreciendo funcionalidades completas para el manejo de pedidos.
+El sistema de pedidos, uno de los componentes más complejos de nuestra API, gestiona los pedidos realizados por clientes y procesados por el restaurante, utilizando Eloquent para interactuar con la base de datos MySQL y ofreciendo funcionalidades completas para el manejo de pedidos.
 
 ## 12. Despliegue <a name="despliegue"></a>
-    El despliegue de nuestra aplicación se simplifica gracias al uso de Docker, lo que permite una fácil configuración y mantenimiento de los entornos de desarrollo y producción a través de archivos docker-compose.
+El despliegue de nuestra aplicación se simplifica gracias al uso de Docker, lo que permite una fácil configuración y mantenimiento de los entornos de desarrollo y producción a través de archivos docker-compose.
 
 ## 13. Tests <a name="tests"></a>
-    Hemos desarrollado pruebas unitarias y de integración utilizando PHPUnit para asegurar la calidad y el correcto funcionamiento de nuestra aplicación, empleando mocks y factories para simular y testear diversos escenarios.
+Hemos desarrollado pruebas unitarias y de integración utilizando PHPUnit para asegurar la calidad y el correcto funcionamiento de nuestra aplicación, empleando mocks y factories para simular y testear diversos escenarios.
 
 ## 14. Conclusión y presupuesto <a name="conclusión-y-presupuesto"></a>
-    El proyecto MacJavaLaravel representa un compromiso significativo con la calidad y la eficiencia, logrando sus objetivos dentro de los dos meses previstos gracias a una planificación cuidadosa y una ejecución eficiente. La inversión en recursos técnicos, humanos y de marketing subraya la dedicación del equipo hacia el éxito y la innovación del proyecto.
+El proyecto MacJavaLaravel representa un compromiso significativo con la calidad y la eficiencia, logrando sus objetivos dentro de los dos meses previstos gracias a una planificación cuidadosa y una ejecución eficiente. La inversión en recursos técnicos, humanos y de marketing subraya la dedicación del equipo hacia el éxito y la innovación del proyecto.
+###
 ¡Gracias por visitar nuestro proyecto! Para cualquier consulta o sugerencia, no dudes en ponerte en contacto con nosotros. Esperamos que encuentres útil la APP MacJavaNest para la gestión de tu restaurante online.

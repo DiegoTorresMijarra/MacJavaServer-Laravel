@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\DireccionPersonal;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
@@ -26,6 +27,7 @@ class DireccionPersonalFactory extends Factory
             'piso' => $this->faker->word(),
             'nombre' => $this->faker->word(),
             'apellidos' => $this->faker->word(),
+            'user_id' => User::all()->random()->id,
         ];
     }
 }

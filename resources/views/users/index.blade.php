@@ -45,7 +45,6 @@
                     <td>{{ $usuario->rol }}</td>
                     <td>
                         <a href="{{ route('users.show', $usuario->id) }}" class="btn btn-sm btn-primary">Detalles</a>
-                        <a href="{{ route('users.edit', $usuario->id) }}" class="btn btn-sm btn-warning">Editar</a>
                         <form action="{{ route('users.destroy', $usuario->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')

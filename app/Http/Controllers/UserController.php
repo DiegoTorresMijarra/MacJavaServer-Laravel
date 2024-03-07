@@ -63,19 +63,21 @@ class UserController extends Controller
 
             $userReq = UserRequest::createFrom($request);
 
-            $imagen = $this->updateImage($request);
+
 
             $userReq->merge([
                 'name'=> $nombreUsuario,
                 'email'=>$nombreUsuario.'@macjava.com',
                 'password'=> $empleadoReq->dni,//tb podria poner un string aleatorio
                 'password_confirmation'=> $empleadoReq->dni,
-                'avatar'=> $imagen,
             ]);
 
             $userReq->validarYTransformar();
 
             $user = User::create(array_merge($userReq->all(), ['rol' => 'EMPLEADO']));
+            $user->avatar = $this->updateImage($request,$user);
+            $user->save();
+
             $empleado = Trabajador::create(array_merge($empleadoReq->all(), ['user_id' => $user->id]));
 
             flash('Empleado con nombre '.$empleado->nombre.' creado con user '.$user->name.'  '.$empleadoReq->dni)->success()->important();
@@ -102,6 +104,8 @@ class UserController extends Controller
         $user = $this->getById($id);
         //view
     }
+
+
 
     public function update(UserRequest $userReq, $id)
     {
@@ -181,6 +185,19 @@ class UserController extends Controller
         User::destroy($user->id);
     }
 
+    public function editImage(Request $request, $id)
+    {
+        $user = $this->getById($id);
+
+        $user->avatar = $this->updateImage($request,$user);
+        $user->save();
+
+        flash('Avatar cambiado correctamente')->success()->important();
+        return redirect(route('home'));
+        //return view('users.edit-image')->with('user', $user);
+    }
+
+
     /**
      * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage
      * @param UserRequest $request
@@ -195,8 +212,7 @@ class UserController extends Controller
                 $user?->destroyImage();
 
                 $extension = $imagen->getClientOriginalExtension();
-                $fileToSave =Str::uuid().'.' . $extension;
-
+                $fileToSave = Str::uuid().'.' . $extension;
                 $path = $imagen->storeAs('avatar', $fileToSave, 'public');
 
                 return $fileToSave;

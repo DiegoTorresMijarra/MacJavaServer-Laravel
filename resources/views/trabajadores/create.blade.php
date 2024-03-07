@@ -31,7 +31,7 @@
 
     <div class="container">
 
-        <form class="form" action="{{ route("users.store") }}" method="post" style="border-top: 2px solid #413f3d; padding: 20px">
+        <form class="form" enctype="multipart/form-data" action="{{ route("users.store") }}" method="post" style="border-top: 2px solid #413f3d; padding: 20px">
             @csrf
             <hr>
             <h3> Datos Personales:</h3>

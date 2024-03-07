@@ -81,10 +81,10 @@
                     <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center">
                                     <a style="margin-right: 10px" href="{{ route ('home')  }}">
-                                        @if(Auth::user()->avatar!==User::$AVATAR_DEFAULT)
-                                            <img  alt="Imagen del user" src="{{ asset('storage/' . Auth::user()->avatar ) }}" height="40" width="40">
+                                        @if(Auth::user()->avatar !== User::$AVATAR_DEFAULT)
+                                            <img  alt="Imagen del user" src="{{ asset('storage/avatar/' . Auth::user()->avatar ) }}" height="40" width="40">
                                         @else
-                                            <img alt="Imagen por defecto" height="40" width="40" src="{{ User::$AVATAR_DEFAULT }}" style="background-color: #413f3d; color: white; padding: 1px; width: 40px; height: 40px; border-radius: 50%">
+                                            <img alt="Imagen por defecto" height="40" width="40" src="{{ asset(User::$AVATAR_DEFAULT) }}" style="background-color: #413f3d; color: white; padding: 1px; width: 40px; height: 40px; border-radius: 50%">
                                         @endif
                                     </a>
                         </div>

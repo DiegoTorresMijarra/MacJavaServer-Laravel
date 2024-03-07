@@ -31,7 +31,7 @@
 
     <div class="container">
 
-        <form class="form" action="{{ route("users.store") }}" method="post" style="border-top: 2px solid #413f3d; padding: 20px">
+        <form class="form" enctype="multipart/form-data" action="{{ route("users.store") }}" method="post" style="border-top: 2px solid #413f3d; padding: 20px">
             @csrf
             <hr>
             <h3> Datos Personales:</h3>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group d-flex justify-content-evenly">
-                <label for="imagen" style="color: coral; font-weight: bold; margin-right: 20px">Avatar:</label>
+                <label for="avatar" style="color: coral; font-weight: bold; margin-right: 20px">Avatar:</label>
                 <input accept="image/*" class="form-control-file" id="avatar" name="avatar" required type="file">
                 <small class="text-danger"></small>
             </div>

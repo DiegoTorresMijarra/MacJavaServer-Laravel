@@ -17,20 +17,38 @@
                 <div class="card-body">
                     <h3 class="card-title">Detalles de Usuario</h3>
                     <div class="card-text">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <strong>Nombre:</strong> {{ $user->name }}
-                            </div>
-                            <div class="col-md-6">
+                        <div class="row " style="height: 300px">
+                            <div class="col-md-6 align-items-center justify-content-between">
+                                <strong>Nombre:</strong> {{ $user->name }}<br>
                                 <strong>Email:</strong> {{ $user->email }}
                             </div>
-                        </div>
-                        <div class="row">
+                            <div class="col-md-6 align-items-center justify-content-between">
+                                <div class="row mb-3">
+                                    @if(Auth::user()->avatar !== User::$AVATAR_DEFAULT)
+                                        <img alt="Imagen del usuario" src="{{ asset('storage/avatar/' . Auth::user()->avatar ) }}" class="img-fluid mx-auto" style="height: 150px; width: auto;">
+                                    @else
+                                        <img alt="Imagen por defecto" src="{{ asset(User::$AVATAR_DEFAULT) }}" class="img-fluid mx-auto" style="height: 150px; width: auto; background-color: #413f3d; color: white; padding: 1px; border-radius: 50%;">
+                                    @endif
+                                </div>
 
+                                <form class="row" action="{{ route("users.updateImage", $user->id) }}" method="post" enctype="multipart/form-data" style="padding-left: 20px">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group d-flex justify-content-evenly">
+                                        <label for="avatar" style="color: coral; font-weight: bold; margin-right: 20px">Nuevo avatar:</label>
+                                        <input accept="image/*" class="form-control-file" id="avatar" name="avatar" required type="file">
+                                        <small class="text-danger"></small>
+                                    </div>
+                                    <div class="d-flex justify-content-end" >
+                                        <button class="btn" type="submit" style="background-color: coral; color: white">Actualizar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="card">
 
                 <div class="card-body">
@@ -64,7 +82,7 @@
                         </div>
                 @else
                         <div class="alert alert-info" role="alert">
-                            No se encontraron direcciones
+                            No se encontraron pedidos
                         </div>
                 @endif
                 </div>

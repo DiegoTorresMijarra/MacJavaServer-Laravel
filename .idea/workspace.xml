@@ -5,58 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/403.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/404.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ff5dbbf-cda4-4dea-bb47-9f93ebbf4843/storage_v2/_src_/database/testing.EDI3qw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrabajadorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrabajadorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TrabajadorRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/TrabajadorRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/TrabajadorResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/TrabajadorResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Trabajador.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Trabajador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_27_201931_create_trabajadores_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_27_201931_create_trabajadores_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/TrabajadoresTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/TrabajadoresTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/responses/bad-request.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/responses/bad-request.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/responses/forbidden.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/responses/forbidden.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/responses/not-found.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/responses/not-found.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trabajadores/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trabajadores/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trabajadores/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trabajadores/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,23 +183,31 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.update-module-directories": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature/tests",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/public/images",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/storage/app/public/productos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\avatar" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\resources\views\users" />
     </key>
   </component>
@@ -263,7 +225,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709769894825</updated>
-      <workItem from="1709769902117" duration="7733000" />
+      <workItem from="1709769902117" duration="21374000" />
     </task>
     <servers />
   </component>

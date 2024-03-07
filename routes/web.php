@@ -30,8 +30,8 @@ Route::prefix('users')->group( function (){
     Route::get('/create/user',[UserController::class,'create'])->name('users.create');
     Route::post('/store/user',[UserController::class,'store'])->name('users.store');
     Route::get('/{id}',[UserController::class,'show'])->name('users.show');
-    Route::get('/{id}/edit',[UserController::class,'edit'])->name('users.edit');
-    Route::put('/{id}',[UserController::class,'update'])->name('users.update');
+    Route::put('/{id}/edit',[UserController::class,'editImage'])->name('users.updateImage');
+  //  Route::put('/{id}',[UserController::class,'update'])->name('users.update');
     Route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy');
 });
 

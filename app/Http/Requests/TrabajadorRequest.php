@@ -16,6 +16,7 @@ class TrabajadorRequest extends FormRequest
             'dni'=>['required','string','regex:/^\d{8}[A-Za-z]$/i', Rule::unique('trabajadores')->ignore($this->route('trabajador'))],
             'nomina' => ['required', 'numeric','min:1100'],
             'puesto' => ['required', 'string','min:4','max:20'],
+            'user_id'=>['nullable','exists:users,id']
         ];
     }
 

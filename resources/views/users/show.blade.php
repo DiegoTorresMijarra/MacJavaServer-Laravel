@@ -44,7 +44,7 @@
                 @endif
             </div>
             <div class="text-right">
-                <a class="btn btn-primary m-2" href="{{ route('users.edit', $usuario->id) }}">Editar</a>
+                <a class="btn btn-primary m-2" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>
     </div>

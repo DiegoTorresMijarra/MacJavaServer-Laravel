@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/tests/Feature/PedidosControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/PedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PedidoFactory.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/tests/Feature/DireccionControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/RestauranteControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/RestauranteFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RestauranteFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ProductoControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ProductoControllerTest.php" afterDir="false" />
+>>>>>>> origin/develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +37,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Program Files\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/laravel-lang/native-currency-names" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
@@ -181,7 +195,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.update-module-directories": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+<<<<<<< HEAD
     "git-widget-placeholder": "feature/tests",
+=======
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "git-widget-placeholder": "develop",
+>>>>>>> origin/develop
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/storage/app/public/avatar",
@@ -205,6 +224,7 @@
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\jaime9lozano\MacJavaServer-Laravel\tests\Feature" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\resources\views\users" />
     </key>
@@ -233,6 +253,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709769894825</updated>
       <workItem from="1709769902117" duration="26407000" />
+      <workItem from="1709806111510" duration="4294000" />
     </task>
     <servers />
   </component>

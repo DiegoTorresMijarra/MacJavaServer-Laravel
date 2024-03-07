@@ -18,14 +18,11 @@ class ProductoControllerTest extends TestCase
 
     protected User $user;
     protected User $admin;
-    protected Producto|\Mockery\LegacyMockInterface|\Mockery\MockInterface $mockProducto;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $mockProducto = null;
-        $this->$mockProducto = \Mockery::mock(Producto::class);;
         $this->categorias = Categoria::factory()->count(3)->create();
         $this->productos = Producto::factory()->count(3)->create();
 

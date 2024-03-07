@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Direccion;
 use App\Models\Restaurante;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
@@ -17,6 +18,8 @@ class RestauranteFactory extends Factory
             'updated_at' => Carbon::now(),
             'nombre' => $this->faker->word(),
             'capacidad' => $this->faker->randomNumber(),
+
+            'direccion_id' => Direccion::all()->random()->id,
         ];
     }
 }

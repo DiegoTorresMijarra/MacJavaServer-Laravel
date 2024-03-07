@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="713f8055-b12c-4d7d-bbef-7be5c0426b1f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README_LARAVEL.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pdf/MacJava-Laravel.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Pedido.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +167,7 @@
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/pdf/images" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -196,26 +179,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.update-module-directories": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/pdf",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\pdf" />
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\vendor" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\" />
     </key>
   </component>
   <component name="RunManager">
@@ -234,6 +222,7 @@
       <updated>1709824298157</updated>
       <workItem from="1709824305919" duration="203000" />
       <workItem from="1709824538251" duration="377000" />
+      <workItem from="1709825097611" duration="5669000" />
     </task>
     <servers />
   </component>

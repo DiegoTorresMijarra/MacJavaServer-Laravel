@@ -22,20 +22,16 @@ class Pedido extends Model
         'CANCELADO','ENTREGADO','ARCHIVADO',
     ];
 
-
     protected $fillable = [
         'estado',
-
         'precioTotal',
         'stockTotal',
-
         'numero_tarjeta',
         'cvc',
         'direccion_personal_id',
 
         'user_id',
     ];
-
     protected $casts = [
         'numero_tarjeta' => 'encrypted',
         'cvc' => 'encrypted',

@@ -1,66 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MacJavaServer-Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime Lozano, Diego Torres, Oscar Encabo, y Raúl Rodríguez para la administración eficaz de restaurantes online. A través de nuestra API, ofrecemos una plataforma segura, eficiente y escalable para la gestión de bases de datos en el sector de la hostelería.
 
-## About Laravel
+## Equipo de Desarrollo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Jaime Lozano](https://github.com/jaime9lozano)
+- [Oscar Encabo](https://github.com/Diokar017)
+- [Diego Torres Mijarra](https://github.com/DiegoTorresMijarra)
+- [Raul Rodriguez Luna](https://github.com/raulrz11)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Recursos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Documentación](https://github.com/DiegoTorresMijarra/MacJavaServer-Laravel/tree/master/pdf/MacJava-Laravel.pdf)
+- [Video de Presentación](https://www.youtube.com/watch?v=vtqjlQRBHZ4&ab_channel=OscarEncabo )
+- [Guía de Laravel](https://github.com/DiegoTorresMijarra/MacJavaServer-Laravel/tree/master/README_LARAVEL.md)
 
-## Learning Laravel
+## Contenido
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. [Introducción](#introducción)
+2. [Gitflow](#gitflow)
+3. [Tecnologías](#tecnologías)
+4. [Bases de datos](#bases-de-datos)
+5. [Características comunes de los endpoints](#características-comunes-de-los-endpoints)
+6. [Categoría](#categoría)
+7. [Trabajadores, clientes y proveedores](#trabajadores-clientes-y-proveedores)
+8. [Restaurantes y productos](#restaurantes-y-productos)
+9. [Autenticación](#autenticación)
+10. [Usuarios](#usuarios)
+11. [Pedidos](#pedidos)
+12. [Despliegue](#despliegue)
+13. [Tests](#tests)
+14. [Conclusión y presupuesto](#conclusión-y-presupuesto)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 1. Introducción <a name="introducción"></a>
+   La API MacJavaLaravel proporciona una solución segura, integral y escalable para la gestión de bases de datos de un restaurante online desarrollada con Laravel, esta API se destaca por su uso de PHP moderno y su arquitectura MVC, que promueve un desarrollo ágil y modular.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 2. Gitflow <a name="gitflow"></a>
+   Para la gestión del proyecto, hemos adoptado la metodología Gitflow, estableciendo ramas para características específicas que luego se integran en una rama de desarrollo para pruebas, y finalmente se unen a la rama principal para su implementación.
 
-## Laravel Sponsors
+## 3. Tecnologías <a name="tecnologías"></a>
+   Nuestro proyecto se apoya en Laravel como el framework principal, aprovechando sus capacidades para escribir código PHP estructurado y mantenible. Además, utilizamos Eloquent ORM para la interacción con bases de datos, Sanctum para la autenticación y PHPUnit para las pruebas.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 4. Bases de datos <a name="bases-de-datos"></a>
+   Utilizamos MySQL para el almacenamiento de datos estructurados, dada su compatibilidad y rendimiento óptimo con Laravel. Esta elección nos permite gestionar de manera eficiente tanto las operaciones CRUD básicas como las transacciones más complejas requeridas por la aplicación.
 
-### Premium Partners
+## 5. Características comunes de los endpoints <a name="características-comunes-de-los-endpoints"></a>
+   Nuestros endpoints comparten varias características, incluyendo el uso de Migrations y Seeders para la gestión de bases de datos, el empleo de UUIDs para identificadores únicos, y la implementación de DTOs (Data Transfer Objects) y Resources para la transferencia y respuesta de datos, junto con los métodos habituales como findAll, findById, create, update, y delete.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 6. Categoría <a name="categoría"></a>
+   El endpoint de categoría administra las diferentes categorías dentro del restaurante, permitiendo clasificar productos o servicios ofrecidos, con atributos como nombre y descripción.
 
-## Contributing
+## 7. Trabajadores, clientes y proveedores <a name="trabajadores-clientes-y-proveedores"></a>
+   Mediante estos endpoints se facilita la administración de trabajadores, clientes y proveedores del restaurante. La modificación de estos datos está restringida a usuarios con roles de administrador.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 8. Restaurantes y productos <a name="restaurantes-y-productos"></a>
+   Estos endpoints permiten un control detallado sobre la información de restaurantes y los productos ofrecidos, con acciones disponibles para todos los usuarios y otras exclusivas para administradores, asegurando la integridad y la privacidad de los datos.
 
-## Code of Conduct
+## 9. Autenticación <a name="autenticación"></a>
+   Para el registro y el inicio de sesión de usuarios, utilizamos Laravel Sanctum, que proporciona un sistema de autenticación robusto basado en tokens API y sesiones para la seguridad de los usuarios.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 10. Usuarios <a name="usuarios"></a>
+    El manejo de usuarios se lleva a cabo a través de un endpoint específico, que administra la información del usuario y ofrece seguridad mediante el uso de hash de contraseñas con Bcrypt.
 
-## Security Vulnerabilities
+## 11. Pedidos <a name="pedidos"></a>
+    El sistema de pedidos, uno de los componentes más complejos de nuestra API, gestiona los pedidos realizados por clientes y procesados por el restaurante, utilizando Eloquent para interactuar con la base de datos MySQL y ofreciendo funcionalidades completas para el manejo de pedidos.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 12. Despliegue <a name="despliegue"></a>
+    El despliegue de nuestra aplicación se simplifica gracias al uso de Docker, lo que permite una fácil configuración y mantenimiento de los entornos de desarrollo y producción a través de archivos docker-compose.
 
-## License
+## 13. Tests <a name="tests"></a>
+    Hemos desarrollado pruebas unitarias y de integración utilizando PHPUnit para asegurar la calidad y el correcto funcionamiento de nuestra aplicación, empleando mocks y factories para simular y testear diversos escenarios.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 14. Conclusión y presupuesto <a name="conclusión-y-presupuesto"></a>
+    El proyecto MacJavaLaravel representa un compromiso significativo con la calidad y la eficiencia, logrando sus objetivos dentro de los dos meses previstos gracias a una planificación cuidadosa y una ejecución eficiente. La inversión en recursos técnicos, humanos y de marketing subraya la dedicación del equipo hacia el éxito y la innovación del proyecto.
+¡Gracias por visitar nuestro proyecto! Para cualquier consulta o sugerencia, no dudes en ponerte en contacto con nosotros. Esperamos que encuentres útil la APP MacJavaNest para la gestión de tu restaurante online.

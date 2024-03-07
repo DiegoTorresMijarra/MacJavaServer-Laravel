@@ -45,8 +45,7 @@ class HomeController extends Controller
 
         return
             match ($user->rol) {  //usa el comparador '===' switch el '=='
-                    'ADMIN' => $this->adminHome($user),
-                    'EMPLEADO' => $this->empleadoHome($user),
+                    'ADMIN', 'EMPLEADO' => $this->empleadoHome($user),
                     default => $this->userHome($user),
             };
     }
@@ -67,15 +66,8 @@ class HomeController extends Controller
         return view('home')->with('direcciones', $direcciones)->with('pedidos',$pedidos);
     }
 
+
     private function empleadoHome(User $user)
-    {
-        $empleo = $user->empleado();
-        // y cambio de contraseña y datos empleado
-
-        return view('home');
-    }
-
-    private function adminHome(User $user)
     {
         // y cambio de contraseña y datos empleado
         // crud trabajadores y usuarios, asi como modif sus datos

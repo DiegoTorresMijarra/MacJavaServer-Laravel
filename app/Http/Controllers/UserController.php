@@ -10,6 +10,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Str;
@@ -50,41 +51,43 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+
         $empleadoReq = TrabajadorRequest::createFrom($request);
 
         $user=null;
         $empleado=null;
+
         try {
             $empleadoReq->validar();
 
-            $nombreUsuario=str_replace(["\r", "\n", "\t", ' '],'',ucwords($empleadoReq['nombre'].$empleadoReq['apellidos'].substr($empleadoReq['dni'],4)));
+            $nombreUsuario=str_replace(["\r", "\n", "\t", ' '],'', ucwords($empleadoReq['nombre'].' '.$empleadoReq['apellidos'].substr($empleadoReq['dni'],4)));
 
             $userReq = UserRequest::createFrom($request);
+
+            $imagen = $this->updateImage($request);
 
             $userReq->merge([
                 'name'=> $nombreUsuario,
                 'email'=>$nombreUsuario.'@macjava.com',
                 'password'=> $empleadoReq->dni,//tb podria poner su dni
                 'password_confirmation'=> $empleadoReq->dni,
-                'avatar'=> $request->file('avatar')
+                'avatar'=> $imagen,
             ]);
 
             $userReq->validarYTransformar();
 
-            $this->updateImage($userReq);
-
-            $user = User::create(array_merge($userReq->all(),['rol','EMPLEADO']));
+            $user = User::create(array_merge($userReq->all(), ['rol' => 'EMPLEADO']));
             $empleado = Trabajador::create(array_merge($empleadoReq->all(), ['user_id' => $user->id]));
 
-            flash(`Empleado con nombre ${$empleado->nombre} creado con user ${$user->name}`)->success()->important();
+            flash('Empleado con nombre '.$empleado->nombre.' creado con user '.$user->name.'  '.$empleadoReq->dni)->success()->important();
             return redirect()->route('users.show', $user->id);
-        }catch (ValidationException $e) {
-            return response()->json(['errors' => $e->errors()], 400);
-        }catch (Exception $e) {
 
+        }catch (ValidationException $e) {
+            throw $e;
+        }catch (Exception $e) {
             $user?->forceDelete();
             $empleado?->forceDelete();
-            throw new BadRequestException('Algo ha salido mal'.$e->getMessage());
+            throw new BadRequestException('Algo ha salido mal: '.$e->getMessage());
         }
     }
 
@@ -116,7 +119,7 @@ class UserController extends Controller
 
             //view
         }catch (ValidationException $e) {
-            return response()->json(['errors' => $e->errors()], 400);
+            return Redirect::back()->with(['errors' => $e->errors()]);
         }
     }
 
@@ -183,9 +186,8 @@ class UserController extends Controller
      * Llamar despues de la validacion, actualiza el request con el nombre de la imagen apropiado y almacena esta en el storage
      * @param UserRequest $request
      * @param User|null $user
-     * @return void
      */
-    private function updateImage(UserRequest $request, ?User $user = null)
+    private function updateImage(Request $request, ?User $user = null)
     {
         $imagen = $request->file('avatar');
 
@@ -194,15 +196,15 @@ class UserController extends Controller
                 $user?->destroyImage();
 
                 $extension = $imagen->getClientOriginalExtension();
-                $fileToSave = $request->email . '.' . $extension;
-                $imagen->storeAs('avatar', $fileToSave, 'public');
+                $fileToSave = str_replace(["\r", "\n", "\t", ' '],'',ucwords($request['nombre'].$request['apellidos'].substr($request['dni'],4))). '.' . $extension;
 
-                $request->merge(['avatar' => $imagen]);
-
+                return $imagen->storeAs('avatar', $fileToSave, 'public');
+                //$request->merge(['avatar' => $fileToSave]);
             } catch (Exception $e) {
-
                 throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());
             }
+        }else{
+            throw new Exception('update img '.$imagen);
         }
     }
 }

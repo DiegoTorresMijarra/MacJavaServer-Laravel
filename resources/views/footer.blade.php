@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
-            <h6><a href="#contact" target="_self">Contactanos</a></h6>
+            <h6><a href="{{route('index')}}#contact" target="_self">Contactanos</a></h6>
         </div>
     </div>
 </footer>

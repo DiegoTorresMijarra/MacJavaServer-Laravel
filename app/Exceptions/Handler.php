@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -32,7 +33,7 @@ class Handler extends ExceptionHandler
     }
     public function render($request, Throwable $e)
     {
-        if ($e instanceof NotFoundHttpException) {
+        if ($e instanceof NotFoundHttpException || $e instanceof MethodNotAllowedHttpException) {
             return response()->view('responses.not-found', ['causa' => $e->getMessage()], 404);
         }
         if ($e instanceof AuthorizationException) {

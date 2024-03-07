@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use App\Models\Pedido;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Crypt;
@@ -21,7 +23,7 @@ class PedidoResource extends JsonResource
             'precioTotal' => $this->precioTotal,
             'stockTotal' => $this->stockTotal,
 
-            'numero_tarjeta' => '****-****-****-'.substr(Crypt::decrypt($this->numero_tarjeta,false),-4),
+            'numero_tarjeta' => '****-****-****-'.substr($this->numero_tarjeta,-4),
             //'cvc' => Crypt::decrypt($this->cvc,false),
 
             'direccionPersonal' => new DireccionPersonalResource($this->direccionPersonal()),
@@ -30,24 +32,28 @@ class PedidoResource extends JsonResource
             'usuario' => $this->user()->get(['id','email'])
         ];
     }
-    public function data(): array
+    public function data()
     {
-        return [
-            'created_at' => $this->created_at,
-            'id' => $this->id,
+        try {
+            return [
+                'created_at' => $this->created_at,
+                'id' => $this->id,
 
-            'estado' => $this->estado,
+                'estado' => $this->estado,
 
-            'precioTotal' => $this->precioTotal,
-            'stockTotal' => $this->stockTotal,
+                'precioTotal' => $this->precioTotal,
+                'stockTotal' => $this->stockTotal,
 
-            'numero_tarjeta' => '****-****-****-'.substr(Crypt::decrypt($this->numero_tarjeta,false),-4),
-            //'cvc' => Crypt::decrypt($this->cvc,false),
+                'numero_tarjeta' => '****-****-****-'.substr($this->numero_tarjeta,-4),
+                //'cvc' => Crypt::decrypt($this->cvc,false),
 
-            'direccionPersonal' => new DireccionPersonalResource($this->direccionPersonal()->first()),
-            'lineaPedidos' => LineaPedidoResource::collection($this->lineasPedido()->get()),
+                'direccionPersonal' => new DireccionPersonalResource($this->direccionPersonal()->first()),
+                'lineaPedidos' => LineaPedidoResource::collection($this->lineasPedido()->get()),
 
-            'usuario' => $this->user()->get(['id','email'])
-        ];
+                'usuario' => $this->user()->get(['id','email'])
+            ];
+        }catch (DecryptException $e) {
+            throw new AuthorizationException($e->getMessage().$e->getLine());
+        }
     }
 }

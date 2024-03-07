@@ -51,7 +51,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $empleadoReq = TrabajadorRequest::createFrom($request);
 
         $user=null;
@@ -69,7 +68,7 @@ class UserController extends Controller
             $userReq->merge([
                 'name'=> $nombreUsuario,
                 'email'=>$nombreUsuario.'@macjava.com',
-                'password'=> $empleadoReq->dni,//tb podria poner su dni
+                'password'=> $empleadoReq->dni,//tb podria poner un string aleatorio
                 'password_confirmation'=> $empleadoReq->dni,
                 'avatar'=> $imagen,
             ]);
@@ -83,7 +82,7 @@ class UserController extends Controller
             return redirect()->route('users.show', $user->id);
 
         }catch (ValidationException $e) {
-            throw $e;
+            throw $e; //la gestiona laravel
         }catch (Exception $e) {
             $user?->forceDelete();
             $empleado?->forceDelete();
@@ -135,34 +134,32 @@ class UserController extends Controller
         $user->destroyImage();
 
         if(
-            $user->pedidos()->count()>=1 ||
-            $user->empleado() ||
-            $user->direcciones()->count()>=1
+            $user->pedidos || $user->empleado || $user->direcciones->count()>=1
         )
         {
-            flash(`Usuario con id ${$user->id} eliminado logica y correctamente`)->success()->important();
+            flash('Usuario con id '. $id.' eliminado logica y correctamente')->success()->important();
             $this->safeDestroy($user); //prevenimos que se borren los q tienen pedidos, pero eliminamos los q no
         }else{
-            $user->forceDelete();
+            flash('Usuario con id '. $id.' eliminado dura y correctamente')->success()->important();
 
-            flash(`Usuario con id ${$user->id} eliminado dura y correctamente`)->success()->important();
+            User::find($user)->forceDelete();
         }
 
-        return response('',204);
+        return redirect(route('users.index'));
     }
 
     private function safeDestroy(User $user)
     {
-        $pedidos = $user->pedidos()->get();
+        $pedidos = $user->pedidos;
         $empleado = $user->empleado();
-        $direcciones = $user->direcciones()->get();
+        $direcciones = $user->direcciones;
 
-        //$pedidos?->delete() no se si funciona pero hacer el borrado logico siempre
-        if($pedidos)
+        //$pedidos?->delete(); // no se si funciona pero hacer el borrado logico siempre
+        if($pedidos && $pedidos->count()>=1)
         {
             foreach ($pedidos as $pedido)
             {
-                //$pedido->delete()
+                $pedido->delete();
             }
         }
 
@@ -170,7 +167,7 @@ class UserController extends Controller
         {
             foreach ($direcciones as $direccion)
             {
-                if($direccion->pedidos()->count()>=1)
+                if($direccion->pedidos && $direccion->pedidos->count()>=1)
                 {
                     $direccion->delete();
                 }else{
@@ -180,6 +177,8 @@ class UserController extends Controller
         }
 
         $empleado?->delete();
+
+        User::destroy($user->id);
     }
 
     /**
@@ -196,9 +195,11 @@ class UserController extends Controller
                 $user?->destroyImage();
 
                 $extension = $imagen->getClientOriginalExtension();
-                $fileToSave = str_replace(["\r", "\n", "\t", ' '],'',ucwords($request['nombre'].$request['apellidos'].substr($request['dni'],4))). '.' . $extension;
+                $fileToSave =Str::uuid().'.' . $extension;
 
-                return $imagen->storeAs('avatar', $fileToSave, 'public');
+                $path = $imagen->storeAs('avatar', $fileToSave, 'public');
+
+                return $fileToSave;
                 //$request->merge(['avatar' => $fileToSave]);
             } catch (Exception $e) {
                 throw new ValidationException('Error al actualizar la imagen' . $e->getMessage());

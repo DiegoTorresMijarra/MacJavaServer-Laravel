@@ -101,7 +101,8 @@
                                 </form>
                             @endif
                             </div>
-                        @else
+                        @endif
+                        @if(Auth::user()===null)
                             <p class="stockProductoNoDisponible"> Inicie Sesion para comprar</p>
                         @endif
                     </div>

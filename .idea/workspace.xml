@@ -6,14 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TrabajadorRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/TrabajadorRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homeAdmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homeAdmin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trabajadores/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trabajadores/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DireccionPersonal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DireccionPersonal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ProductosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ProductosTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/offers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/offers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +188,7 @@
     "git-widget-placeholder": "feature/tests",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/public/images",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/storage/app/public/productos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -204,9 +204,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\avatar" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
       <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\resources\views\users" />
     </key>
   </component>
@@ -224,7 +227,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709769894825</updated>
-      <workItem from="1709769902117" duration="14675000" />
+      <workItem from="1709769902117" duration="18503000" />
     </task>
     <servers />
   </component>

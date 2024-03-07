@@ -31,10 +31,10 @@
                         <div class="card-body" style="padding: 10px">
                             <div class="d-flex justify-content-center align-items-center mb-3">
                                 @if($producto->imagen != Producto::$IMAGE_DEFAULT)
-                                    <img  alt="Imagen del funko" src="{{ asset('storage/' . $producto->imagen) }}">
+                                    <img style="height: 300px; width: 300px"  alt="Imagen del producto" src="{{ asset('storage/' . $producto->imagen) }}">
                                 @else
-                                    <img style="height: 300px; width: 300px" alt="Imagen por defecto" height="50" src="{{ Producto::$IMAGE_DEFAULT }}"
-                                         width="50">
+                                    <img style="height: 300px; width: 300px" alt="Imagen por defecto" src="{{ Producto::$IMAGE_DEFAULT }}"
+                                         >
                                 @endif
                             </div>
                             <div class="d-flex justify-content-lg-between align-items-center" style="padding: 0 10px">

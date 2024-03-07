@@ -5,35 +5,100 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DireccionRequest;
 use App\Http\Resources\DireccionResource;
 use App\Models\Direccion;
+use App\Models\Restaurante;
+use Exception;
+use Illuminate\Http\Request;
 
 class DireccionController extends Controller
 {
-    public function index()
+
+    public function show($id)
     {
-        return DireccionResource::collection(Direccion::all());
+        $direccion = Direccion::find($id);
+
+        if (!$direccion) {
+            abort(404);
+        }
+
+        return view('direcciones.show')->with('direccion', $direccion);
     }
 
-    public function store(DireccionRequest $request)
+    public function create()
     {
-        return new DireccionResource(Direccion::create($request->validated()));
+        return view('direcciones.create');
     }
 
-    public function show(Direccion $direccion)
+    public function store(Request $request)
     {
-        return new DireccionResource($direccion);
+        $request->validate([
+            'pais' => ['required', 'string', 'max:250'],
+            'provincia' => ['required', 'string', 'max:250'],
+            'municipio' => ['required', 'string', 'max:250'],
+            'codigoPostal' => ['required', 'string', 'max:250'],
+            'calle' => ['required', 'string', 'max:250'],
+            'numero' => ['required', 'string', 'max:250'],
+            'portal' => ['nullable', 'string', 'max:250'],
+            'infoAdicional' => ['nullable', 'string', 'max:250'],
+            'piso' => ['nullable', 'string', 'max:250'],
+        ]);
+        try {
+            $direccion = new Direccion($request->all());
+            $direccion->save();
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 
-    public function update(DireccionRequest $request, Direccion $direccion)
+    public function edit($id)
     {
-        $direccion->update($request->validated());
-
-        return new DireccionResource($direccion);
+        $direccion = Direccion::find($id);
+        if (!$direccion) {
+            abort(404);
+        }
+        return view('direcciones.edit')
+            ->with('direccion', $direccion);
     }
 
-    public function destroy(Direccion $direccion)
+    public function update(Request $request,$id)
     {
-        $direccion->delete();
+        $request->validate([
+            'pais' => ['required', 'string', 'max:250'],
+            'provincia' => ['required', 'string', 'max:250'],
+            'municipio' => ['required', 'string', 'max:250'],
+            'codigoPostal' => ['required', 'string', 'max:250'],
+            'calle' => ['required', 'string', 'max:250'],
+            'numero' => ['required', 'string', 'max:250'],
+            'portal' => ['nullable', 'string', 'max:250'],
+            'infoAdicional' => ['nullable', 'string', 'max:250'],
+            'piso' => ['nullable', 'string', 'max:250'],
+        ]);
+        try {
+            $direccion = Direccion::find($id);
+            if (!$direccion) {
+                abort(404);
+            }
+            $direccion->update($request->all());
+            $direccion->save();
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
+    }
 
-        return response()->json();
+    public function destroy($id)
+    {
+        try {
+            $direccion = Direccion::find($id);
+
+            if (!$direccion) {
+                abort(404);
+            }
+            $direccion->delete();
+
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }

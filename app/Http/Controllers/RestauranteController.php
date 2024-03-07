@@ -2,38 +2,107 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RestauranteRequest;
 use App\Http\Resources\RestauranteResource;
+use App\Models\Direccion;
+use Exception;
+use Illuminate\Http\Request;
 use App\Models\Restaurante;
 
 class RestauranteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return RestauranteResource::collection(Restaurante::all());
+        $restaurantes = Restaurante::search($request->search)->orderBy('id', 'asc')->paginate(4);
+        return view('restaurantes.index')->with('restaurantes', $restaurantes);
     }
 
-    public function store(RestauranteRequest $request)
-    {
-        return new RestauranteResource(Restaurante::create($request->validated()));
+    public function inicioRestaurantes(Request $request){
+        $restaurantes = Restaurante::search($request->search)->orderBy('id', 'asc')->paginate(4);
+        return view('index')->with('restaurantes', $restaurantes);
     }
 
-    public function show(Restaurante $restaurante)
+    public function show($id)
     {
-        return new RestauranteResource($restaurante);
+        $restaurante = Restaurante::find($id);
+
+        if (!$restaurante) {
+            abort(404);
+        }
+
+        return view('restaurantes.show')->with('restaurante', $restaurante);
     }
 
-    public function update(RestauranteRequest $request, Restaurante $restaurante)
+    public function create()
     {
-        $restaurante->update($request->validated());
-
-        return new RestauranteResource($restaurante);
+        $direcciones = Direccion::all();
+        return view('restaurantes.create')->with('direcciones', $direcciones);
     }
 
-    public function destroy(Restaurante $restaurante)
+    public function store(Request $request)
     {
-        $restaurante->delete();
+        $request->validate([
+            'nombre' => 'min:3|max:25|required',
+            'capacidad' => 'required|integer',
+            'direccion' => 'required|exists:direcciones,id', // Asegúrate de que la columna 'id' sea la correcta en value del formulario (autovalida que exista en la tabla categorias)
+        ]);
+        try {
+            $restaurante = new Restaurante($request->all());
+            $restaurante->direccion_id = $request->direccion;
+            $restaurante->save();
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back(); // volvemos a la anterior
+        }
+    }
 
-        return response()->json();
+    public function edit($id)
+    {
+        // Buscamos el producto por su id
+        $restaurante = Restaurante::find($id);
+        if (!$restaurante) {
+            abort(404);
+        }
+        // Buscamos las categorias
+        $direcciones = Direccion::all();
+        // Devolvemos el producto
+        return view('restaurantes.edit')
+            ->with('restaurante', $restaurante)
+            ->with('direcciones', $direcciones);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $request->validate([
+            'nombre' => 'min:3|max:25|required',
+            'capacidad' => 'required|integer',
+        ]);
+        try {
+            // Buscamos el producto por su id
+            $restaurante = Restaurante::find($id);
+            if (!$restaurante) {
+                abort(404);
+            }
+            $restaurante->update($request->all());
+            $restaurante->direccion_id = $request->direccion;
+            $restaurante->save();
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
+    }
+    public function destroy($id)
+    {
+        try {
+            $restaurante = Restaurante::find($id);
+
+            if (!$restaurante) {
+                abort(404);
+            }
+            $restaurante->delete();
+
+            return redirect()->route('restaurantes.index');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }

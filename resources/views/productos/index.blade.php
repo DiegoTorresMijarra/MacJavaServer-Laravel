@@ -27,7 +27,7 @@
 
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
-            @if(Auth::check() && Auth::user()->role === 'admin')
+            @if(Auth::check() && Auth::user()->rol === 'ADMIN')
                 <a class="btn btn-success" href={{ route('productos.create') }}>Nuevo Producto</a>
             @endif
         </div>
@@ -43,7 +43,7 @@
                         <div class="card-body" style="padding: 10px">
                             <div class="d-flex justify-content-center align-items-center mb-3">
                                 @if($producto->imagen != Producto::$IMAGE_DEFAULT)
-                                    <img  alt="Imagen del funko" src="{{ asset('storage/' . $producto->imagen) }}">
+                                    <img  alt="Imagen del producto" src="{{ asset('storage/' . $producto->imagen) }}">
                                 @else
                                     <img style="height: 300px; width: 300px" alt="Imagen por defecto" height="50" src="{{ Producto::$IMAGE_DEFAULT }}"
                                          width="50">
@@ -64,7 +64,7 @@
             @endforeach
 
         @else
-            <p class='lead'><em>No se ha encontrado datos de funkos.</em></p>
+            <p class='lead'><em>No se ha encontrado datos de productos.</em></p>
         @endif
     </div>
     <div class="pagination-container">

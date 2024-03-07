@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('restaurantes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');;
             $table->string('nombre');
             $table->integer('capacidad');
             $table->foreignUuid('direccion_id')->constrained('direcciones');

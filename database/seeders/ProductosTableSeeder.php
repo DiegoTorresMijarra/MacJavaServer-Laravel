@@ -21,6 +21,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 5,
                 'oferta' => false,
                 'categoria_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Tarta de queso',
@@ -29,6 +31,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 10,
                 'oferta' => false,
                 'categoria_id' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Variado de croquetas',
@@ -37,6 +41,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 15,
                 'oferta' => false,
                 'categoria_id' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Pizza 4 Frameworks',
@@ -45,6 +51,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 20,
                 'oferta' => false,
                 'categoria_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Combo de bebidas',
@@ -53,6 +61,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 15,
                 'oferta' => true,
                 'categoria_id' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Spaguetis C++',
@@ -61,6 +71,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 20,
                 'oferta' => false,
                 'categoria_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'Combo de entrantes',
@@ -69,6 +81,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 20,
                 'oferta' => true,
                 'categoria_id' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => 'HelaDoc',
@@ -77,6 +91,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 20,
                 'oferta' => false,
                 'categoria_id' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'nombre' => '2x1 en PHP',
@@ -85,6 +101,8 @@ class ProductosTableSeeder extends Seeder
                 'stock' => 20,
                 'oferta' => true,
                 'categoria_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }

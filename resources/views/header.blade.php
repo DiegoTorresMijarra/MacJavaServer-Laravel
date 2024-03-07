@@ -1,3 +1,6 @@
+<?php
+use App\Models\User;
+?>
 <header class="shadow-sm" style="background: #ffeeee; padding: 10px 0; margin-bottom: 30px; border-bottom: 2px solid coral; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="row collapse navbar-collapse" id="navbarNav">
@@ -12,12 +15,13 @@
                         <a class="nav-link" href="{{ route('index') }}" style="color: coral">Inicio</a>
                         <a class="nav-link" href="{{ route('productos.index') }}" style="color: coral">Productos</a>
                         <a class="nav-link" href="{{ route('productos.offers') }}" style="color: coral">Ofertas</a>
+                        <a class="nav-link" href="{{ route('restaurantes.index') }}" style="color: coral">Restaurantes</a>
                     </li>
                 </ul>
             </div>
 
             <div class="col-2 d-flex justify-content-center align-items-center">
-                @if(Auth::check() && Auth::user()->role === 'admin')
+                @if(Auth::check() && Auth::user()->rol === 'ADMIN')
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" id="opcionesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: coral">
                         Administradores
@@ -26,11 +30,11 @@
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('productos.index') }}">Productos</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Restaurantes</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('restaurantes.index') }}">Restaurantes</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Trabajadores</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('trabajadores.index') }}">Trabajadores</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="#">Usuarios</a>
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('users.index') }}">Usuarios</a>
                         <a class="dropdown-item" style="color: coral" onmouseover="this.style.backgroundColor='coral'; this.style.color='white';"
                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='coral';" href="{{ route('categorias.index') }}">Categorias</a>
                     </div>
@@ -40,7 +44,7 @@
 
             <div class="col-4 d-flex justify-content-end">
                 <ul class="navbar-nav">
-                    <li class="nav-item d-flex justify-content-around">
+                    <li class="nav-item d-flex justify-content-around" style="padding-right: 20px">
                         @if (Route::has('login'))
                             @auth
                                 <a class="nav-link" href="{{ route('logout') }}"
@@ -58,15 +62,20 @@
                             @endauth
                         @endif
                     </li>
-                    <li class="nav-item ml-4">
+                    @auth()
+                    <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center">
-                            @if (Route::has('login'))
-                                @auth()
-                                    <a style="margin-right: 10px" href="{{ route ('home')  }}"><img src="https://sede.seg-social.gob.es/SedeThemeStatic/themes/Portal8.5/images/sede_img/usuario_r.png" alt="" width="30px" height="30px"></a>
-                                @endauth
-                            @endif
+
+                                    <a style="margin-right: 10px" href="{{ route ('home')  }}">
+                                        @if(Auth::user()->avatar!==User::$AVATAR_DEFAULT)
+                                            <img  alt="Imagen del user" src="{{ asset('storage/' . Auth::user()->avatar ) }}" height="40" width="40">
+                                        @else
+                                            <img alt="Imagen por defecto" height="40" width="40" src="{{ User::$AVATAR_DEFAULT }}" style="background-color: #413f3d; color: white; padding: 1px; width: 40px; height: 40px; border-radius: 50%">
+                                        @endif
+                                    </a>
                         </div>
                     </li>
+                    @else
                     <li class="nav-item">
                         <div class="d-flex justify-content-center align-items-center" style="background-color: #413f3d; color: white; padding: 10px; width: 40px; height: 40px; border-radius: 50%">
                                 <span class="navbar-text" style="color: white; font-family: 'Rowdies';">
@@ -74,6 +83,7 @@
                             </span>
                         </div>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>

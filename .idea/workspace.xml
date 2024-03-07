@@ -4,23 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/tests/Feature/PedidosControllerTest.php" afterDir="false" />
+    <list default="true" id="713f8055-b12c-4d7d-bbef-7be5c0426b1f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/macjavalaravel.qLlFbA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb/storage_v2/_src_/database/testing.EDI3qw/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LineaPedidoFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PedidoFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PedidoFactory.php" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/tests/Feature/DireccionControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/RestauranteControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9a611321-177f-45a5-9c2c-cc9fffb289fb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RestauranteFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RestauranteFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ProductoControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ProductoControllerTest.php" afterDir="false" />
->>>>>>> origin/develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +47,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Program Files\php\php.exe">
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/laravel-lang/native-currency-names" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
@@ -178,82 +185,55 @@
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2dKw5JpDkpQtL9XtT0lq102uvgD" />
+  <component name="ProjectId" id="2dMiLQvfiin5irYvNRE4eqjJX4r" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "feature/tests",
-=======
-    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
-    "git-widget-placeholder": "develop",
->>>>>>> origin/develop
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel/storage/app/public/avatar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/diego/Proyecto/MacJavaLaravel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\avatar" />
-      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
-      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\public\images" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="\\wsl.localhost\Ubuntu\home\jaime9lozano\MacJavaServer-Laravel\tests\Feature" />
-      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\storage\app\public\productos" />
-      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel\resources\views\users" />
+      <recent name="\\wsl$\Ubuntu\home\diego\Proyecto\MacJavaLaravel" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.CarritoControllerTest.testSingletonPedidoRetornaArrayVacioCuandoCarritoVacio">
-    <configuration name="CarritoControllerTest.testSingletonPedidoRetornaArrayVacioCuandoCarritoVacio" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="CarritoControllerTest" file="$PROJECT_DIR$/tests/Feature/CarritoControllerTest.php" method="testSingletonPedidoRetornaArrayVacioCuandoCarritoVacio" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHPUnit.CarritoControllerTest.testSingletonPedidoRetornaArrayVacioCuandoCarritoVacio" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4036d257-439f-4b34-9242-ceeb1061154c" name="Changes" comment="" />
-      <created>1709769894825</created>
+      <changelist id="713f8055-b12c-4d7d-bbef-7be5c0426b1f" name="Changes" comment="" />
+      <created>1709824298157</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709769894825</updated>
-      <workItem from="1709769902117" duration="26407000" />
-      <workItem from="1709806111510" duration="4294000" />
+      <updated>1709824298157</updated>
+      <workItem from="1709824305919" duration="203000" />
+      <workItem from="1709824538251" duration="377000" />
     </task>
     <servers />
   </component>

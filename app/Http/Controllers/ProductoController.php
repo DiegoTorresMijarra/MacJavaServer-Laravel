@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductoController extends Controller
 {
@@ -34,6 +35,9 @@ class ProductoController extends Controller
     public function show($id)
     {
         $producto = Producto::find($id);
+        if (!$producto) {
+            throw new NotFoundHttpException('Producto no encontrado');
+        }
         $producto = new ProductoResource($producto);
         return view('productos.show')->with('producto', $producto);
     }
@@ -67,6 +71,10 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
+        if (!$producto) {
+            throw new NotFoundHttpException('Producto no encontrado');
+        }
+
         $categorias = Categoria::all();
         return view('productos.edit')
             ->with('producto', $producto)
@@ -97,6 +105,10 @@ class ProductoController extends Controller
     public function editImage($id)
     {
         $producto = Producto::find($id);
+
+        if (!$producto) {
+            throw new NotFoundHttpException('Producto no encontrado');
+        }
         return view('productos.image')->with('producto', $producto);
     }
 
@@ -108,6 +120,9 @@ class ProductoController extends Controller
 
         try {
             $producto = Producto::find($id);
+            if (!$producto) {
+                throw new NotFoundHttpException('Producto no encontrado');
+            }
             if ($producto->imagen != Producto::$IMAGE_DEFAULT && Storage::exists($producto->imagen)) {
                 Storage::delete($producto->imagen);
             }

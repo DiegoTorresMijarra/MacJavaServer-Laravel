@@ -33,10 +33,10 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         if ($e instanceof NotFoundHttpException) {
-            return response()->view('responses.not-found', [], 404);
+            return response()->view('responses.not-found', ['causa' => $e->getMessage()], 404);
         }
         if ($e instanceof AuthorizationException) {
-            return response()->view('responses.forbidden', [], 403);
+            return response()->view('responses.forbidden', ['causa' => $e->getMessage()], 403);
         }
         if ($e instanceof BadRequestException){
             return response()->view('responses.bad-request', ['causa' => $e->getMessage()], 400);

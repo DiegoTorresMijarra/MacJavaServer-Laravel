@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" filepath="$PROJECT_DIR$/.idea/MacJavaServer-Laravel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MacJavaLaravel.iml" filepath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" />
     </modules>
   </component>
 </project>

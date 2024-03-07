@@ -21,7 +21,8 @@ class UserController extends Controller
 {
     private function getById($id):User
     {
-        if( $id && is_integer($id))
+
+        if( $id && filter_var($id, FILTER_VALIDATE_INT))
         {
             $res = User::find($id);
 
@@ -37,29 +38,34 @@ class UserController extends Controller
     {
         $res = User::email($request->email)->orderBy('id','asc')->paginate(10); //paginar resource etc, search por role? o divnav con user/t/a
 
-        return view('users.index')->with('users', $res);
+        return view('users.index')->with('usuarios', $res);
     }
 
     public function create()
     {
         // es para añadir trabajadores y usuarios a la vez?!!
 
+        return view('users.create');
     }
-
 
     public function store(Request $request)
     {
         $empleadoReq = TrabajadorRequest::createFrom($request);
 
+        $user=null;
+        $empleado=null;
         try {
-            $empleadoReq->validated();
+            $empleadoReq->validar();
 
             $nombreUsuario=str_replace(["\r", "\n", "\t", ' '],'',ucwords($empleadoReq['nombre'].$empleadoReq['apellidos'].substr($empleadoReq['dni'],4)));
 
-            $userReq = new UserRequest([
+            $userReq = UserRequest::createFrom($request);
+
+            $userReq->merge([
                 'name'=> $nombreUsuario,
                 'email'=>$nombreUsuario.'@macjava.com',
-                'password'=> Str::random(10),//tb podria poner su dni
+                'password'=> $empleadoReq->dni,//tb podria poner su dni
+                'password_confirmation'=> $empleadoReq->dni,
                 'avatar'=> $request->file('avatar')
             ]);
 
@@ -68,14 +74,17 @@ class UserController extends Controller
             $this->updateImage($userReq);
 
             $user = User::create(array_merge($userReq->all(),['rol','EMPLEADO']));
-
             $empleado = Trabajador::create(array_merge($empleadoReq->all(), ['user_id' => $user->id]));
 
             flash(`Empleado con nombre ${$empleado->nombre} creado con user ${$user->name}`)->success()->important();
-
-            //view
+            return redirect()->route('users.show', $user->id);
         }catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 400);
+        }catch (Exception $e) {
+
+            $user?->forceDelete();
+            $empleado?->forceDelete();
+            throw new BadRequestException('Algo ha salido mal'.$e->getMessage());
         }
     }
 
@@ -83,7 +92,7 @@ class UserController extends Controller
     {
         $user = $this->getById($id);
 
-        //view
+        return view('users.show')->with('usuario', $user);
     }
 
     public function edit($id)
@@ -99,7 +108,7 @@ class UserController extends Controller
         try {
             $userReq->validarYTransformar();
 
-            $this->updateImage($userReq,$user);
+            $this->updateImage($userReq, $user);
 
             $guardado = $user->update($userReq->all());
 
@@ -122,10 +131,10 @@ class UserController extends Controller
 
         $user->destroyImage();
 
-        if( false
-            //    $user->pedidos()->count()>=1
-            //    $user->empleado()
-            //    $user->trabajadores()->count()>=1
+        if(
+            $user->pedidos()->count()>=1 ||
+            $user->empleado() ||
+            $user->direcciones()->count()>=1
         )
         {
             flash(`Usuario con id ${$user->id} eliminado logica y correctamente`)->success()->important();
@@ -141,9 +150,9 @@ class UserController extends Controller
 
     private function safeDestroy(User $user)
     {
-        $pedidos = $user->pedidos();
+        $pedidos = $user->pedidos()->get();
         $empleado = $user->empleado();
-        $direcciones = $user->direcciones();
+        $direcciones = $user->direcciones()->get();
 
         //$pedidos?->delete() no se si funciona pero hacer el borrado logico siempre
         if($pedidos)
@@ -182,7 +191,6 @@ class UserController extends Controller
 
         if($imagen) {
             try {
-
                 $user?->destroyImage();
 
                 $extension = $imagen->getClientOriginalExtension();

@@ -30,6 +30,10 @@
         <div class="row d-flex flex-column">
             <div class="row" style="margin-left: 1px; margin-bottom: 10px">
                 <div class="col-4 d-flex flex-column">
+                    <label for="dni" class="form-control-sm">DNI</label>
+                    <input class="form-control form-control-sm" value="{{ $trabajador->dni }}" id="dni" name="dni" type="text" style="width: 100%; margin-bottom: 10px">
+                </div>
+                <div class="col-4 d-flex flex-column">
                     <label for="nombre" class="form-control-sm">(*)Nombre</label>
                     <input class="form-control form-control-sm" id="nombre" name="nombre" type="text" required value="{{$trabajador->nombre}}" style="width: 100%; margin-bottom: 10px">
                 </div>

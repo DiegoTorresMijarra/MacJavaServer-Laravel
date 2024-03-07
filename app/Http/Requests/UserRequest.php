@@ -30,9 +30,12 @@ class UserRequest extends FormRequest
 
     public function validarYTransformar()
     {
-            $this->merge([
-                'password' => Hash::make($this->password),
-            ]);
-            return $this;
-    }
+        $this->validate($this->rules());
+
+        $this->merge([
+            'password' => Hash::make($this->password),
+        ]);
+
+        return $this;
+}
 }

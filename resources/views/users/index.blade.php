@@ -44,9 +44,9 @@
                     <td>{{ $usuario->email }}</td>
                     <td>{{ $usuario->rol }}</td>
                     <td>
-                        <a href="{{ route('usuarios.show', $usuario->id) }}" class="btn btn-sm btn-primary">Detalles</a>
-                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                        <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" style="display: inline;">
+                        <a href="{{ route('users.show', $usuario->id) }}" class="btn btn-sm btn-primary">Detalles</a>
+                        <a href="{{ route('users.edit', $usuario->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <form action="{{ route('users.destroy', $usuario->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')">Borrar</button>

@@ -14,6 +14,7 @@ class TrabajadorResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'id' => $this->id,
+            'dni'=>$this->dni,
             'nombre' => $this->nombre,
             'apellidos' => $this->apellidos,
             'nomina' => $this->nomina,

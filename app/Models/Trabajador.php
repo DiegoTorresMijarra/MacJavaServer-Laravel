@@ -23,8 +23,10 @@ class Trabajador extends Model
     protected $fillable = [
         'nombre',
         'apellidos',
+        'dni',
         'nomina',
         'puesto',
+        'user_id'
     ];
 
     protected function user(): BelongsTo

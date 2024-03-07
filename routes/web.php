@@ -28,10 +28,11 @@ Auth::routes();
 Route::prefix('users')->group( function (){
     Route::get('/',[UserController::class,'index'])->name('users.index');
     Route::get('/create/user',[UserController::class,'create'])->name('users.create');
-    Route::get('/{user}',[UserController::class,'show'])->name('users.show');
-    Route::get('/{user}/edit',[UserController::class,'edit'])->name('users.edit');
-    Route::put('/{user}',[UserController::class,'update'])->name('users.update');
-    Route::delete('/{user}',[UserController::class,'destroy'])->name('users.destroy');
+    Route::post('/store/user',[UserController::class,'store'])->name('users.store');
+    Route::get('/{id}',[UserController::class,'show'])->name('users.show');
+    Route::get('/{id}/edit',[UserController::class,'edit'])->name('users.edit');
+    Route::put('/{id}',[UserController::class,'update'])->name('users.update');
+    Route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -74,7 +75,6 @@ Route::group(['prefix' => 'trabajadores'], function () {
     Route::get('/', [TrabajadorController::class, 'index'])->name('trabajadores.index');
     Route::get('/create', [TrabajadorController::class, 'create'])->name('trabajadores.create');
     Route::get('/{trabajador}', [TrabajadorController::class, 'show'])->name('trabajadores.show');
-    Route::post('/', [TrabajadorController::class, 'store'])->name('trabajadores.store');
     Route::get('/{trabajador}/update', [TrabajadorController::class, 'edit'])->name('trabajadores.edit');
     Route::put('/{trabajador}', [TrabajadorController::class, 'update'])->name('trabajadores.update');
     Route::delete('/{trabajador}', [TrabajadorController::class, 'destroy'])->name('trabajadores.destroy');

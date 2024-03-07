@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('nombre');
             $table->string('apellidos');
+            $table->string('dni')->unique();
             $table->float('nomina');
             $table->string('puesto');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');

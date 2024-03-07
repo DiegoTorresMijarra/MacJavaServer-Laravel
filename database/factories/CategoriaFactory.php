@@ -15,7 +15,7 @@ class CategoriaFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'nombre' => $this->faker->word(),
+            'nombre' => $this->faker->unique()->word(),
         ];
     }
 }

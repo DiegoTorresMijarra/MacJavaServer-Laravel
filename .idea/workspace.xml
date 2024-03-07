@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="713f8055-b12c-4d7d-bbef-7be5c0426b1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README_LARAVEL.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pdf/MacJava-Laravel.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MacJavaLaravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Pedido.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +216,7 @@
       <updated>1709824298157</updated>
       <workItem from="1709824305919" duration="203000" />
       <workItem from="1709824538251" duration="377000" />
-      <workItem from="1709825097611" duration="5669000" />
+      <workItem from="1709825097611" duration="5783000" />
     </task>
     <servers />
   </component>

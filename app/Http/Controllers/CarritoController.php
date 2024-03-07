@@ -180,7 +180,7 @@ class CarritoController extends Controller
         }catch (Exception $exception){
             $pedido->forceDelete();//podriamos ponerlo a error tb
 
-            throw new BadRequestException('Algo a salido mal al crear el pedido: '.$exception->getMessage());
+            throw new BadRequestException('Algo a salido mal al crear el pedido: '.$exception->getMessage().' ');
         }
     }
 
@@ -243,6 +243,6 @@ class CarritoController extends Controller
             }
             return $requestLineas;
         }
-        return null;
+        throw new Exception('Error al crear el request de las lineas de pedido');
     }
 }

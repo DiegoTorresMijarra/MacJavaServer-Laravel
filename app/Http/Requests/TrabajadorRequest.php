@@ -9,11 +9,10 @@ class TrabajadorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required'],
-            'apellidos' => ['required'],
-            'dni'=>['required'],
-            'nomina' => ['required', 'numeric'],
-            'puesto' => ['required'],
+            'nombre' => ['required','string','min:4','max:20'],
+            'apellidos' => ['required','string','min:4','max:20'],
+            'nomina' => ['required', 'numeric','min:1100'],
+            'puesto' => ['required', 'string','min:4','max:20'],
         ];
     }
 

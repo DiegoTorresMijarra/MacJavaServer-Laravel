@@ -35,22 +35,22 @@
 @section('restaurantes')
     <div class="row" style="background-color: #413f3d; width: 100%; padding: 20px 0; border-bottom: 3px solid white">
         <div class="row" style="height: 20%; width: 100%; display: flex; justify-content: end">
-            <form action="{{ route('productos.index') }}" method="get" class="row" style="display: flex; justify-content: start;padding: 0 40px;">
+            <form action="{{ route('restaurantes.index') }}" method="get" class="row" style="display: flex; justify-content: start;padding: 0 40px;">
                 <button class="btn" style="background-color: coral; color: white">Ver mas</button>
             </form>
         </div>
         <div class="row" style="height: 80%; width: 100%; display: flex; justify-content: center; padding-left: 70px;">
-            @if ($productos !== null && count($productos) > 0)
-                @foreach ($productos as $producto)
+            @if ($restaurantes !== null && count($restaurantes) > 0)
+                @foreach ($restaurantes as $restaurante)
                     <div class="col-3 d-flex flex-column align-items-start" style=" color: white">
-                        <img src="https://via.placeholder.com/150" height="100px" width="100px" style="margin-bottom: 10px">
-                        <h6>{{ $producto->nombre }}</h6>
-                        <p>{{ $producto->categoria->nombre }}</p>
+                        <img src="https://imag.bonviveur.com/salon-del-restaurante-tragabuches-marbella_800.jpg" height="100px" width="100px" style="margin-bottom: 10px">
+                        <h6>{{ $restaurante->nombre }}</h6>
+                        <p>{{ $restaurante->direccion->municipio .' / '. $restaurante->direccion->calle .' '. $restaurante->direccion->numero }}</p>
                     </div>
                 @endforeach
 
             @else
-                <p class='lead'><em>No se ha encontrado datos de funkos.</em></p>
+                <p class='lead'><em>No se ha encontrado datos de restaurantes.</em></p>
             @endif
         </div>
     </div>

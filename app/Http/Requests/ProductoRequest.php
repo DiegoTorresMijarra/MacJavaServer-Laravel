@@ -12,7 +12,7 @@ class ProductoRequest extends FormRequest
             'nombre' => ['required','unique:productos','min:4','max:20'], //podria ponerle unique:productos ... pero chequear luego
             'precio' => ['required', 'numeric','min:0.01'],
             'stock' => ['required', 'integer','min:1'],
-            'descripcion' => ['required','min:4','max:250'],
+            'descripcion' => ['required','string','min:4','max:250'],
             'categoria_id' => ['required','integer','exists:categorias,id'],
         ];
     }

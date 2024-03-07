@@ -21,6 +21,16 @@ class RestauranteSeeder extends Seeder
                 'capacidad' => 30,
                 'direccion_id' => '00000000-0000-0000-0002-000000000000'
             ],
+            [
+                'nombre' => 'MacJavaFuenlabrada',
+                'capacidad' => 50,
+                'direccion_id' => '00000000-0000-0000-0001-000000000000'
+            ],
+            [
+                'nombre' => 'MacJavaMostoles',
+                'capacidad' => 20,
+                'direccion_id' => '00000000-0000-0000-0002-000000000000'
+            ],
         ]);
     }
 }

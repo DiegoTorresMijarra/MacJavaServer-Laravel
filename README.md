@@ -41,14 +41,15 @@ Forma parte de un conjunto de trabajos de la misma indole: <a href="https://gith
 Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime Lozano, Diego Torres, Oscar Encabo, y Raúl Rodríguez para la administración eficaz de restaurantes online. A través de nuestra API, ofrecemos una plataforma segura, eficiente y escalable para la gestión de bases de datos en el sector de la hostelería.
 
 ## 2. Galeria <a name="galeria"></a>
-
-<img src="/pdf/images/MacJava1.PNG" width="250" height="250" alt="mc1">
-<img src="/pdf/images/MacJava2.PNG" width="250" height="250" alt="mc2">
-<img src="/pdf/images/MacJava3.PNG" width="250" height="250" alt="mc3">
-<img src="/pdf/images/MacJava5.PNG" width="250" height="250" alt="mc5">
-<img src="/pdf/images/MacJava6.PNG" width="250" height="250" alt="mc6">
-<img src="/pdf/images/MacJava7.png" width="250" height="250" alt="mc7">
-<img src="/pdf/images/MacJava8.PNG" width="250" height="250" alt="mc8">
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <img src="/pdf/images/MacJava1.PNG" width="250" height="250" alt="mc1">
+    <img src="/pdf/images/MacJava2.PNG" width="250" height="250" alt="mc2">
+    <img src="/pdf/images/MacJava3.PNG" width="250" height="250" alt="mc3">
+    <img src="/pdf/images/MacJava5.PNG" width="250" height="250" alt="mc5">
+    <img src="/pdf/images/MacJava6.PNG" width="250" height="250" alt="mc6">
+    <img src="/pdf/images/MacJava7.png" width="250" height="250" alt="mc7">
+    <img src="/pdf/images/MacJava8.PNG" width="250" height="250" alt="mc8">
+</div>
 
 
 ## 3. Tecnologías <a name="tecnologías"></a>

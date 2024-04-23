@@ -1,6 +1,8 @@
 # MacJavaServer-Laravel
 
-Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime Lozano, Diego Torres, Oscar Encabo, y Raúl Rodríguez para la administración eficaz de restaurantes online. A través de nuestra API, ofrecemos una plataforma segura, eficiente y escalable para la gestión de bases de datos en el sector de la hostelería.
+Trabajo en grupo del desarrollo de una Aplicacion Web para la gestion de todos los componenetes de un restaurante, incluyendo productos, pedidos, trabajadores y usuarios. Desarrollamos un servicio RESTFull que implementa el modelo MVC. Aplicamos principios Solid en todas las capas de nuestra app. Está securizada y lista para desplegar en Docker. <br>
+Forma parte de un conjunto de trabajos de la misma indole: <a href="https://github.com/DiegoTorresMijarra/MacJavaIndex">MacJavaIndex</a>
+
 
 ## Equipo de Desarrollo
 
@@ -18,7 +20,7 @@ Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime 
 ## Contenido
 
 1. [Introducción](#introducción)
-2. [Gitflow](#gitflow)
+2. [Galería Fotos](#galeria)
 3. [Tecnologías](#tecnologías)
 4. [Bases de datos](#bases-de-datos)
 5. [Características comunes de los endpoints](#características-comunes-de-los-endpoints)
@@ -30,16 +32,20 @@ Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime 
 11. [Pedidos](#pedidos)
 12. [Despliegue](#despliegue)
 13. [Tests](#tests)
-14. [Conclusión y presupuesto](#conclusión-y-presupuesto)
+14. [Gitflow](#gitflow)
+15. [Conclusión y presupuesto](#conclusión-y-presupuesto)
 
 ## 1. Introducción <a name="introducción"></a>
-   La API MacJavaLaravel proporciona una solución segura, integral y escalable para la gestión de bases de datos de un restaurante online desarrollada con Laravel, esta API se destaca por su uso de PHP moderno y su arquitectura MVC, que promueve un desarrollo ágil y modular.
 
-## 2. Gitflow <a name="gitflow"></a>
-   Para la gestión del proyecto, hemos adoptado la metodología Gitflow, estableciendo ramas para características específicas que luego se integran en una rama de desarrollo para pruebas, y finalmente se unen a la rama principal para su implementación.
+Bienvenidos a MacJava, una solución integral de Laravel desarrollada por Jaime Lozano, Diego Torres, Oscar Encabo, y Raúl Rodríguez para la administración eficaz de restaurantes online. A través de nuestra API, ofrecemos una plataforma segura, eficiente y escalable para la gestión de bases de datos en el sector de la hostelería.
+
+## 2. Galeria <a name="galeria"></a>
+
+<img src="/pdf/images/logo.png" width="50" height="50" alt="logo">
+
 
 ## 3. Tecnologías <a name="tecnologías"></a>
-   Nuestro proyecto se apoya en Laravel como el framework principal, aprovechando sus capacidades para escribir código PHP estructurado y mantenible. Además, utilizamos Eloquent ORM para la interacción con bases de datos, Sanctum para la autenticación y PHPUnit para las pruebas.
+   Nuestro proyecto se apoya en Laravel como el framework principal, aprovechando sus capacidades para escribir código PHP estructurado y mantenible. Además, utilizamos Eloquent ORM para la interacción con bases de datos y PHPUnit para las pruebas.
 
 ## 4. Bases de datos <a name="bases-de-datos"></a>
    Utilizamos MySQL para el almacenamiento de datos estructurados, dada su compatibilidad y rendimiento óptimo con Laravel. Esta elección nos permite gestionar de manera eficiente tanto las operaciones CRUD básicas como las transacciones más complejas requeridas por la aplicación.
@@ -71,7 +77,10 @@ El despliegue de nuestra aplicación se simplifica gracias al uso de Docker, lo 
 ## 13. Tests <a name="tests"></a>
 Hemos desarrollado pruebas unitarias y de integración utilizando PHPUnit para asegurar la calidad y el correcto funcionamiento de nuestra aplicación, empleando mocks y factories para simular y testear diversos escenarios.
 
-## 14. Conclusión y presupuesto <a name="conclusión-y-presupuesto"></a>
+## 14. Gitflow <a name="gitflow"></a>
+Para la gestión del proyecto, hemos adoptado la metodología Gitflow, estableciendo ramas para características específicas que luego se integran en una rama de desarrollo para pruebas, y finalmente se unen a la rama principal para su implementación.
+
+## 15. Conclusión y presupuesto <a name="conclusión-y-presupuesto"></a>
 El proyecto MacJavaLaravel representa un compromiso significativo con la calidad y la eficiencia, logrando sus objetivos dentro de los dos meses previstos gracias a una planificación cuidadosa y una ejecución eficiente. La inversión en recursos técnicos, humanos y de marketing subraya la dedicación del equipo hacia el éxito y la innovación del proyecto.
 ###
 ¡Gracias por visitar nuestro proyecto! Para cualquier consulta o sugerencia, no dudes en ponerte en contacto con nosotros. Esperamos que encuentres útil la APP MacJavaNest para la gestión de tu restaurante online.

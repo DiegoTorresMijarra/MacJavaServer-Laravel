@@ -32,7 +32,7 @@ Route::prefix('users')->group( function (){
     Route::get('/create/user',[UserController::class,'create'])->name('users.create')->middleware('auth','admin');
     Route::post('/store/user',[UserController::class,'store'])->name('users.store')->middleware('auth','admin');
     Route::get('/{id}',[UserController::class,'show'])->name('users.show')->middleware('auth','admin'); //es el de admin
-    Route::put('/{id}/edit',[UserController::class,'editImage'])->name('users.updateImage')->middleware('auth','admin');
+    Route::put('/{id}/edit',[UserController::class,'editImage'])->name('users.updateImage')->middleware('auth','user'); //es el edit imagen del user
   //  Route::put('/{id}',[UserController::class,'update'])->name('users.update');
     Route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy')->middleware('auth','admin');
 });
